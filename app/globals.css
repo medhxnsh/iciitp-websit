@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Brand design tokens ─────────────────────────────────────────────────── */
+@theme {
+  /* ── Logo greens (olive / tree canopy) ─────────────────────────────── */
+  --color-brand-900: #2a3a0d;
+  --color-brand-800: #3a5214;   /* dark trunk green  */
+  --color-brand-700: #4a6719;
+  --color-brand-600: #5a7c20;
+  --color-brand-500: #6b9227;   /* main canopy green */
+  --color-brand-400: #87b23a;
+  --color-brand-300: #a8cc60;
+  --color-brand-200: #c8e094;
+  --color-brand-100: #e4f0c5;
+  --color-brand-50:  #f4f8e8;
+
+  /* ── Logo orange (outer ring) ─────────────────────────────────────── */
+  --color-orange-900: #7a3800;
+  --color-orange-700: #c45800;
+  --color-orange-500: #f79420;   /* logo orange */
+  --color-orange-400: #f9ad4e;
+  --color-orange-300: #fbca7a;
+  --color-orange-100: #fde8c0;
+  --color-orange-50:  #fef5e4;
+
+  /* ── Neutral warm whites / grays ──────────────────────────────────── */
+  --color-surface:      #fafaf8;
+  --color-surface-alt:  #f3f4ee;
+  --color-border:       #dde0d4;
+  --color-muted:        #6b7260;
+  --color-text:         #1c1a14;
+  --color-text-subtle:  #4a4e38;
+
+  /* ── Semantic ─────────────────────────────────────────────────────── */
+  --color-background:  var(--color-surface);
+  --color-foreground:  var(--color-text);
+  --color-primary:     var(--color-brand-800);
+  --color-primary-fg:  #ffffff;
+  --color-accent:      var(--color-orange-500);
+
+  /* Typography */
+  --font-sans:  "Inter", "Noto Sans Devanagari", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:  ui-monospace, "Cascadia Code", monospace;
+
+  /* Radii */
+  --radius-sm:  0.25rem;
+  --radius-md:  0.5rem;
+  --radius-lg:  0.75rem;
+  --radius-xl:  1rem;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-dropdown: 0 4px 16px 0 rgb(0 0 0 / 0.10);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Base styles ─────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Focus ring (WCAG 2.4.7) ─────────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--color-brand-500);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Skip links ──────────────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--color-brand-800);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom-right-radius: var(--radius-md);
+  transition: top 0.1s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Print stylesheet ────────────────────────────────────────────────────── */
+@media print {
+  .no-print { display: none !important; }
+  .tree-hero { display: none !important; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.75em; color: #555; }
+  @page { size: A4; margin: 2cm; }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

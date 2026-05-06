@@ -1,0 +1,16 @@
+[
+  { "name": "Dr. Prashant Jha", "designation": "King's College London", "role": "Member" },
+  { "name": "Mr. T. Balaji", "designation": "Managing Director, BHPL", "role": "Member" },
+  { "name": "Mr. Ravi Teja Villa", "designation": "Bigtalk Technologies", "role": "Member" },
+  { "name": "Dr. Kailash Chandra Ray", "designation": "IIT Patna", "role": "Member" },
+  { "name": "Dr. Mayank Tiwari", "designation": "IIT Patna", "role": "Member" },
+  { "name": "Dr. Pramod Kumar Tiwari", "designation": "IIT Patna", "role": "Member" },
+  { "name": "Mr. Aditya Nataraja", "designation": "Azim Premji Philanthropic Initiatives", "role": "Member" },
+  { "name": "Mr. Joseph Paul Arackalan", "designation": "General Manager, IC IITP", "role": "Member" },
+  { "name": "Mr. Sandro Stephen", "designation": "Indian Angel Network", "role": "Member" },
+  { "name": "Dr. Rohit Srivastava", "designation": "IIT Bombay", "role": "Member" },
+  { "name": "Dr. Thillai Rajan", "designation": "IIT Madras", "role": "Member" },
+  { "name": "Dr. Jimson Mathew", "designation": "IIT Patna", "role": "Member" },
+  { "name": "Dr. Atul Thakur", "designation": "IIT Patna", "role": "Member" },
+  { "name": "Dr. Yatendra Kumar Singh", "designation": "IIT Patna", "role": "Member" }
+]

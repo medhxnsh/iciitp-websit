@@ -1,0 +1,18 @@
+{
+  "slug": "mech-packaging",
+  "title": "Mechanical Packaging Lab",
+  "shortTitle": "Mech Packaging",
+  "tagline": "3D printing, laser cutting, and injection moulding for rapid enclosure and product prototyping.",
+  "lastUpdated": "2025-09-01",
+  "equipment": [
+    { "name": "Kodama Trinus 3D Printer", "purpose": "FDM/SLA dual 3D printing for small-format parts" },
+    { "name": "Prusa i3 MK3S+", "purpose": "High-reliability FDM 3D printing for functional prototypes" },
+    { "name": "Raise3D Pro 2 Plus", "purpose": "Large-format dual-extrusion FDM printing for enclosures" },
+    { "name": "CO₂ Laser Cutter / Engraver", "purpose": "Precision cutting and engraving of acrylic, wood, and sheet metal" },
+    { "name": "Injection Moulding Machine (bench-top)", "purpose": "Small-batch thermoplastic injection moulding for enclosures" },
+    { "name": "CNC Milling Machine", "purpose": "Subtractive machining of aluminium and polymer parts" },
+    { "name": "Hand Tools & Precision Drill Press", "purpose": "Mechanical assembly and rework" },
+    { "name": "Vacuum Former", "purpose": "Thermoforming of plastic sheets for custom enclosures" },
+    { "name": "Filament Dryer / Storage", "purpose": "Moisture-controlled 3D printing filament storage" }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "slug": "design-sim",
+  "title": "Design & Simulation Lab",
+  "shortTitle": "Design & Sim",
+  "tagline": "Software tools for electronic design automation, mechanical CAD, and embedded simulation.",
+  "lastUpdated": "2025-09-01",
+  "equipment": [
+    { "name": "MATLAB / Simulink", "purpose": "Mathematical modelling, signal processing, and control system simulation" },
+    { "name": "SolidWorks", "purpose": "3D mechanical CAD, FEA structural analysis, and product design" },
+    { "name": "Proteus Design Suite (ISIS + ARES)", "purpose": "Electronic schematic capture, PCB layout, and embedded simulation" },
+    { "name": "ANSYS (Academic)", "purpose": "Finite element analysis for structural, thermal, and fluid dynamics" },
+    { "name": "Cadence Virtuoso / Allegro (Academic)", "purpose": "Analog/mixed-signal IC design and PCB layout" },
+    { "name": "LTspice / Multisim", "purpose": "SPICE-based electronic circuit simulation" },
+    { "name": "Python / TensorFlow / PyTorch Workstations", "purpose": "Machine learning model development and training" },
+    { "name": "AutoCAD", "purpose": "2D/3D drafting for product and enclosure design" },
+    { "name": "COMSOL Multiphysics (Academic)", "purpose": "Multi-physics simulation for sensors, MEMS, and biomedical devices" },
+    { "name": "High-Performance Computing Workstations", "purpose": "GPU-accelerated computation for simulation and deep learning" }
+  ]
+}

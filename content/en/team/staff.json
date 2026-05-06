@@ -1,0 +1,20 @@
+[
+  { "name": "Dr. Sudhir Kumar", "designation": "Professor In-Charge", "role": "Leadership" },
+  { "name": "Joseph P. Arackalan", "designation": "General Manager", "role": "Leadership" },
+  { "name": "Dr. Kumar Siddharth Singh", "designation": "Chief Manager, BioNEST", "role": "Management" },
+  { "name": "Dr. Pradhan", "designation": "Senior Executive", "role": "Management" },
+  { "name": "Munna Pathak", "designation": "Senior Executive – Stores & Maintenance", "role": "Operations" },
+  { "name": "Vikash Kumar", "designation": "Senior Executive – IT Operations", "role": "Operations" },
+  { "name": "Priyesh Kumar", "designation": "Senior Executive – Lab Operations", "role": "Operations" },
+  { "name": "Yogesh Yadav", "designation": "Senior Executive – Incubation", "role": "Incubation" },
+  { "name": "Nitesh", "designation": "Associate – Accounts & Procurement", "role": "Administration" },
+  { "name": "Ansadh Kumar", "designation": "Executive – Technical", "role": "Technical" },
+  { "name": "Deepti Anand", "designation": "Executive – Programs & Zero Lab Bihar", "role": "Programs" },
+  { "name": "Amar Kumar", "designation": "Associate – Operations", "role": "Operations" },
+  { "name": "Deepak Kumar", "designation": "Executive – Incubation", "role": "Incubation" },
+  { "name": "Shikha Sinha", "designation": "Associate – Operations", "role": "Operations" },
+  { "name": "Gopi Krishna Sakhinala", "designation": "Junior Executive – Incubation", "role": "Incubation" },
+  { "name": "Abhishek Kumar Jha", "designation": "Junior Associate – Accounts", "role": "Administration" },
+  { "name": "Deepak Kumar", "designation": "Scientific Officer, BioNEST", "role": "Technical" },
+  { "name": "Santosh", "designation": "Attendant", "role": "Operations" }
+]

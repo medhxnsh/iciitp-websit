@@ -1,0 +1,248 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "programs": "Programs",
+    "portfolio": "Portfolio",
+    "facilities": "Facilities",
+    "events": "Events",
+    "notifications": "Notifications",
+    "contact": "Contact",
+    "apply": "Apply",
+    "search": "Search",
+    "help": "Help",
+    "downloads": "Downloads"
+  },
+  "nav_about": {
+    "overview": "Overview",
+    "governance": "Governing Society",
+    "evaluationTeam": "Evaluation Team",
+    "staff": "Staff"
+  },
+  "nav_programs": {
+    "flagship": "ICIIT Patna Incubation",
+    "nidhiPrayas": "Nidhi Prayas",
+    "nidhiEir": "Nidhi-EIR",
+    "sisf": "SISF",
+    "bionest": "BioNEST-ICIITP",
+    "genesis": "GENESIS"
+  },
+  "nav_portfolio": {
+    "all": "All Startups",
+    "meity": "MeitY Scheme",
+    "sisf": "SISF Scheme",
+    "nidhiPrayas": "Nidhi Prayas",
+    "nidhiEir": "Nidhi EIR",
+    "genesis": "GENESIS"
+  },
+  "nav_facilities": {
+    "overview": "Overview",
+    "cleanRoom": "Clean Room",
+    "designSim": "Design & Simulation",
+    "esdm": "ESDM Lab",
+    "mechPackaging": "Mech & Packaging",
+    "pcbFab": "PCB Fabrication",
+    "testCal": "Test & Calibration"
+  },
+  "nav_events": {
+    "medtech": "MedTech School",
+    "edpi": "EDPI-2025",
+    "ideathon": "Ideathon",
+    "training": "Training Program",
+    "archive": "Archive"
+  },
+  "nav_notifications": {
+    "careers": "Careers",
+    "callForProposals": "Call for Proposals",
+    "niqTender": "NIQ / Tender"
+  },
+  "footer": {
+    "tagline": "India's leading ESDM and Medical Electronics Incubator.",
+    "address": "Incubation Centre, IIT Patna, Amhara Road, Bihta, Patna, Bihar – 801103",
+    "phone": "0611 523 3547",
+    "email": "iciitp@iitp.ac.in",
+    "ownership": "Owned by Incubation Centre, IIT Patna",
+    "wim": "Web Information Manager",
+    "wimContact": "iciitp@iitp.ac.in",
+    "nationalPortal": "National Portal of India",
+    "links": "Quick Links",
+    "policies": "Policies",
+    "social": "Follow Us",
+    "lastUpdated": "Last updated"
+  },
+  "footer_policies": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "copyright": "Copyright Policy",
+    "hyperlinking": "Hyperlinking Policy",
+    "security": "Security Policy",
+    "accessibility": "Accessibility Statement",
+    "sitemap": "Sitemap"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "skipToNav": "Skip to navigation",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "languageSwitcher": "Change language",
+    "externalLinkWarning": "You are leaving the IC IITP website",
+    "externalLinkBody": "You are about to be redirected to an external website. IC IITP is not responsible for the content of external sites.",
+    "externalLinkConfirm": "Continue",
+    "externalLinkCancel": "Stay on this page",
+    "lastUpdatedOn": "Last updated on"
+  },
+  "meta": {
+    "siteTitle": "Incubation Centre IIT Patna",
+    "siteTitleShort": "IC IITP",
+    "defaultDescription": "India's leading ESDM and Medical Electronics Incubator, located at IIT Patna. Supporting 100+ startups through 6 schemes.",
+    "keywords": "incubation, IIT Patna, ESDM, medical electronics, startups, MeitY, BioNEST, Nidhi Prayas"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "applyNow": "Apply Now",
+    "viewAll": "View all",
+    "openForm": "Open form in new tab",
+    "loading": "Loading…",
+    "noResults": "No results found",
+    "search": "Search",
+    "searchPlaceholder": "Search the site…",
+    "backToTop": "Back to top",
+    "home": "Home",
+    "breadcrumbSep": "/"
+  },
+  "pages": {
+    "home": {
+      "title": "Home",
+      "heroTitle": "Incubation Centre IIT Patna",
+      "heroSubtitle": "India's leading ESDM and Medical Electronics Incubator.",
+      "stat1Value": "1000+",
+      "stat1Label": "B-Plans Screened",
+      "stat2Value": "100+",
+      "stat2Label": "Startups Supported",
+      "stat3Value": "25",
+      "stat3Label": "Patents Filed",
+      "stat4Value": "600",
+      "stat4Label": "Seed Funding Units"
+    },
+    "about": {
+      "title": "About IC IITP",
+      "description": "Overview of the Incubation Centre at IIT Patna."
+    },
+    "programs": {
+      "title": "Incubation Programs",
+      "description": "Six incubation schemes supporting deep-tech startups."
+    },
+    "portfolio": {
+      "title": "Startup Portfolio",
+      "description": "100+ startups supported across five schemes."
+    },
+    "facilities": {
+      "title": "Facilities",
+      "description": "30,000 sq ft of world-class laboratory and co-working space."
+    },
+    "events": {
+      "title": "Events",
+      "description": "MedTech School, EDPI, Ideathon, and training programs."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with the Incubation Centre at IIT Patna."
+    },
+    "feedback": {
+      "title": "Feedback",
+      "description": "Share your feedback with us."
+    },
+    "help": {
+      "title": "Help",
+      "description": "Usage guide, file formats, accessibility, and screen-reader notes."
+    },
+    "downloads": {
+      "title": "Downloads",
+      "description": "All documents, forms, and PDFs available for download."
+    },
+    "search": {
+      "title": "Search",
+      "description": "Search the IC IITP website."
+    },
+    "apply": {
+      "title": "Apply",
+      "description": "Apply for incubation at IC IITP."
+    },
+    "notFound": {
+      "title": "Page Not Found",
+      "description": "The page you requested could not be found.",
+      "cta": "Go back home"
+    },
+    "policies": {
+      "privacy": {
+        "title": "Privacy Policy",
+        "description": "How we collect, use, and protect your information."
+      },
+      "terms": {
+        "title": "Terms of Use",
+        "description": "Terms and conditions for using the IC IITP website."
+      },
+      "copyright": {
+        "title": "Copyright Policy",
+        "description": "Copyright and reproduction policy for IC IITP content."
+      },
+      "hyperlinking": {
+        "title": "Hyperlinking Policy",
+        "description": "Policy on linking to and from the IC IITP website."
+      },
+      "security": {
+        "title": "Security Policy",
+        "description": "Website security and responsible disclosure policy."
+      },
+      "accessibility": {
+        "title": "Accessibility Statement",
+        "description": "Our commitment to WCAG 2.1 accessibility standards."
+      }
+    }
+  },
+  "about_page": {
+    "heroTitle": "About IC IITP",
+    "heroSubtitle": "India's leading ESDM and Medical Electronics Incubator, located on the 500+ acre campus of IIT Patna.",
+    "visionLabel": "Vision",
+    "visionText": "Be the leading technology business incubator in the country for the development of products and intellectual property (IP) in the area of Electronic System Design and Manufacturing (ESDM) with a special focus on Medical Electronics.",
+    "missionLabel": "Mission",
+    "missionText": "We are particularly keen to work with companies who, through their innovative solutions, will make healthcare accessible and affordable to the common man.",
+    "backgroundHeading": "Background",
+    "backgroundP1": "The Incubation Centre, IIT Patna (IC IITP) is a result of a collaboration between the Government of India (47%) and the Government of Bihar (53%), constituting a ₹47.10 Crore undertaking tied to India's MAKE IN INDIA initiative. It is registered as the IC IITP Society (Reg. No. 987, 2015–16).",
+    "backgroundP2": "Located on IIT Patna's 500+ acre campus at Bihta, Patna, the centre operates across three primary domains: Electronic System Design & Manufacturing (ESDM), Medical Electronics, and Information & Communication Technology (ICT). It supports startups through mentoring, access to technical facilities, office space, and seed funding.",
+    "backgroundP3": "Since inception, IC IITP has screened over 1,000 business plans, supported 100+ startups across six incubation schemes, facilitated 25 patent filings, and deployed seed capital through 600+ funding transactions.",
+    "stat1Value": "₹47.10 Cr",
+    "stat1Label": "Total Undertaking",
+    "stat2Value": "500+",
+    "stat2Label": "Acre Campus",
+    "stat3Value": "100+",
+    "stat3Label": "Startups Supported",
+    "stat4Value": "6",
+    "stat4Label": "Incubation Schemes",
+    "domainsHeading": "Focus Domains",
+    "domains": [
+      "Electronic System Design & Manufacturing (ESDM)",
+      "Medical Electronics & MedTech",
+      "Information & Communication Technology (ICT)",
+      "Biotechnology & Life Sciences",
+      "IoT & Cyber Physical Systems",
+      "Artificial Intelligence & Deep Tech"
+    ],
+    "partnersHeading": "Partners & Collaborators",
+    "partners": [
+      "IIT Patna", "MeitY", "DST / NSTEDB", "DPIIT (Startup India Seed Fund)",
+      "BIRAC / DBT", "Govt. of Bihar (IT, Industries & S&T Depts.)", "MSME Govt. of India",
+      "AIIMS Delhi & AIIMS Patna", "Indian Angel Network", "NIELIT Patna",
+      "CII Bihar", "King's College London", "IIT Bombay", "IIT Madras",
+      "Central University of South Bihar", "Moonpreneur"
+    ],
+    "ourPeopleHeading": "Our People",
+    "governanceTitle": "Governing Society",
+    "governanceDesc": "17 members including Director IIT Patna, Government nominees, and industry representatives.",
+    "evalTeamTitle": "Project Evaluation Team",
+    "evalTeamDesc": "14 domain experts from academia, industry, and investment community.",
+    "staffTitle": "IC IITP Staff",
+    "staffDesc": "18 operational staff members running day-to-day incubation activities.",
+    "viewLink": "View"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "ideathon",
+  "title": "Ideathon 2.0",
+  "shortTitle": "Ideathon",
+  "tagline": "BioTech & MedTech ideation competition with top teams winning BioNEST incubation.",
+  "lastUpdated": "2025-09-01",
+  "category": "Competition",
+  "validFrom": "2025-03-01",
+  "validTo": "2025-04-30",
+  "status": "Concluded",
+  "submissionDeadline": "2025-03-20",
+  "pitchDate": "2025-03-28",
+  "venue": "CUSB Gaya (Central University of South Bihar, Gaya)",
+  "organiser": "IC IITP + Dept. of Life Science, Central University of South Bihar",
+  "applyUrl": "https://forms.gle/NTrATcbqD4nhDDA68",
+  "prizes": [
+    { "position": "1st", "prize": "₹10,000" },
+    { "position": "2nd", "prize": "₹7,500" },
+    { "position": "3rd", "prize": "₹5,000" }
+  ],
+  "specialAward": "Top 20 teams eligible for BioNEST incubation at IC IITP",
+  "themes": ["Biotechnology", "Medical Electronics", "Life Sciences", "Healthcare Innovation"],
+  "contact": "iciitp@iitp.ac.in",
+  "description": "Ideathon 2.0 was co-organised by IC IITP and the Department of Life Science, Central University of South Bihar, Gaya. Teams submitted innovative ideas in BioTech and MedTech domains; the top 20 teams were offered BioNEST incubation at IC IITP. Cash prizes were awarded to the top three teams."
+}

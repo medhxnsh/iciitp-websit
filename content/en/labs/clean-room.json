@@ -1,0 +1,21 @@
+{
+  "slug": "clean-room",
+  "title": "Clean Room Lab",
+  "shortTitle": "Clean Room",
+  "tagline": "Class-100 cleanroom environment for microfabrication and thin-film processing.",
+  "lastUpdated": "2025-09-01",
+  "area": "Part of 30,000 sq ft facility",
+  "class": "Class 100",
+  "equipment": [
+    { "name": "Deionised Water System", "purpose": "Ultra-pure water for wafer cleaning and chemical processing" },
+    { "name": "Mask Aligner & Exposure System", "purpose": "Photolithography for micro-scale patterning" },
+    { "name": "RF Sputtering System", "purpose": "Radio-frequency physical vapour deposition of thin films" },
+    { "name": "DC Sputtering System", "purpose": "Direct-current sputtering for conductive thin films" },
+    { "name": "Thermal Evaporation System", "purpose": "Resistance-heated evaporation of metals and dielectrics" },
+    { "name": "E-Beam Evaporation System", "purpose": "Electron-beam evaporation for high-purity thin-film deposition" },
+    { "name": "Spin Coater", "purpose": "Uniform photoresist and thin-film coating on substrates" },
+    { "name": "Hot Plate / Oven", "purpose": "Photoresist baking and annealing processes" },
+    { "name": "Wet Bench (Chemical Hood)", "purpose": "Wet chemical etching, cleaning, and surface preparation" },
+    { "name": "Optical Microscope", "purpose": "Inspection of microfabricated structures and defects" }
+  ]
+}

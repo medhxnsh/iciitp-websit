@@ -1,0 +1,16 @@
+{
+  "slug": "call-for-proposals",
+  "title": "Call for Proposals – Nidhi Prayas 2025 & BioNEST Call-2",
+  "language": "English",
+  "purpose": "Call for Applications",
+  "validFrom": "2025-05-01",
+  "validTo": "2026-03-31",
+  "category": "call-for-proposals",
+  "summary": "Active calls for proposals: Nidhi Prayas 2025 (DST grant up to ₹10 lakh) and BioNEST Call-2 (BIRAC/DBT MedTech incubation).",
+  "body": "IC IITP currently has two active calls for proposals:\n\n**1. Nidhi Prayas 2025 (DST)**\nPrototype grant up to ₹10 lakh for innovators in Agriculture, Healthcare, Clean Tech, Energy, Water, IoT, and Industry 4.0. Duration 12–18 months. Download the application form and email to nidhiprayas.ic@iitp.ac.in.\n\n**2. BioNEST Call for Proposals – 2 (BIRAC/DBT)**\nBioTech and MedTech startups can apply for dedicated incubation space, lab access, and grant linkages in the BioNEST wing. Download the application form and submit to the BioNEST programme manager.",
+  "downloads": [
+    { "title": "Nidhi Prayas 2025 Application Form", "path": "/pdfs/Appliation-Form-Nidhi-Prayas-2025with_Annexure.pdf", "format": "PDF" },
+    { "title": "BioNEST Call-2 Application Form", "path": "/pdfs/BIRAC-BiONEST-2.pdf", "format": "PDF" }
+  ],
+  "contactEmail": "iciitp@iitp.ac.in"
+}

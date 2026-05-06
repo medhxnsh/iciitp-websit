@@ -1,0 +1,29 @@
+{
+  "slug": "edpi-2025",
+  "title": "Entrepreneurship Development Programme for Innovators (EDPI-2025)",
+  "shortTitle": "EDPI-2025",
+  "tagline": "18-week online entrepreneurship programme for innovators and aspiring founders.",
+  "lastUpdated": "2025-09-01",
+  "category": "Programme",
+  "validFrom": "2025-12-16",
+  "validTo": "2026-04-30",
+  "status": "Active",
+  "startDate": "2025-12-16",
+  "duration": "18 weeks",
+  "schedule": "Tuesdays, 7:00 PM – 8:00 PM",
+  "mode": "Online",
+  "organiser": "IC IITP in collaboration with Moonpreneur (Silicon Valley, IIT/IIM alumni)",
+  "applyUrl": "https://forms.gle/tpGDpPouRDWDJ91t7",
+  "contact": {
+    "phone": "+91 7970872747",
+    "email": "gopi_ic@iitp.ac.in"
+  },
+  "highlights": [
+    "18-week structured entrepreneurship curriculum",
+    "Weekly live sessions every Tuesday evening",
+    "Mentors from Moonpreneur (Silicon Valley, IIT & IIM alumni)",
+    "Business model canvas, customer discovery, and pitching",
+    "IC IITP incubation pathway for standout participants"
+  ],
+  "description": "EDPI-2025 is an 18-week online entrepreneurship development programme co-organised by IC IITP and Moonpreneur, a Silicon Valley-based organisation founded by IIT and IIM alumni. The programme runs every Tuesday evening and covers the complete journey from ideation to investor pitch. Participants with strong ideas are fast-tracked for IC IITP incubation."
+}

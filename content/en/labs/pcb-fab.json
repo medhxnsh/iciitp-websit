@@ -1,0 +1,24 @@
+{
+  "slug": "pcb-fab",
+  "title": "PCB Fabrication Lab",
+  "shortTitle": "PCB Fab",
+  "tagline": "End-to-end PCB prototyping from layout milling to SMT assembly and rework.",
+  "lastUpdated": "2025-09-01",
+  "equipment": [
+    { "name": "LPKF PROTOMAT S103", "purpose": "High-precision PCB milling and drilling for rapid prototyping" },
+    { "name": "LPKF Protoprint S", "purpose": "Solder paste printer for SMT assembly preparation" },
+    { "name": "ERSA HR600/2 BGA Rework Station", "purpose": "BGA and fine-pitch component rework and reballing" },
+    { "name": "Reflow Oven", "purpose": "SMT solder reflow for PCB assembly" },
+    { "name": "Hot Air Rework Station", "purpose": "SMD component removal and placement" },
+    { "name": "Stereo Zoom Microscope", "purpose": "PCB inspection and solder joint quality assessment" },
+    { "name": "UV Exposure Unit", "purpose": "Photo-sensitised PCB layer exposure" },
+    { "name": "PCB Etching Tank", "purpose": "Chemical etching of copper for PCB traces" },
+    { "name": "CNC Drilling Machine", "purpose": "Through-hole drilling for multi-layer PCBs" },
+    { "name": "Pick and Place Machine", "purpose": "Automated SMT component placement" },
+    { "name": "PCB Router", "purpose": "Board singulation and edge routing" },
+    { "name": "Laminator", "purpose": "Dry-film lamination for PCB processing" },
+    { "name": "Digital Soldering Station", "purpose": "Temperature-controlled manual soldering" },
+    { "name": "ESD Workbenches", "purpose": "Electrostatic-safe assembly environment" },
+    { "name": "PCB Cleaning System", "purpose": "Post-solder flux removal and board cleaning" }
+  ]
+}

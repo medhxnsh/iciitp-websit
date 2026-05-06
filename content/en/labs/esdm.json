@@ -1,0 +1,19 @@
+{
+  "slug": "esdm",
+  "title": "ESDM Lab",
+  "shortTitle": "ESDM",
+  "tagline": "Embedded systems and electronics development lab with microcontrollers, sensors, and IoT tooling.",
+  "lastUpdated": "2025-09-01",
+  "equipment": [
+    { "name": "Arduino Development Boards (Uno, Mega, Nano)", "purpose": "Rapid embedded prototyping and IoT development" },
+    { "name": "Raspberry Pi (4B, CM4)", "purpose": "Single-board computers for IoT edge and ML inference" },
+    { "name": "STM32 / ESP32 / RISC-V Dev Kits", "purpose": "ARM and RISC-V microcontroller development and evaluation" },
+    { "name": "FPGA Development Boards (Xilinx / Intel)", "purpose": "Hardware description language prototyping and acceleration" },
+    { "name": "Sensor Suite", "purpose": "Temperature, humidity, pressure, gas, motion, proximity, and optical sensors for prototyping" },
+    { "name": "RF Module Kit (LoRa, Zigbee, BLE, NB-IoT)", "purpose": "Wireless connectivity prototyping for IoT devices" },
+    { "name": "Motor Driver & Actuator Kit", "purpose": "DC, stepper, and servo motor control for robotics and automation" },
+    { "name": "Power Electronics Evaluation Kits", "purpose": "SMPS, DC-DC converter, and battery management system prototyping" },
+    { "name": "JTAG / SWD Debuggers", "purpose": "In-circuit debugging and programming of embedded targets" },
+    { "name": "Prototype Breadboards & Jumper Kit", "purpose": "Rapid circuit assembly without soldering" }
+  ]
+}

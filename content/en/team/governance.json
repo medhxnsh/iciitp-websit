@@ -1,0 +1,19 @@
+[
+  { "name": "Prof. T.N. Singh", "designation": "Director, IIT Patna", "role": "President" },
+  { "name": "Mr. Sanjay Kumar", "designation": "Registrar I/C, IIT Patna", "role": "Vice President" },
+  { "name": "Dr. Sudhir Kumar", "designation": "Associate Professor, Dept. of EE, IIT Patna", "role": "Secretary" },
+  { "name": "Mr. Shambhu Kumar", "designation": "Assistant Registrar (F&A), IIT Patna", "role": "Treasurer" },
+  { "name": "Dr. Anup Kumar Keshri", "designation": "Associate Dean R&D, IIT Patna", "role": "Member" },
+  { "name": "Dr. Nalin Kumar Srivastava", "designation": "Scientist D, Ministry of Electronics & IT (MeitY)", "role": "Member" },
+  { "name": "Ms. Padmaja Ruparel", "designation": "Co-founder, Indian Angel Network", "role": "Member" },
+  { "name": "Mr. Sailendra Sinha", "designation": "Ex-Chairman, CII Bihar", "role": "Member" },
+  { "name": "Sri Abhay Kumar Singh", "designation": "Principal Secretary (IT), Govt. of Bihar", "role": "Member" },
+  { "name": "Smt. Bandana Preyashi", "designation": "Principal Secretary (Industries), Govt. of Bihar", "role": "Member" },
+  { "name": "Dr. Anirban Bhattacharya", "designation": "Head, Dept. of Mechanical Engineering, IIT Patna", "role": "Member" },
+  { "name": "Dr. S. Sivasubramani", "designation": "Head, Dept. of Electrical Engineering, IIT Patna", "role": "Member" },
+  { "name": "Prof. Preetam Kumar", "designation": "Dept. of Electrical Engineering, IIT Patna", "role": "Member" },
+  { "name": "Dr. Mahesh Kumar H. Kolekar", "designation": "Dept. of Electrical Engineering, IIT Patna", "role": "Member" },
+  { "name": "Dr. Sriparna Saha", "designation": "Dept. of Computer Science & Engineering, IIT Patna", "role": "Member" },
+  { "name": "Prof. Rajiv Misra", "designation": "Head, Dept. of Computer Science & Engineering, IIT Patna", "role": "Member" },
+  { "name": "Dr. Samrat Mondal", "designation": "Dept. of Computer Science & Engineering, IIT Patna", "role": "Member" }
+]

@@ -1,0 +1,24 @@
+{
+  "slug": "test-cal",
+  "title": "Testing & Calibration Lab",
+  "shortTitle": "Test & Cal",
+  "tagline": "High-frequency measurement and calibration infrastructure for electronic prototypes.",
+  "lastUpdated": "2025-09-01",
+  "equipment": [
+    { "name": "Tektronix DSA 8300 Digital Serial Analyzer Sampling Oscilloscope", "purpose": "High-speed serial data signal integrity measurement up to 70 GHz" },
+    { "name": "Vector Network Analyzer (VNA)", "purpose": "S-parameter measurement for RF and microwave circuits" },
+    { "name": "Spectrum Analyzer", "purpose": "Frequency-domain analysis and EMI pre-compliance testing" },
+    { "name": "Digital Storage Oscilloscope (DSO)", "purpose": "Time-domain waveform capture and analysis" },
+    { "name": "Arbitrary Waveform Generator (AWG)", "purpose": "Stimulus signal generation for device testing" },
+    { "name": "DC Power Supply (Bench, multi-channel)", "purpose": "Regulated power for prototypes under test" },
+    { "name": "LCR Meter", "purpose": "Precision impedance, inductance, and capacitance measurement" },
+    { "name": "Digital Multimeters (precision grade)", "purpose": "Voltage, current, and resistance measurement" },
+    { "name": "Logic Analyzer", "purpose": "Multi-channel digital signal capture and protocol decode" },
+    { "name": "Protocol Analyzer (USB / I2C / SPI / CAN)", "purpose": "Embedded communication bus analysis and debugging" },
+    { "name": "Function / Signal Generator", "purpose": "Standard waveform generation for circuit testing" },
+    { "name": "Thermal Camera", "purpose": "Infrared thermal profiling of PCBs and power devices" },
+    { "name": "Environmental Test Chamber", "purpose": "Temperature and humidity stress testing of prototypes" },
+    { "name": "Calibration Standards Kit", "purpose": "Reference standards for traceable calibration" },
+    { "name": "ESD Test Equipment", "purpose": "Electrostatic discharge susceptibility testing" }
+  ]
+}

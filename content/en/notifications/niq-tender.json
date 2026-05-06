@@ -1,0 +1,13 @@
+{
+  "slug": "niq-tender",
+  "title": "NIQ / Tender Notices",
+  "language": "English",
+  "purpose": "Procurement",
+  "validFrom": "2020-01-01",
+  "validTo": "2026-12-31",
+  "category": "niq-tender",
+  "summary": "Tender and procurement notices for IC IITP equipment and services. Published on the Central Government e-Procurement portal.",
+  "body": "All IC IITP tender and procurement notices are published on the Government of India e-Procurement portal (eprocure.gov.in). Vendors and suppliers are requested to monitor the portal for current notices.\n\nPast tenders include:\n- ICIITP/MEITY/IC-28/2020-21: Optical measurement software\n- ICIITP/MEITY/IC-37/2020-21: Desktop and laptop computers",
+  "externalUrl": "https://eprocure.gov.in",
+  "contactEmail": "iciitp@iitp.ac.in"
+}

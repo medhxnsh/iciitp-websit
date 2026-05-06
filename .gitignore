@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude / AI tooling
+CLAUDE.md
+AGENTS.md
+.claude/
+
+# Raw asset folders (local only)
+Image Assets/
+Info for programs/
+
+# Secrets
+*.key
+*.secret
+secrets/

@@ -1,0 +1,33 @@
+{
+  "slug": "medtech-school",
+  "title": "MedTech School in Health Technology Innovation",
+  "shortTitle": "MedTech School",
+  "tagline": "One-week continuing education programme on MedTech innovation for engineers, researchers, and clinicians.",
+  "lastUpdated": "2025-09-01",
+  "category": "Training",
+  "validFrom": "2025-01-01",
+  "validTo": "2026-12-31",
+  "status": "Recurring",
+  "duration": "1 week (CEP short-term course)",
+  "organiser": "IC IITP",
+  "fees": [
+    { "category": "UG/PG (Self-sponsored)", "amount": "₹3,000" },
+    { "category": "Institute-sponsored participant", "amount": "₹5,000" },
+    { "category": "PhD / PostDoc / Medical Resident", "amount": "₹7,000" },
+    { "category": "Startup (2 participants)", "amount": "₹7,000" },
+    { "category": "Industry / Academia", "amount": "₹10,000" }
+  ],
+  "speakers": [
+    { "name": "Dr. Pramod Kumar Tiwari", "affiliation": "IIT Patna" },
+    { "name": "Dr. Prashant Jha", "affiliation": "King's College London" }
+  ],
+  "topics": [
+    "Health technology innovation landscape",
+    "Medical device design and regulatory pathway",
+    "Biomedical signal processing",
+    "Clinical needs assessment",
+    "Startup ecosystem and funding for MedTech"
+  ],
+  "contact": "iciitp@iitp.ac.in",
+  "description": "The MedTech School is a one-week intensive continuing education programme (CEP) co-organised by IC IITP for engineers, medical professionals, researchers, and entrepreneurs interested in health technology innovation. Participants gain hands-on exposure to medical device design, regulatory requirements, clinical validation, and the MedTech startup ecosystem."
+}

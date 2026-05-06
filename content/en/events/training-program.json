@@ -1,0 +1,23 @@
+{
+  "slug": "training-program",
+  "title": "Technical Training Programme",
+  "shortTitle": "Training Programme",
+  "tagline": "Short-term technical training on electronics, IoT, and embedded systems for students and professionals.",
+  "lastUpdated": "2025-09-01",
+  "category": "Training",
+  "validFrom": "2023-07-25",
+  "validTo": "2025-12-31",
+  "status": "Recurring",
+  "organiser": "IC IITP",
+  "topics": [
+    "Embedded Systems & Microcontrollers",
+    "PCB Design and Fabrication",
+    "IoT and Wireless Communication",
+    "3D Printing and Mechanical Packaging",
+    "MATLAB / Simulink for Signal Processing",
+    "Medical Electronics Fundamentals"
+  ],
+  "targetAudience": ["Engineering Students", "Faculty", "Industry Professionals", "Startups"],
+  "contact": "iciitp@iitp.ac.in",
+  "description": "IC IITP conducts short-duration technical training programmes on its laboratory infrastructure and tools. These sessions are open to engineering students, faculty members, and industry professionals seeking hands-on exposure to PCB fabrication, embedded systems, IoT, 3D printing, and simulation tools. Training schedules are announced on the Notifications page."
+}

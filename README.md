@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IC-IITP Website Redesign
+
+A complete ground-up redesign and rebuild of the official website for the **Innovation Centre, IIT Patna**. The project replaces the existing static site with a modern, performant, and fully internationalized web application.
+
+---
+
+## Demo
+
+<!-- 
+  To embed the video:
+  1. Open a new GitHub Issue on this repo
+  2. Drag-and-drop the demo .mp4 into the comment box
+  3. Wait for the upload to complete and copy the generated URL
+  4. Replace the URL below (do NOT submit the issue)
+-->
+
+https://github.com/user-attachments/assets/REPLACE_WITH_UPLOADED_VIDEO_URL
+
+---
+
+## Overview
+
+The redesign covers the full public-facing website along with a protected admin panel. It is built with the Next.js App Router, supports English and Hindi via `next-intl`, and features a particle-based 3D hero, animated section reveals, full-text search, and server-side session authentication.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| Language | TypeScript |
+| Styling | Tailwind CSS v4 |
+| Animations | Framer Motion |
+| 3D / WebGL | Three.js, React Three Fiber, Drei |
+| Internationalisation | next-intl (en, hi) |
+| Search | MiniSearch |
+| Auth | iron-session |
+| External APIs | Google APIs |
+
+---
+
+## Features
+
+- **Bilingual support** — full English and Hindi translations across all pages
+- **3D particle hero** — interactive WebGL scene rendered with Three.js and React Three Fiber
+- **Animated reveals** — scroll-triggered entrance animations via Framer Motion
+- **Full-text search** — client-side search powered by MiniSearch
+- **Admin panel** — protected dashboard with session-based authentication
+- **Lab & facilities pages** — photo gallery, specification tables, and equipment listings
+- **Programs & startups** — dedicated pages for academic programs, incubated startups, and portfolio companies
+- **Events & notifications** — dynamic event listings and a notification system
+- **Downloadable resources** — structured downloads page with categorised files
+- **Responsive design** — mobile-first layout across all breakpoints
+- **Accessibility** — semantic HTML, keyboard navigation, ARIA attributes
+
+---
+
+## Pages
+
+| Route | Description |
+|---|---|
+| `/` | Landing page with hero, stats, and highlights |
+| `/about` | Institute overview and team roster |
+| `/programs` | Academic and incubation programs |
+| `/facilities` | Lab specifications and photo gallery |
+| `/portfolio` | Startups and ventures |
+| `/events` | Events listing |
+| `/downloads` | Downloadable documents and resources |
+| `/notifications` | Announcements |
+| `/policies` | Institutional policies |
+| `/contact` | Contact form and details |
+| `/search` | Full-text search across the site |
+| `/admin` | Protected admin dashboard |
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/medhxnsh/iciitp-websit.git
+cd iciitp-websit
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+.
+├── app/
+│   ├── [locale]/          # Internationalised public routes
+│   │   ├── about/
+│   │   ├── programs/
+│   │   ├── facilities/
+│   │   ├── events/
+│   │   ├── downloads/
+│   │   ├── search/
+│   │   └── ...
+│   └── admin/             # Protected admin panel
+├── components/            # Shared UI components
+├── content/               # Static content and data files
+├── data/                  # Structured data (programs, team, etc.)
+├── i18n/                  # next-intl configuration
+├── messages/              # Translation files (en.json, hi.json)
+├── lib/                   # Utility functions and helpers
+└── public/                # Static assets
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is proprietary. All rights reserved — Innovation Centre, IIT Patna.

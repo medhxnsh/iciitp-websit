@@ -1,0 +1,19 @@
+{
+  "slug": "design-sim",
+  "title": "डिजाइन एवं सिमुलेशन लैब",
+  "shortTitle": "डिजाइन एवं सिम",
+  "tagline": "इलेक्ट्रॉनिक डिजाइन ऑटोमेशन, मैकेनिकल CAD और एम्बेडेड सिमुलेशन के लिए सॉफ्टवेयर टूल।",
+  "lastUpdated": "2025-09-01",
+  "equipment": [
+    { "name": "MATLAB / Simulink", "purpose": "गणितीय मॉडलिंग, सिग्नल प्रोसेसिंग और नियंत्रण प्रणाली सिमुलेशन" },
+    { "name": "SolidWorks", "purpose": "3D मैकेनिकल CAD, FEA संरचनात्मक विश्लेषण और उत्पाद डिजाइन" },
+    { "name": "Proteus Design Suite (ISIS + ARES)", "purpose": "इलेक्ट्रॉनिक स्कीमैटिक कैप्चर, PCB लेआउट और एम्बेडेड सिमुलेशन" },
+    { "name": "ANSYS (Academic)", "purpose": "संरचनात्मक, थर्मल और तरल गतिकी के लिए फिनाइट एलीमेंट विश्लेषण" },
+    { "name": "Cadence Virtuoso / Allegro (Academic)", "purpose": "एनालॉग/मिश्रित-सिग्नल IC डिजाइन और PCB लेआउट" },
+    { "name": "LTspice / Multisim", "purpose": "SPICE-आधारित इलेक्ट्रॉनिक सर्किट सिमुलेशन" },
+    { "name": "Python / TensorFlow / PyTorch Workstations", "purpose": "मशीन लर्निंग मॉडल विकास और प्रशिक्षण" },
+    { "name": "AutoCAD", "purpose": "उत्पाद और एन्क्लोजर डिजाइन के लिए 2D/3D ड्राफ्टिंग" },
+    { "name": "COMSOL Multiphysics (Academic)", "purpose": "सेंसर, MEMS और बायोमेडिकल डिवाइस के लिए मल्टी-फिजिक्स सिमुलेशन" },
+    { "name": "High-Performance Computing Workstations", "purpose": "सिमुलेशन और डीप लर्निंग के लिए GPU-त्वरित गणना" }
+  ]
+}

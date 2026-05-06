@@ -13,8 +13,8 @@ A complete ground-up redesign and rebuild of the official website for the **Inno
   3. Wait for the upload to complete and copy the generated URL
   4. Replace the URL below (do NOT submit the issue)
 -->
-
-https://github.com/user-attachments/assets/REPLACE_WITH_UPLOADED_VIDEO_URL
+[
+https://github.com/user-attachments/assets/REPLACE_WITH_UPLOADED_VIDEO_URL](https://github.com/user-attachments/assets/a5e1e6c6-64b9-4c55-81d3-e87f9b7de228)
 
 ---
 

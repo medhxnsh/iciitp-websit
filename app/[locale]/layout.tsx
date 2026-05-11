@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { SkipLink } from "@/components/a11y/skip-link";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { ChatWidget } from "@/components/chat-widget";
 import "../globals.css";
 
 const inter = Inter({
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer lastUpdated="2025-09-01" />
+          <ChatWidget />
         </NextIntlClientProvider>
       </body>
     </html>

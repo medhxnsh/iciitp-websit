@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 import { Link } from "@/i18n/navigation";
 import {
   HelpCircle, Map, Accessibility, FileText,
@@ -129,9 +128,6 @@ export default async function HelpPage({ params }: Props) {
         <p className="text-lg leading-relaxed" style={{ color: "#5a6644" }}>
           Find your way around the IC IITP website — site map, FAQs, accessibility information, and contact details.
         </p>
-        <div className="mt-4">
-          <LastUpdatedBadge date="2025-09-01" />
-        </div>
       </header>
 
       {/* Quick jump */}

@@ -3,7 +3,6 @@ import { setRequestLocale } from "next-intl/server";
 import { getStartupsByScheme } from "@/lib/content";
 import { StartupGrid } from "@/components/startup-grid";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -25,7 +24,6 @@ export default async function PortfolioSchemePage({ params }: Props) {
         <p className="text-lg text-[var(--color-text-subtle)] max-w-2xl">
           {startups.length} startups supported under the Nidhi Prayas.
         </p>
-        <div className="mt-4"><LastUpdatedBadge date="2025-09-01" /></div>
       </header>
       <StartupGrid startups={startups} filterScheme="nidhi-prayas" />
     </div>

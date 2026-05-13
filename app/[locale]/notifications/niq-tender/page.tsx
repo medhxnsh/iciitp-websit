@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getNotification, isNotificationActive } from "@/lib/content";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 import { ExternalLink } from "@/components/external-link";
 import { FileDown } from "lucide-react";
 
@@ -36,7 +35,6 @@ export default async function NotificationPage({ params }: Props) {
         <p className="text-sm text-[var(--color-muted)]">
           Valid: {new Date(n.validFrom).toLocaleDateString("en-IN", { day:"numeric", month:"short", year:"numeric" })} – {new Date(n.validTo).toLocaleDateString("en-IN", { day:"numeric", month:"short", year:"numeric" })}
         </p>
-        <div className="mt-3"><LastUpdatedBadge date={n.validFrom} /></div>
       </header>
 
       <div className="prose max-w-none text-[var(--color-text-subtle)] leading-relaxed mb-8 whitespace-pre-line">

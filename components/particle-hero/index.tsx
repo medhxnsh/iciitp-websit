@@ -127,30 +127,40 @@ export function ParticleHero() {
         className="absolute inset-0 flex flex-col items-center justify-center px-4"
         style={{ pointerEvents: "none" }}
       >
-        <motion.p
-          className="text-xs font-semibold uppercase tracking-widest mb-4"
-          style={{ color: "#3a5214" }}
+        {/* Institution label */}
+        <motion.div
+          className="w-full mb-7"
+          style={{ textAlign: "center" }}
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE_CURVE }}
         >
-          Incubation Centre · IIT Patna
-        </motion.p>
+          <p style={{ textAlign: "center", color: "#1c2e06", fontSize: "16px", fontWeight: 900, letterSpacing: "0.22em", textTransform: "uppercase" }}>
+            Incubation Centre
+          </p>
+          <p style={{ textAlign: "center", color: "#5a7c20", fontSize: "13px", fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", marginTop: "4px" }}>
+            IIT Patna
+          </p>
+        </motion.div>
+
         <motion.h1
-          className="text-4xl sm:text-5xl lg:text-6xl font-black max-w-3xl mx-auto leading-tight mb-6 text-center"
-          style={{ color: "#1c2e06" }}
+          className="text-[2.75rem] sm:text-5xl lg:text-[3.75rem] font-black max-w-3xl mx-auto leading-[1.05] mb-5 text-center"
+          style={{ color: "#1c2e06", letterSpacing: "-0.02em" }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.12, ease: EASE_CURVE }}
+          transition={{ duration: 0.75, delay: 0.15, ease: EASE_CURVE }}
         >
-          India&apos;s leading ESDM &amp; Medical Electronics Incubator
+          India&apos;s leading ESDM &amp;{" "}
+          <span style={{ color: "#3a5214" }}>Medical Electronics</span>{" "}
+          Incubator
         </motion.h1>
+
         <motion.p
-          className="text-base sm:text-lg max-w-xl mx-auto text-center"
-          style={{ color: "#2a3a0d" }}
+          className="text-base sm:text-lg max-w-lg mx-auto text-center leading-relaxed mb-8"
+          style={{ color: "#4a5e2a" }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.26, ease: EASE_CURVE }}
+          transition={{ duration: 0.65, delay: 0.28, ease: EASE_CURVE }}
         >
           ₹47.10 Crore undertaking backed by Govt. of India &amp; Govt. of Bihar
           {" — "}100+ startups, 6 labs, 6 schemes.
@@ -158,7 +168,7 @@ export function ParticleHero() {
 
         {/* Apply Now CTA — intersection-observed by the nav */}
         <motion.div
-          className="mt-8 flex flex-col items-center gap-5"
+          className="flex flex-col items-center gap-4"
           style={{ pointerEvents: "auto" }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -167,16 +177,15 @@ export function ParticleHero() {
           <a
             id="hero-cta"
             href="/apply"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-lg text-white font-semibold text-base transition-opacity hover:opacity-85"
-            style={{ backgroundColor: "#f79420" }}
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-white font-bold text-base transition-all hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
+            style={{ backgroundColor: "#f79420", boxShadow: "0 4px 24px #f7942040" }}
           >
             Apply Now
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-          {/* Quick trust stats */}
-          <p className="text-xs text-center" style={{ color: "#5a7c20" }}>
+          <p className="text-[11px] font-medium text-center" style={{ color: "#5a7c20" }}>
             1,000+ B-plans screened &nbsp;·&nbsp; 25 patents filed &nbsp;·&nbsp; Est. 2015
           </p>
         </motion.div>

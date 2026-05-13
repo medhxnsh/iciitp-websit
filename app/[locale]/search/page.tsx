@@ -42,7 +42,7 @@ function buildIndex(locale: string): SearchDoc[] {
     docs.push({
       id: `event-${e.slug}`,
       title: e.title,
-      body: [e.tagline, e.about].filter(Boolean).join(" "),
+      body: [e.tagline, e.description].filter(Boolean).join(" "),
       category: "Event",
       href: `/events/${e.slug}`,
     });
@@ -53,7 +53,7 @@ function buildIndex(locale: string): SearchDoc[] {
     docs.push({
       id: `notification-${n.slug}`,
       title: n.title,
-      body: [n.summary, n.details].filter(Boolean).join(" "),
+      body: [n.summary, n.body].filter(Boolean).join(" "),
       category: "Notification",
       href: `/notifications/${n.slug}`,
     });
@@ -63,8 +63,8 @@ function buildIndex(locale: string): SearchDoc[] {
   for (const lab of getAllLabs(locale)) {
     docs.push({
       id: `lab-${lab.slug}`,
-      title: lab.name,
-      body: [lab.tagline, lab.about].filter(Boolean).join(" "),
+      title: lab.title,
+      body: [lab.tagline].filter(Boolean).join(" "),
       category: "Facility",
       href: `/facilities/${lab.slug}`,
     });
@@ -73,9 +73,10 @@ function buildIndex(locale: string): SearchDoc[] {
   // Startups (sample — index by name + tagline)
   try {
     const startups = getAllStartups(locale);
-    for (const s of startups) {
+    for (let i = 0; i < startups.length; i++) {
+      const s = startups[i];
       docs.push({
-        id: `startup-${s.name.replace(/\s+/g, "-").toLowerCase()}`,
+        id: `startup-${i}`,
         title: s.name,
         body: [s.tagline, ...s.sectors].join(" "),
         category: "Startup",

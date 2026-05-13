@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
@@ -31,9 +30,6 @@ export default async function AboutPage({ params }: Props) {
         <p className="text-xl text-[--color-text-subtle] max-w-3xl leading-relaxed">
           {t("heroSubtitle")}
         </p>
-        <div className="mt-4">
-          <LastUpdatedBadge date="2025-09-01" />
-        </div>
       </header>
 
       {/* Campus hero photo */}
@@ -42,6 +38,7 @@ export default async function AboutPage({ params }: Props) {
           src="/images/building.jpg"
           alt="Incubation Centre IIT Patna campus, Bihta, Patna"
           fill
+          sizes="100vw"
           className="object-cover object-center"
           quality={90}
           priority
@@ -91,6 +88,7 @@ export default async function AboutPage({ params }: Props) {
             src="/images/inauguration.jpg"
             alt="IC IITP inauguration ceremony, 2015"
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover object-center"
             quality={85}
           />
@@ -134,6 +132,7 @@ export default async function AboutPage({ params }: Props) {
           src="/images/team-ceremony.jpg"
           alt="IC IITP training programme and certificate distribution"
           fill
+          sizes="100vw"
           className="object-cover"
           style={{ objectPosition: "center 25%" }}
           quality={80}

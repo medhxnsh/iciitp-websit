@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 interface Props { params: Promise<{ locale: string }> }
@@ -26,9 +25,6 @@ export default async function ContactPage({ params }: Props) {
         <p className="text-lg text-gray-600 max-w-2xl">
           Reach out to the Incubation Centre IIT Patna — for incubation inquiries, lab access, partnerships, or general information.
         </p>
-        <div className="mt-4">
-          <LastUpdatedBadge date="2025-09-01" />
-        </div>
       </header>
 
       <div className="grid lg:grid-cols-2 gap-10">

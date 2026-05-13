@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getEvent } from "@/lib/content";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 import { ExternalLink } from "@/components/external-link";
 import { Calendar, MapPin, Clock } from "lucide-react";
 
@@ -35,7 +34,6 @@ export default async function EventPage({ params }: Props) {
         <h1 className="text-3xl font-black text-[var(--color-brand-800)] mb-3 leading-tight">{ev.title}</h1>
         <p className="text-[var(--color-text-subtle)] max-w-2xl">{ev.tagline}</p>
         <div className="mt-4 flex flex-wrap gap-4 text-sm text-[var(--color-muted)]">
-          <LastUpdatedBadge date={ev.lastUpdated} />
           {ev.duration && <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" aria-hidden="true"/>{ev.duration}</span>}
           {ev.venue && <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" aria-hidden="true"/>{ev.venue}</span>}
           {ev.schedule && <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" aria-hidden="true"/>{ev.schedule}</span>}

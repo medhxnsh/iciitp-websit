@@ -3,7 +3,6 @@ import { setRequestLocale } from "next-intl/server";
 import { getAllNotifications, isNotificationActive } from "@/lib/content";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 import { Bell, ArrowRight } from "lucide-react";
 
 interface Props { params: Promise<{ locale: string }> }
@@ -29,7 +28,6 @@ export default async function NotificationsPage({ params }: Props) {
         <p className="text-lg text-[--color-text-subtle] max-w-xl">
           Career openings, calls for proposals, and procurement notices from IC IITP.
         </p>
-        <div className="mt-4"><LastUpdatedBadge date="2025-09-01" /></div>
       </header>
 
       {active.length > 0 && (

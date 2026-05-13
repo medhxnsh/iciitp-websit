@@ -3,7 +3,6 @@ import { setRequestLocale } from "next-intl/server";
 import { getAllStartups } from "@/lib/content";
 import { StartupGrid } from "@/components/startup-grid";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -27,7 +26,6 @@ export default async function PortfolioPage({ params }: Props) {
           {startups.length}+ startups incubated across five government-backed schemes — from ESDM
           and MedTech to AI, EV, and deep tech.
         </p>
-        <div className="mt-4"><LastUpdatedBadge date="2025-09-01" /></div>
       </header>
 
       <StartupGrid startups={startups} showFilter />

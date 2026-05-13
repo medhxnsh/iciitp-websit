@@ -3,7 +3,6 @@ import { setRequestLocale } from "next-intl/server";
 import { getAllLabs } from "@/lib/content";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { LAB_PHOTOS } from "@/components/lab-photo-gallery";
@@ -31,7 +30,6 @@ export default async function FacilitiesPage({ params }: Props) {
           laboratories, a BioNEST wing (10,000 sq ft), co-working spaces, meeting rooms, and a
           30-seater conference facility.
         </p>
-        <div className="mt-4"><LastUpdatedBadge date="2025-09-01" /></div>
       </header>
 
       {/* Infrastructure overview */}

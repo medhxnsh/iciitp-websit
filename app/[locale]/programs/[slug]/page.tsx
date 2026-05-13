@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getAllPrograms, getProgram, getProgramSlugs } from "@/lib/content";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 import { ProgramCard } from "@/components/program-card";
 import { Link } from "@/i18n/navigation";
 import { ExternalLink } from "@/components/external-link";
@@ -88,7 +87,6 @@ export default async function ProgramPage({ params }: Props) {
           {program.tagline}
         </p>
         <div className="mt-4 flex items-center gap-6 flex-wrap">
-          <LastUpdatedBadge date={program.lastUpdated} />
           <p className="text-sm text-[--color-muted]">
             Funder: <span className="text-[--color-text-subtle]">{program.funder}</span>
           </p>

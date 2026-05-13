@@ -4,7 +4,6 @@ import { setRequestLocale } from "next-intl/server";
 import { getLab, getLabSlugs } from "@/lib/content";
 import { LabSpecTable } from "@/components/lab-spec-table";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 import { routing } from "@/i18n/routing";
 import { LabPhotoGallery } from "@/components/lab-photo-gallery";
 
@@ -36,7 +35,6 @@ export default async function LabPage({ params }: Props) {
         <h1 className="text-3xl font-black text-[var(--color-brand-800)] mb-3">{lab.title}</h1>
         <p className="text-[var(--color-text-subtle)] max-w-2xl">{lab.tagline}</p>
         <div className="mt-4 flex gap-6 flex-wrap items-center">
-          <LastUpdatedBadge date={lab.lastUpdated} />
           {lab.area && <span className="text-sm text-[var(--color-muted)]">Area: {lab.area}</span>}
           {lab.class && <span className="text-sm text-[var(--color-muted)]">Class: {lab.class}</span>}
           <span className="text-sm text-[var(--color-muted)]">{lab.equipment.length} instruments</span>

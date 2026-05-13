@@ -3,7 +3,6 @@ import { setRequestLocale } from "next-intl/server";
 import { getAllDownloads } from "@/lib/content";
 import { DownloadRow } from "@/components/download-row";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -32,7 +31,6 @@ export default async function DownloadsPage({ params }: Props) {
           All application forms, certificates, and documents available from IC IITP in one place.
           Each file includes its format and purpose.
         </p>
-        <div className="mt-4"><LastUpdatedBadge date="2025-09-01" /></div>
       </header>
 
       <div className="space-y-10">

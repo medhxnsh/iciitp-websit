@@ -70,7 +70,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={`${inter.variable} ${notoDevanagari.variable}`}>
+    <html lang={locale} className={`${inter.variable} ${notoDevanagari.variable}`} data-scroll-behavior="smooth">
       <body>
         <NextIntlClientProvider>
           <SkipLink />
@@ -78,7 +78,7 @@ export default async function LocaleLayout({
           <main id="main-content" tabIndex={-1}>
             {children}
           </main>
-          <Footer lastUpdated="2025-09-01" />
+          <Footer lastUpdated="2026-05-08" />
           <ChatWidget />
         </NextIntlClientProvider>
       </body>

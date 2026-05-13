@@ -20,13 +20,21 @@ export function Footer({ lastUpdated }: FooterProps) {
         {/* Brand column */}
         <div className="lg:col-span-1">
           <div className="flex items-center gap-3 mb-4">
-            <Image
-              src="/logo.png"
-              alt="IC IIT Patna"
-              width={52}
-              height={52}
-              className="rounded-full shrink-0"
-            />
+            <div
+              className="rounded-full shrink-0 p-0.5"
+              style={{
+                background: "rgba(255,255,255,0.07)",
+                boxShadow: "0 0 0 1.5px rgba(255,255,255,0.14), 0 0 18px 4px rgba(255,255,255,0.06)",
+              }}
+            >
+              <Image
+                src="/logo.png"
+                alt="IC IIT Patna"
+                width={52}
+                height={52}
+                className="rounded-full block"
+              />
+            </div>
             <span className="text-sm font-medium text-white/70 leading-tight">
               IIT Patna<br />Incubation Centre
             </span>

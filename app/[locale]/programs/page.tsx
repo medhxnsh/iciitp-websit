@@ -3,7 +3,6 @@ import { setRequestLocale } from "next-intl/server";
 import { getAllPrograms } from "@/lib/content";
 import { ProgramCard } from "@/components/program-card";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -30,9 +29,6 @@ export default async function ProgramsPage({ params }: Props) {
           IC IITP runs six complementary schemes covering the full innovation journey — from
           prototyping grants to seed investment to entrepreneurship fellowships.
         </p>
-        <div className="mt-4">
-          <LastUpdatedBadge date="2025-09-01" />
-        </div>
       </header>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

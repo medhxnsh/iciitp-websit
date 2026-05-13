@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { ParticleHero } from "@/components/particle-hero";
 import { ProgramLogo } from "@/components/program-logo";
-import { LastUpdatedBadge } from "@/components/last-updated-badge";
 import { ExternalLink } from "@/components/external-link";
 import {
   getAllPrograms, getAllStartups, getAllEvents,
@@ -72,7 +71,7 @@ export default async function HomePage({ params }: HomePageProps) {
       >
         {/* Building photo background */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <Image src="/images/building.jpg" alt="" fill className="object-cover object-center" quality={80} />
+          <Image src="/images/building.jpg" alt="" fill sizes="100vw" className="object-cover object-center" quality={80} priority />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(58,82,20,0.93) 0%, rgba(42,60,14,0.85) 100%)" }} />
         </div>
 
@@ -112,7 +111,9 @@ export default async function HomePage({ params }: HomePageProps) {
                   src="/images/team-staff.jpg"
                   alt="IC IITP Management Team"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-top"
+                  loading="eager"
                   quality={85}
                 />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%)" }} />
@@ -566,7 +567,7 @@ export default async function HomePage({ params }: HomePageProps) {
       >
         {/* Team group photo background */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <Image src="/images/team-group.jpg" alt="" fill className="object-cover object-center" quality={75} />
+          <Image src="/images/team-group.jpg" alt="" fill sizes="100vw" className="object-cover object-center" quality={75} priority />
           <div className="absolute inset-0" style={{ background: "linear-gradient(rgba(30,46,9,0.88), rgba(42,60,14,0.92))" }} />
         </div>
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true"
@@ -603,7 +604,6 @@ export default async function HomePage({ params }: HomePageProps) {
       </div>{/* end sticky stack */}
 
       <div className="border-t border-white/10 py-4 text-center" style={{ backgroundColor: "#3a5214" }}>
-        <LastUpdatedBadge date="2025-09-01" />
       </div>
     </div>
   );

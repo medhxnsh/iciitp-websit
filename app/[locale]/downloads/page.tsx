@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getAllDownloads } from "@/lib/content";
+import { getPublishedDownloads } from "@/lib/cms/downloads";
 import { DownloadRow } from "@/components/download-row";
 import { Breadcrumb } from "@/components/breadcrumb";
+import type { Download } from "@/lib/content-types";
+
+export const dynamic = "force-dynamic";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -14,9 +18,28 @@ export const metadata: Metadata = {
 export default async function DownloadsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const downloads = getAllDownloads();
 
-  const byCategory = downloads.reduce<Record<string, typeof downloads>>((acc, d) => {
+  // CMS downloads from Firestore
+  let cmsDownloads: Download[] = [];
+  try {
+    const raw = await getPublishedDownloads();
+    cmsDownloads = raw.map((d) => ({
+      title: d.title,
+      path: d.fileUrl,
+      format: d.fileType,
+      purpose: d.purpose,
+      category: d.category,
+      lastUpdated: "",
+    }));
+  } catch {}
+
+  // Static fallback downloads (only shown if CMS is empty)
+  const staticDownloads = getAllDownloads();
+  const allDownloads = cmsDownloads.length > 0
+    ? [...cmsDownloads, ...staticDownloads]
+    : staticDownloads;
+
+  const byCategory = allDownloads.reduce<Record<string, Download[]>>((acc, d) => {
     (acc[d.category] ??= []).push(d);
     return acc;
   }, {});

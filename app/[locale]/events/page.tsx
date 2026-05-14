@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { getAllEvents, isEventArchived } from "@/lib/content";
+import { getPublishedEvents, resolveStatus } from "@/lib/cms/events";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { Calendar, ArrowRight } from "lucide-react";
+
+export const dynamic = "force-dynamic";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -12,19 +15,66 @@ export const metadata: Metadata = {
   description: "Events at IC IITP: MedTech School, EDPI, Ideathon, and Technical Training Programmes.",
 };
 
+interface DisplayEvent {
+  slug: string;
+  title: string;
+  tagline: string;
+  category: string;
+  status: string;
+  organiser: string;
+  archived: boolean;
+}
+
 const STATUS_STYLES: Record<string, string> = {
-  "Active": "bg-green-100 text-green-800",
-  "Open": "bg-green-100 text-green-800",
-  "Recurring": "bg-blue-100 text-blue-800",
-  "Concluded": "bg-gray-100 text-gray-600",
+  Active:    "bg-green-100 text-green-800",
+  Open:      "bg-green-100 text-green-800",
+  Ongoing:   "bg-green-100 text-green-800",
+  Upcoming:  "bg-blue-100 text-blue-800",
+  Recurring: "bg-blue-100 text-blue-800",
+  Concluded: "bg-gray-100 text-gray-600",
+  Closed:    "bg-gray-100 text-gray-600",
 };
 
 export default async function EventsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const events = getAllEvents(locale);
-  const active = events.filter((e) => !isEventArchived(e));
-  const archived = events.filter((e) => isEventArchived(e));
+
+  // Fetch CMS events from Firestore (published only)
+  let cmsEvents: DisplayEvent[] = [];
+  try {
+    const raw = await getPublishedEvents();
+    cmsEvents = raw.map((ev) => ({
+      slug: ev.slug,
+      title: ev.title,
+      tagline: ev.tagline,
+      category: ev.category,
+      status: resolveStatus(ev),
+      organiser: "IC IITP",
+      archived: resolveStatus(ev) === "Closed",
+    }));
+  } catch {
+    // Firestore unavailable — fall back to static only
+  }
+
+  // Static events from JSON, excluding slugs already covered by CMS
+  const cmsSlugSet = new Set(cmsEvents.map((e) => e.slug));
+  const staticRaw = getAllEvents(locale);
+  const staticEvents: DisplayEvent[] = staticRaw
+    .filter((e) => !cmsSlugSet.has(e.slug))
+    .map((e) => ({
+      slug: e.slug,
+      title: e.title,
+      tagline: e.tagline,
+      category: e.category,
+      status: e.status,
+      organiser: e.organiser,
+      archived: isEventArchived(e),
+    }));
+
+  // CMS events first, then static
+  const all = [...cmsEvents, ...staticEvents];
+  const active = all.filter((e) => !e.archived);
+  const archived = all.filter((e) => e.archived);
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -39,11 +89,11 @@ export default async function EventsPage({ params }: Props) {
 
       {active.length > 0 && (
         <section aria-labelledby="active-events-heading" className="mb-12">
-          <h2 id="active-events-heading" className="text-xl font-bold text-[--color-text] mb-5">Current &amp; Upcoming</h2>
+          <h2 id="active-events-heading" className="text-xl font-bold text-[--color-text] mb-5">
+            Current &amp; Upcoming
+          </h2>
           <div className="space-y-4">
-            {active.map((event) => (
-              <EventCard key={event.slug} event={event} />
-            ))}
+            {active.map((event) => <EventCard key={event.slug} event={event} />)}
           </div>
         </section>
       )}
@@ -57,9 +107,7 @@ export default async function EventsPage({ params }: Props) {
             </Link>
           </h2>
           <div className="space-y-4">
-            {archived.map((event) => (
-              <EventCard key={event.slug} event={event} />
-            ))}
+            {archived.map((event) => <EventCard key={event.slug} event={event} />)}
           </div>
         </section>
       )}
@@ -67,7 +115,7 @@ export default async function EventsPage({ params }: Props) {
   );
 }
 
-function EventCard({ event }: { event: import("@/lib/content").Event }) {
+function EventCard({ event }: { event: DisplayEvent }) {
   const statusClass = STATUS_STYLES[event.status] ?? "bg-gray-100 text-gray-600";
   return (
     <Link

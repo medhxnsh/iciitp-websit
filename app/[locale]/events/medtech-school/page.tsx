@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getEvent } from "@/lib/content";
+import { getEventOverlay } from "@/lib/cms/events";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ExternalLink } from "@/components/external-link";
 import { Calendar, MapPin, Clock } from "lucide-react";
 
+export const dynamic = "force-dynamic";
 interface Props { params: Promise<{ locale: string }> }
 const SLUG = "medtech-school";
 
@@ -21,7 +23,16 @@ export default async function EventPage({ params }: Props) {
   let ev;
   try { ev = getEvent(SLUG, locale); } catch { notFound(); }
 
-  const contact = typeof ev.contact === "string" ? { email: ev.contact } : ev.contact;
+  const overlay = await getEventOverlay(SLUG).catch(() => null);
+  if (overlay?.title) ev = { ...ev, title: overlay.title };
+  if (overlay?.tagline) ev = { ...ev, tagline: overlay.tagline };
+  if (overlay?.description) ev = { ...ev, description: overlay.description };
+  if (overlay?.status) ev = { ...ev, status: overlay.status };
+  if (overlay?.applyUrl) ev = { ...ev, applyUrl: overlay.applyUrl };
+
+  const contact = overlay?.contact
+    ? { email: overlay.contact }
+    : typeof ev.contact === "string" ? { email: ev.contact } : ev.contact;
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

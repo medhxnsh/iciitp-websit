@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Noto_Sans_Devanagari } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -17,12 +16,6 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const notoDevanagari = Noto_Sans_Devanagari({
-  subsets: ["devanagari"],
-  display: "swap",
-  variable: "--font-devanagari",
-  weight: ["400", "500", "600", "700"],
-});
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -70,7 +63,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} className={`${inter.variable} ${notoDevanagari.variable}`} data-scroll-behavior="smooth">
+    <html lang={locale} className={inter.variable} data-scroll-behavior="smooth">
       <body>
         <NextIntlClientProvider>
           <SkipLink />

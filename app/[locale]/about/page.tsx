@@ -4,6 +4,9 @@ import { Link } from "@/i18n/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { getPageSection } from "@/lib/cms/page-sections";
+
+export const dynamic = "force-dynamic";
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -17,6 +20,14 @@ export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("about_page");
+
+  const cms = await getPageSection("about").catch(() => null);
+  const buildingImg       = cms?.building_image_url      || "/images/building.jpg";
+  const inaugImg          = cms?.inauguration_image_url  || "/images/inauguration.jpg";
+  const inaugCaption      = cms?.inauguration_caption    || "IC IITP was officially inaugurated as a joint initiative of the Government of India and the Government of Bihar — marking the start of a new chapter for deep-tech entrepreneurship in the region. Since then, the centre has grown into India’s leading ESDM and Medical Electronics Incubator.";
+  const ceremonyImg       = cms?.ceremony_image_url      || "/images/team-ceremony.jpg";
+  const ceremonyTitle     = cms?.ceremony_overlay_title  || "Training programmes & certificate distribution";
+  const ceremonyBody      = cms?.ceremony_overlay_body   || "Empowering innovators across Bihar and beyond";
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -35,7 +46,7 @@ export default async function AboutPage({ params }: Props) {
       {/* Campus hero photo */}
       <div className="relative rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "21/8" }}>
         <Image
-          src="/images/building.jpg"
+          src={buildingImg}
           alt="Incubation Centre IIT Patna campus, Bihta, Patna"
           fill
           sizes="100vw"
@@ -85,7 +96,7 @@ export default async function AboutPage({ params }: Props) {
       <div className="mb-12 rounded-2xl overflow-hidden grid sm:grid-cols-[1fr_1.2fr]" style={{ backgroundColor: "#f4f8e8" }}>
         <div className="relative min-h-[220px]">
           <Image
-            src="/images/inauguration.jpg"
+            src={inaugImg}
             alt="IC IITP inauguration ceremony, 2015"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -96,12 +107,7 @@ export default async function AboutPage({ params }: Props) {
         <div className="p-8 flex flex-col justify-center">
           <p className="text-xs font-semibold uppercase tracking-widest mb-2" style={{ color: "#5a7c20" }}>Est. 2015</p>
           <h3 className="text-xl font-bold mb-3" style={{ color: "#1c2e06" }}>Inaugurated with a clear mission</h3>
-          <p className="text-sm leading-relaxed" style={{ color: "#4a5a30" }}>
-            IC IITP was officially inaugurated as a joint initiative of the Government of India and the
-            Government of Bihar — marking the start of a new chapter for deep-tech entrepreneurship in
-            the region. Since then, the centre has grown into India&apos;s leading ESDM and Medical
-            Electronics Incubator.
-          </p>
+          <p className="text-sm leading-relaxed" style={{ color: "#4a5a30" }}>{inaugCaption}</p>
         </div>
       </div>
 
@@ -129,7 +135,7 @@ export default async function AboutPage({ params }: Props) {
       {/* Community photo banner */}
       <div className="relative rounded-2xl overflow-hidden mb-12" style={{ aspectRatio: "21/7" }}>
         <Image
-          src="/images/team-ceremony.jpg"
+          src={ceremonyImg}
           alt="IC IITP training programme and certificate distribution"
           fill
           sizes="100vw"
@@ -141,12 +147,8 @@ export default async function AboutPage({ params }: Props) {
         <div className="absolute inset-0 flex items-center px-8">
           <div className="max-w-xs">
             <p className="text-white/65 text-xs uppercase tracking-widest font-semibold mb-2">Community</p>
-            <p className="text-white text-xl font-bold leading-snug">
-              Training programmes &amp; certificate distribution
-            </p>
-            <p className="text-white/65 text-sm mt-2">
-              Empowering innovators across Bihar and beyond
-            </p>
+            <p className="text-white text-xl font-bold leading-snug">{ceremonyTitle}</p>
+            <p className="text-white/65 text-sm mt-2">{ceremonyBody}</p>
           </div>
         </div>
       </div>

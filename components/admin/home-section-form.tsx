@@ -1,0 +1,185 @@
+"use client";
+
+import { useTransition, useState } from "react";
+import type { HomeStat } from "@/lib/cms/page-sections";
+
+interface HomeCurrent {
+  about_headline: string;
+  about_body_1: string;
+  about_body_2: string;
+  cta_headline: string;
+  cta_body: string;
+  building_image_url: string;
+  team_staff_image_url: string;
+  team_group_image_url: string;
+  stats: HomeStat[];
+}
+
+interface Props {
+  current: HomeCurrent;
+  onSave: (fd: FormData) => Promise<{ success: boolean; error?: string }>;
+}
+
+function ImageUpload({ label, name, initial, hint }: { label: string; name: string; initial: string; hint: string }) {
+  const [url, setUrl] = useState(initial);
+  const [uploading, setUploading] = useState(false);
+
+  async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("path", `pages/home/${name}-${Date.now()}`);
+    const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
+    const json = await res.json();
+    if (json.url) setUrl(json.url);
+    setUploading(false);
+  }
+
+  return (
+    <div>
+      <label className="block text-sm font-semibold mb-1" style={{ color: "#1c2e06" }}>{label}</label>
+      <p className="text-xs mb-2" style={{ color: "#7a8e6a" }}>{hint}</p>
+      <input type="hidden" name={name} value={url} />
+      {url && (
+        <div className="mb-2 rounded-lg overflow-hidden border" style={{ borderColor: "#d4e6c4", maxHeight: 100 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={url} alt="" className="w-full object-cover" style={{ maxHeight: 100 }} />
+        </div>
+      )}
+      <div className="flex items-center gap-2">
+        <label className="cursor-pointer text-xs font-medium px-3 py-1.5 rounded-md border" style={{ borderColor: "#d4e6c4", color: "#3a5214" }}>
+          {uploading ? "Uploading…" : url ? "Replace" : "Upload image"}
+          <input type="file" accept="image/*" className="sr-only" onChange={handleFile} disabled={uploading} />
+        </label>
+        {url && <button type="button" onClick={() => setUrl("")} className="text-xs text-red-500 hover:underline">Remove</button>}
+      </div>
+    </div>
+  );
+}
+
+function StatsEditor({ initial }: { initial: HomeStat[] }) {
+  const [stats, setStats] = useState<HomeStat[]>(initial);
+
+  function update(i: number, field: keyof HomeStat, val: string) {
+    setStats((prev) => prev.map((s, idx) => idx === i ? { ...s, [field]: val } : s));
+  }
+
+  return (
+    <div>
+      <label className="block text-sm font-semibold mb-2" style={{ color: "#1c2e06" }}>Stats grid (6 items)</label>
+      <input type="hidden" name="stats" value={JSON.stringify(stats)} />
+      <div className="space-y-2">
+        {stats.map((s, i) => (
+          <div key={i} className="flex gap-2">
+            <input
+              value={s.value}
+              onChange={(e) => update(i, "value", e.target.value)}
+              placeholder="Value e.g. 100+"
+              className="w-28 rounded-lg border px-3 py-2 text-sm font-bold"
+              style={{ borderColor: "#d4e6c4" }}
+            />
+            <input
+              value={s.label}
+              onChange={(e) => update(i, "label", e.target.value)}
+              placeholder="Label"
+              className="flex-1 rounded-lg border px-3 py-2 text-sm"
+              style={{ borderColor: "#d4e6c4" }}
+            />
+          </div>
+        ))}
+      </div>
+      <p className="text-xs mt-2" style={{ color: "#7a8e6a" }}>Edit values inline. Changes save when you click Save Changes.</p>
+    </div>
+  );
+}
+
+export function HomeSectionForm({ current, onSave }: Props) {
+  const [pending, startTransition] = useTransition();
+  const [saved, setSaved] = useState(false);
+  const [error, setError] = useState("");
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    startTransition(async () => {
+      const res = await onSave(fd);
+      if (res.success) { setSaved(true); setTimeout(() => setSaved(false), 3000); }
+      else setError(res.error ?? "Save failed");
+    });
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-8">
+
+      {/* About section */}
+      <section>
+        <h2 className="text-sm font-bold uppercase tracking-wider mb-4" style={{ color: "#3a5214" }}>About Section</h2>
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-semibold mb-1" style={{ color: "#1c2e06" }}>Headline</label>
+            <p className="text-xs mb-1.5" style={{ color: "#7a8e6a" }}>Use a newline for a line break in the heading.</p>
+            <textarea name="about_headline" defaultValue={current.about_headline} rows={2}
+              className="w-full rounded-lg border px-3 py-2 text-sm" style={{ borderColor: "#d4e6c4" }} />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold mb-1" style={{ color: "#1c2e06" }}>Paragraph 1</label>
+            <textarea name="about_body_1" defaultValue={current.about_body_1} rows={3}
+              className="w-full rounded-lg border px-3 py-2 text-sm" style={{ borderColor: "#d4e6c4" }} />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold mb-1" style={{ color: "#1c2e06" }}>Paragraph 2</label>
+            <textarea name="about_body_2" defaultValue={current.about_body_2} rows={3}
+              className="w-full rounded-lg border px-3 py-2 text-sm" style={{ borderColor: "#d4e6c4" }} />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section>
+        <h2 className="text-sm font-bold uppercase tracking-wider mb-4" style={{ color: "#3a5214" }}>Stats</h2>
+        <StatsEditor initial={current.stats} />
+      </section>
+
+      {/* Images */}
+      <section>
+        <h2 className="text-sm font-bold uppercase tracking-wider mb-4" style={{ color: "#3a5214" }}>Images</h2>
+        <div className="space-y-5">
+          <ImageUpload label="Background (building photo)" name="building_image_url" initial={current.building_image_url}
+            hint="Dark green About section background. Leave blank to use /images/building.jpg." />
+          <ImageUpload label="Team staff photo" name="team_staff_image_url" initial={current.team_staff_image_url}
+            hint="Photo shown beside the stats grid. Leave blank to use /images/team-staff.jpg." />
+          <ImageUpload label="Apply CTA background" name="team_group_image_url" initial={current.team_group_image_url}
+            hint="Background of the 'Build the future' section. Leave blank to use /images/team-group.jpg." />
+        </div>
+      </section>
+
+      {/* Apply CTA */}
+      <section>
+        <h2 className="text-sm font-bold uppercase tracking-wider mb-4" style={{ color: "#3a5214" }}>Apply CTA Section</h2>
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-semibold mb-1" style={{ color: "#1c2e06" }}>Headline</label>
+            <textarea name="cta_headline" defaultValue={current.cta_headline} rows={2}
+              className="w-full rounded-lg border px-3 py-2 text-sm" style={{ borderColor: "#d4e6c4" }} />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold mb-1" style={{ color: "#1c2e06" }}>Subtext</label>
+            <textarea name="cta_body" defaultValue={current.cta_body} rows={2}
+              className="w-full rounded-lg border px-3 py-2 text-sm" style={{ borderColor: "#d4e6c4" }} />
+          </div>
+        </div>
+      </section>
+
+      {error && <p className="text-sm text-red-600">{error}</p>}
+      {saved && <p className="text-sm font-medium" style={{ color: "#3a5214" }}>✓ Saved — changes are live on the homepage.</p>}
+
+      <button type="submit" disabled={pending}
+        className="px-6 py-2.5 rounded-lg text-sm font-semibold text-white disabled:opacity-60"
+        style={{ backgroundColor: "#3a5214" }}>
+        {pending ? "Saving…" : "Save Changes"}
+      </button>
+    </form>
+  );
+}

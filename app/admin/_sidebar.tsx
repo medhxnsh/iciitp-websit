@@ -5,19 +5,17 @@ import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   ClipboardList,
-  Bell,
   BookOpen,
-  Calendar,
-  Users,
-  Download,
-  Rocket,
-  FileText,
-  Image,
+  Map,
+  FileEdit,
   Link2,
+  FolderOpen,
   LogOut,
   ChevronDown,
+  PanelLeftClose,
+  PanelLeftOpen,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { AdminSession } from "@/lib/auth";
 import { logoutAction } from "./login/actions";
 
@@ -32,6 +30,8 @@ type NavItem =
 const NAV: NavItem[] = [
   { type: "link", label: "Dashboard", href: "/admin", icon: <LayoutDashboard className="w-4 h-4" /> },
   { type: "link", label: "Applications", href: "/admin/applications", icon: <ClipboardList className="w-4 h-4" /> },
+  { type: "link", label: "Site Map", href: "/admin/site-map", icon: <Map className="w-4 h-4" /> },
+  { type: "link", label: "Pages", href: "/admin/pages", icon: <FileEdit className="w-4 h-4" /> },
   {
     type: "group",
     label: "Content",
@@ -40,29 +40,20 @@ const NAV: NavItem[] = [
       { label: "Notifications", href: "/admin/content/notifications" },
       { label: "Programs", href: "/admin/content/programs" },
       { label: "Events", href: "/admin/content/events" },
-      { label: "Team", href: "/admin/content/team" },
       { label: "Downloads", href: "/admin/content/downloads" },
-      { label: "Startups", href: "/admin/content/startups" },
     ],
   },
-  {
-    type: "group",
-    label: "Files",
-    icon: <FileText className="w-4 h-4" />,
-    children: [
-      { label: "PDFs", href: "/admin/files/pdfs" },
-      { label: "Images", href: "/admin/files/images" },
-    ],
-  },
+  { type: "link", label: "Media", href: "/admin/media", icon: <FolderOpen className="w-4 h-4" /> },
   { type: "link", label: "Form Links", href: "/admin/forms", icon: <Link2 className="w-4 h-4" /> },
 ];
 
-function NavLink({ href, label, icon }: { href: string; label: string; icon: React.ReactNode }) {
+function NavLink({ href, label, icon, collapsed }: { href: string; label: string; icon: React.ReactNode; collapsed: boolean }) {
   const pathname = usePathname();
   const active = pathname === href || (href !== "/admin" && pathname.startsWith(href));
   return (
     <Link
       href={href}
+      title={collapsed ? label : undefined}
       className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors"
       style={
         active
@@ -70,16 +61,29 @@ function NavLink({ href, label, icon }: { href: string; label: string; icon: Rea
           : { color: "rgba(255,255,255,0.70)" }
       }
     >
-      {icon}
-      {label}
+      <span className="shrink-0">{icon}</span>
+      {!collapsed && label}
     </Link>
   );
 }
 
-function NavGroup({ label, icon, children }: { label: string; icon: React.ReactNode; children: { label: string; href: string }[] }) {
+function NavGroup({ label, icon, children, collapsed }: { label: string; icon: React.ReactNode; children: { label: string; href: string }[]; collapsed: boolean }) {
   const pathname = usePathname();
   const anyActive = children.some((c) => pathname.startsWith(c.href));
   const [open, setOpen] = useState(anyActive);
+
+  if (collapsed) {
+    return (
+      <div title={label}>
+        <span
+          className="flex items-center justify-center px-3 py-2 rounded-lg text-sm font-medium"
+          style={{ color: anyActive ? "white" : "rgba(255,255,255,0.70)" }}
+        >
+          {icon}
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -125,55 +129,97 @@ function NavGroup({ label, icon, children }: { label: string; icon: React.ReactN
 }
 
 export function AdminSidebar({ user }: SidebarProps) {
+  const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("admin-sidebar-collapsed");
+    if (saved === "true") setCollapsed(true);
+  }, []);
+
+  function toggle() {
+    setCollapsed((c) => {
+      localStorage.setItem("admin-sidebar-collapsed", String(!c));
+      return !c;
+    });
+  }
+
   return (
     <aside
-      className="w-60 shrink-0 flex flex-col min-h-screen"
-      style={{ backgroundColor: "#3a5214" }}
+      className="shrink-0 flex flex-col min-h-screen transition-all duration-200"
+      style={{ width: collapsed ? 56 : 240, backgroundColor: "#3a5214" }}
     >
-      {/* Wordmark */}
-      <div className="px-5 py-5 border-b" style={{ borderColor: "rgba(255,255,255,0.12)" }}>
-        <p className="font-black text-white text-sm leading-tight">IC IITP</p>
-        <p className="text-[11px] mt-0.5" style={{ color: "rgba(255,255,255,0.55)" }}>
-          Staff Portal
-        </p>
+      {/* Wordmark + collapse toggle */}
+      <div
+        className="flex items-center justify-between px-3 py-4 border-b"
+        style={{ borderColor: "rgba(255,255,255,0.12)" }}
+      >
+        {!collapsed && (
+          <div className="px-1">
+            <p className="font-black text-white text-sm leading-tight">IC IITP</p>
+            <p className="text-[11px] mt-0.5" style={{ color: "rgba(255,255,255,0.55)" }}>
+              Staff Portal
+            </p>
+          </div>
+        )}
+        <button
+          type="button"
+          onClick={toggle}
+          className="p-1.5 rounded-md transition-colors hover:bg-white/10"
+          style={{ color: "rgba(255,255,255,0.70)" }}
+          title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+        >
+          {collapsed ? <PanelLeftOpen className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
+        </button>
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-0.5" aria-label="Admin navigation">
+      <nav className="flex-1 px-1.5 py-4 space-y-0.5" aria-label="Admin navigation">
         {NAV.map((item) =>
           item.type === "link" ? (
-            <NavLink key={item.href} href={item.href} label={item.label} icon={item.icon} />
+            <NavLink key={item.href} href={item.href} label={item.label} icon={item.icon} collapsed={collapsed} />
           ) : (
-            <NavGroup key={item.label} label={item.label} icon={item.icon} children={item.children} />
+            <NavGroup key={item.label} label={item.label} icon={item.icon} children={item.children} collapsed={collapsed} />
           )
         )}
       </nav>
 
       {/* User pill + sign out */}
-      <div className="px-3 pb-5 pt-3 border-t" style={{ borderColor: "rgba(255,255,255,0.12)" }}>
-        <div className="flex items-center gap-2.5 px-3 py-2 mb-2 rounded-lg" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
+      <div className="px-1.5 pb-4 pt-3 border-t" style={{ borderColor: "rgba(255,255,255,0.12)" }}>
+        {!collapsed && (
+          <div className="flex items-center gap-2.5 px-3 py-2 mb-2 rounded-lg" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
+            <div
+              className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+              style={{ backgroundColor: "#f79420", color: "white" }}
+              aria-hidden="true"
+            >
+              {user.name.charAt(0).toUpperCase()}
+            </div>
+            <div className="min-w-0">
+              <p className="text-xs font-semibold text-white truncate">{user.name}</p>
+              <p className="text-[10px] capitalize" style={{ color: "rgba(255,255,255,0.55)" }}>
+                {user.role}
+              </p>
+            </div>
+          </div>
+        )}
+        {collapsed && (
           <div
-            className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+            className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold mx-auto mb-2"
             style={{ backgroundColor: "#f79420", color: "white" }}
-            aria-hidden="true"
+            title={user.name}
           >
             {user.name.charAt(0).toUpperCase()}
           </div>
-          <div className="min-w-0">
-            <p className="text-xs font-semibold text-white truncate">{user.name}</p>
-            <p className="text-[10px] capitalize" style={{ color: "rgba(255,255,255,0.55)" }}>
-              {user.role}
-            </p>
-          </div>
-        </div>
+        )}
         <form action={logoutAction}>
           <button
             type="submit"
             className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors"
             style={{ color: "rgba(255,255,255,0.60)" }}
+            title={collapsed ? "Sign out" : undefined}
           >
-            <LogOut className="w-4 h-4" aria-hidden="true" />
-            Sign out
+            <LogOut className="w-4 h-4 shrink-0" aria-hidden="true" />
+            {!collapsed && "Sign out"}
           </button>
         </form>
       </div>

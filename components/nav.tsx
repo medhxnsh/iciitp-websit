@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -21,6 +21,24 @@ function useNavItems() {
   const te = useTranslations("nav_events");
   const tn = useTranslations("nav_notifications");
 
+  const [cmsEventItems, setCmsEventItems] = useState<{ href: string; label: string }[]>([]);
+
+  const fetchCmsEvents = useCallback(async () => {
+    try {
+      const res = await fetch("/api/events/published");
+      if (!res.ok) return;
+      const data: { slug: string; title: string }[] = await res.json();
+      const staticSlugs = new Set(["medtech-school", "edpi-2025", "ideathon", "training-program"]);
+      setCmsEventItems(
+        data
+          .filter((e) => !staticSlugs.has(e.slug))
+          .map((e) => ({ href: `/events/${e.slug}`, label: e.title }))
+      );
+    } catch { /* ignore */ }
+  }, []);
+
+  useEffect(() => { fetchCmsEvents(); }, [fetchCmsEvents]);
+
   const items: NavItem[] = [
     { href: "/", label: t("home") },
     {
@@ -37,6 +55,7 @@ function useNavItems() {
       href: "/programs",
       label: t("programs"),
       children: [
+        { href: "/programs", label: tp("overview") },
         { href: "/programs/icitp-incubation", label: tp("flagship") },
         { href: "/programs/nidhi-prayas", label: tp("nidhiPrayas") },
         { href: "/programs/nidhi-eir", label: tp("nidhiEir") },
@@ -74,10 +93,12 @@ function useNavItems() {
       href: "/events",
       label: t("events"),
       children: [
+        { href: "/events", label: te("overview") },
         { href: "/events/medtech-school", label: te("medtech") },
         { href: "/events/edpi-2025", label: te("edpi") },
         { href: "/events/ideathon", label: te("ideathon") },
         { href: "/events/training-program", label: te("training") },
+        ...cmsEventItems,
         { href: "/events/archive", label: te("archive") },
       ],
     },
@@ -85,6 +106,7 @@ function useNavItems() {
       href: "/notifications",
       label: t("notifications"),
       children: [
+        { href: "/notifications", label: tn("overview") },
         { href: "/notifications/careers", label: tn("careers") },
         { href: "/notifications/call-for-proposals", label: tn("callForProposals") },
         { href: "/notifications/niq-tender", label: tn("niqTender") },

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { getPageSection } from "@/lib/cms/page-sections";
+
+export const dynamic = "force-dynamic";
 import { ParticleHero } from "@/components/particle-hero";
 import { ProgramLogo } from "@/components/program-logo";
 import { ExternalLink } from "@/components/external-link";
@@ -35,6 +38,24 @@ export default async function HomePage({ params }: HomePageProps) {
   const labs = getAllLabs(locale);
   const allEvents = getAllEvents(locale);
   const allNotifs = getAllNotifications(locale);
+
+  const cms = await getPageSection("home").catch(() => null);
+  const buildingImg   = cms?.building_image_url   || "/images/building.jpg";
+  const teamStaffImg  = cms?.team_staff_image_url || "/images/team-staff.jpg";
+  const teamGroupImg  = cms?.team_group_image_url || "/images/team-group.jpg";
+  const aboutHeadline = cms?.about_headline       || "Built at IIT Patna.\nBuilt for India.";
+  const aboutBody1    = cms?.about_body_1         || "IC IITP is a Government of India & Bihar joint initiative (Reg. No. 987, 2015–16) seated on a 500+ acre campus in Bihta, Patna. Our mission: make ESDM and healthcare technology accessible to the common man.";
+  const aboutBody2    = cms?.about_body_2         || "Since inception we have screened 1,000+ business plans, facilitated 25 patent filings, and deployed seed capital across 600+ funding transactions.";
+  const ctaHeadline   = cms?.cta_headline         || "Build the future\nwith IC IITP";
+  const ctaBody       = cms?.cta_body             || "Apply for incubation, request lab access, or reach out to our team. We support deep-tech founders from idea to market.";
+  const stats = cms?.stats ?? [
+    { value: "₹47.10 Cr", label: "Total Undertaking" },
+    { value: "100+",      label: "Startups Supported" },
+    { value: "1,000+",    label: "B-Plans Screened" },
+    { value: "25",        label: "Patents Facilitated" },
+    { value: "600+",      label: "Funding Transactions" },
+    { value: "6",         label: "Incubation Schemes" },
+  ];
 
   return (
     <div>
@@ -71,7 +92,7 @@ export default async function HomePage({ params }: HomePageProps) {
       >
         {/* Building photo background */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <Image src="/images/building.jpg" alt="" fill sizes="100vw" className="object-cover object-center" quality={80} priority />
+          <Image src={buildingImg} alt="" fill sizes="100vw" className="object-cover object-center" quality={80} priority />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(58,82,20,0.93) 0%, rgba(42,60,14,0.85) 100%)" }} />
         </div>
 
@@ -79,20 +100,13 @@ export default async function HomePage({ params }: HomePageProps) {
           <div>
             <Reveal>
               <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-4">About</p>
-              <h2 id="about-h" className="text-4xl sm:text-5xl font-black leading-tight mb-6">
-                Built at IIT Patna.<br />Built for India.
+              <h2 id="about-h" className="text-4xl sm:text-5xl font-black leading-tight mb-6" style={{ whiteSpace: "pre-line" }}>
+                {aboutHeadline}
               </h2>
             </Reveal>
             <Reveal delay={0.12}>
-              <p className="text-white/75 text-lg leading-relaxed mb-6 max-w-lg">
-                IC IITP is a Government of India &amp; Bihar joint initiative (Reg. No. 987, 2015–16)
-                seated on a 500+ acre campus in Bihta, Patna. Our mission: make ESDM and healthcare
-                technology accessible to the common man.
-              </p>
-              <p className="text-white/60 text-base leading-relaxed mb-8 max-w-lg">
-                Since inception we have screened 1,000+ business plans, facilitated 25 patent filings,
-                and deployed seed capital across 600+ funding transactions.
-              </p>
+              <p className="text-white/75 text-lg leading-relaxed mb-6 max-w-lg">{aboutBody1}</p>
+              <p className="text-white/60 text-base leading-relaxed mb-8 max-w-lg">{aboutBody2}</p>
               <Link
                 href="/about"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white font-semibold transition-colors hover:bg-green-50"
@@ -108,7 +122,7 @@ export default async function HomePage({ params }: HomePageProps) {
             <Reveal direction="right">
               <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "16/7" }}>
                 <Image
-                  src="/images/team-staff.jpg"
+                  src={teamStaffImg}
                   alt="IC IITP Management Team"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -124,14 +138,7 @@ export default async function HomePage({ params }: HomePageProps) {
             </Reveal>
 
             <Stagger className="grid grid-cols-3 gap-3" delay={0.15}>
-              {[
-                ["₹47.10 Cr", "Total Undertaking"],
-                ["100+",      "Startups Supported"],
-                ["1,000+",    "B-Plans Screened"],
-                ["25",        "Patents Facilitated"],
-                ["600+",      "Funding Transactions"],
-                ["6",         "Incubation Schemes"],
-              ].map(([v, l]) => (
+              {stats.map(({ value: v, label: l }) => (
                 <StaggerItem key={l}>
                   <div className="rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors p-4 h-full">
                     <p className="text-2xl font-black text-white">
@@ -567,7 +574,7 @@ export default async function HomePage({ params }: HomePageProps) {
       >
         {/* Team group photo background */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <Image src="/images/team-group.jpg" alt="" fill sizes="100vw" className="object-cover object-center" quality={75} priority />
+          <Image src={teamGroupImg} alt="" fill sizes="100vw" className="object-cover object-center" quality={75} priority />
           <div className="absolute inset-0" style={{ background: "linear-gradient(rgba(30,46,9,0.88), rgba(42,60,14,0.92))" }} />
         </div>
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true"
@@ -575,13 +582,10 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center relative z-10">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-widest text-white/50 mb-4">Join us</p>
-            <h2 className="text-4xl sm:text-5xl font-black leading-tight mb-5">
-              Build the future<br />with IC IITP
+            <h2 className="text-4xl sm:text-5xl font-black leading-tight mb-5" style={{ whiteSpace: "pre-line" }}>
+              {ctaHeadline}
             </h2>
-            <p className="text-white/70 text-lg max-w-xl mx-auto mb-10">
-              Apply for incubation, request lab access, or reach out to our team.
-              We support deep-tech founders from idea to market.
-            </p>
+            <p className="text-white/70 text-lg max-w-xl mx-auto mb-10">{ctaBody}</p>
           </Reveal>
           <Reveal delay={0.15} className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

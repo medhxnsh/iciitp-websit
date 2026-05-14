@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { getAllPrograms, getProgram, getProgramSlugs } from "@/lib/content";
+import { getAllPrograms, getProgram, getProgramSlugs, type Program } from "@/lib/content";
+import { getCmsProgramBySlug } from "@/lib/cms/programs";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ProgramCard } from "@/components/program-card";
 import { Link } from "@/i18n/navigation";
 import { ExternalLink } from "@/components/external-link";
 import { routing } from "@/i18n/routing";
-import { CheckCircle, ArrowUpRight } from "lucide-react";
+import { CheckCircle, ArrowUpRight, FileDown } from "lucide-react";
 import { ProgramLogo } from "@/components/program-logo";
+import NextImage from "next/image";
+import { getDownloadsByPage } from "@/lib/cms/downloads";
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>;
 }
+
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   const slugs = getProgramSlugs();
@@ -34,19 +39,59 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+function mergeCms(base: Program, cms: Awaited<ReturnType<typeof getCmsProgramBySlug>>): Program {
+  if (!cms) return base;
+  // Only override fields that are present (non-empty) in the CMS doc
+  const str = (v: string | undefined, fallback: string | undefined) =>
+    v && v.trim() ? v : fallback;
+  const arr = (v: string[] | undefined, fallback: string[] | undefined) =>
+    v && v.length > 0 ? v : fallback;
+  return {
+    ...base,
+    title: str(cms.title, base.title) ?? base.title,
+    tagline: str(cms.tagline, base.tagline) ?? base.tagline,
+    about: str(cms.about, base.about) ?? base.about,
+    status: str(cms.status, base.status),
+    statusNote: str(cms.statusNote, base.statusNote),
+    applyUrl: str(cms.applyUrl, base.applyUrl),
+    contactEmail: str(cms.contactEmail, base.contactEmail),
+    grant: str(cms.grant, base.grant),
+    schemeOutlay: str(cms.schemeOutlay, base.schemeOutlay),
+    stipend: str(cms.stipend, base.stipend),
+    duration: str(cms.duration, base.duration),
+    eligibility: arr(cms.eligibility, base.eligibility),
+    notEligible: arr(cms.notEligible, base.notEligible),
+    objectives: arr(cms.objectives, base.objectives),
+    targetAudience: arr(cms.targetAudience, base.targetAudience),
+    expectedOutcomes: arr(cms.expectedOutcomes, base.expectedOutcomes),
+    support: arr(cms.support, base.support),
+    preferences: arr(cms.preferences, base.preferences),
+    notes: arr(cms.notes, base.notes),
+    disclaimer: arr(cms.disclaimer, base.disclaimer),
+  };
+}
+
 export default async function ProgramPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  let program;
+  let program: Program;
+  let programImages: { url: string; alt?: string }[] = [];
+  let imageLayout: "banner" | "grid" | "carousel" = "banner";
   try {
-    program = getProgram(slug, locale);
+    const base = getProgram(slug, locale);
+    let cms = null;
+    try { cms = await getCmsProgramBySlug(slug); } catch {}
+    program = mergeCms(base, cms);
+    programImages = cms?.images ?? [];
+    imageLayout = cms?.imageLayout ?? "banner";
   } catch {
     notFound();
   }
 
   const allPrograms = getAllPrograms(locale).filter((p) => p.slug !== slug);
   const applyHref = program.applyUrl ?? null;
+  const pageDocs = await getDownloadsByPage(`programs/${slug}`).catch(() => []);
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -503,6 +548,65 @@ export default async function ProgramPage({ params }: Props) {
           </div>
         </aside>
       </div>
+
+      {/* Gallery */}
+      {programImages.length > 0 && (
+        <section aria-labelledby="gallery-heading" className="mt-12 pt-10 border-t border-[--color-border]">
+          <h2 id="gallery-heading" className="text-xl font-bold text-[--color-text] mb-5">Gallery</h2>
+          {imageLayout === "banner" && (
+            <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "21/7" }}>
+              <NextImage src={programImages[0].url} alt={programImages[0].alt ?? program.title} fill sizes="100vw" className="object-cover object-center" quality={85} />
+            </div>
+          )}
+          {imageLayout === "grid" && (
+            <div className={`grid gap-2 ${programImages.length === 1 ? "" : programImages.length === 2 ? "grid-cols-2" : "grid-cols-2 sm:grid-cols-3"}`}>
+              {programImages.map((img, i) => (
+                <div key={i} className="relative rounded-xl overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <NextImage src={img.url} alt={img.alt ?? `${program.title} ${i + 1}`} fill sizes="33vw" className="object-cover object-center" quality={80} />
+                </div>
+              ))}
+            </div>
+          )}
+          {imageLayout === "carousel" && (
+            <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory" style={{ scrollbarWidth: "thin" }}>
+              {programImages.map((img, i) => (
+                <div key={i} className="relative rounded-xl overflow-hidden shrink-0 snap-start" style={{ width: "60%", minWidth: 280, aspectRatio: "16/9" }}>
+                  <NextImage src={img.url} alt={img.alt ?? `${program.title} ${i + 1}`} fill sizes="60vw" className="object-cover object-center" quality={80} />
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* Programme documents (CMS) */}
+      {pageDocs.length > 0 && (
+        <section aria-labelledby="docs-heading" className="mt-12 pt-10 border-t border-[--color-border]">
+          <h2 id="docs-heading" className="text-xl font-bold text-[--color-text] mb-5">Documents &amp; Forms</h2>
+          <ul className="space-y-2">
+            {pageDocs.map((doc) => (
+              <li key={doc.id}>
+                <a
+                  href={doc.fileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl border bg-white hover:shadow-sm transition-shadow"
+                  style={{ borderColor: "#e8f0e0" }}
+                >
+                  <FileDown className="w-4 h-4 shrink-0" style={{ color: "#3a5214" }} aria-hidden="true" />
+                  <span className="flex-1 min-w-0">
+                    <span className="text-sm font-semibold" style={{ color: "#1c2e06" }}>{doc.title}</span>
+                    {doc.purpose && <span className="text-xs block mt-0.5" style={{ color: "#7a8e6a" }}>{doc.purpose}</span>}
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0" style={{ backgroundColor: "#f0f7e6", color: "#3a5214" }}>
+                    {doc.fileType}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Other programs */}
       <section aria-labelledby="other-programs-heading" className="mt-16 pt-10 border-t border-[--color-border]">

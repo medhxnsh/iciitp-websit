@@ -20,6 +20,7 @@
     "staff": "Staff"
   },
   "nav_programs": {
+    "overview": "Overview",
     "flagship": "ICIIT Patna Incubation",
     "nidhiPrayas": "Nidhi Prayas",
     "nidhiEir": "Nidhi-EIR",
@@ -45,6 +46,7 @@
     "testCal": "Test & Calibration"
   },
   "nav_events": {
+    "overview": "Overview",
     "medtech": "MedTech School",
     "edpi": "EDPI-2025",
     "ideathon": "Ideathon",
@@ -52,6 +54,7 @@
     "archive": "Archive"
   },
   "nav_notifications": {
+    "overview": "Overview",
     "careers": "Careers",
     "callForProposals": "Call for Proposals",
     "niqTender": "NIQ / Tender"
@@ -84,7 +87,6 @@
     "skipToNav": "Skip to navigation",
     "openMenu": "Open navigation menu",
     "closeMenu": "Close navigation menu",
-    "languageSwitcher": "Change language",
     "externalLinkWarning": "You are leaving the IC IITP website",
     "externalLinkBody": "You are about to be redirected to an external website. IC IITP is not responsible for the content of external sites.",
     "externalLinkConfirm": "Continue",

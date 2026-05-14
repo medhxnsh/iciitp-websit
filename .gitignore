@@ -45,6 +45,9 @@ CLAUDE.md
 AGENTS.md
 .claude/
 
+# Local upload test files (temporary, not for production)
+/public/uploads/
+
 # Raw asset folders (local only)
 Image Assets/
 Info for programs/

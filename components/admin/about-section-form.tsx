@@ -1,5 +1,8 @@
 "use client";
-
+/**
+ * Admin form for editing the About page content section.
+ * Submits to saveAboutSectionAction which upserts the Firestore page-sections doc.
+ */
 import { useTransition, useState } from "react";
 
 interface AboutCurrent {

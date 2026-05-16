@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const TESTIMONIALS = [
@@ -8,24 +9,28 @@ const TESTIMONIALS = [
     quote: "Being the first incubatee of IC, we grew with the centre. Excellent infrastructure, a phenomenal MedTech Mentor and unlimited access to Prototyping labs enabled us to accelerate our Product development. Any ESDM start-up can magnify their growth with their incubation program.",
     name: "Llewellyn D'Sa",
     role: "Founder, Bionic Hope Pvt Ltd",
+    image: "/images/testimonials/llewellyn-dsa.jpg",
     initials: "LD",
   },
   {
     quote: "Our journey truly began when we got incubated at IC. IC management and team believed and stood with us in our early days of struggle. Seed funding of Rs 10 Lakhs enabled us to perfect our products and conduct pilots which lead to major customer acquisitions such as Bangalore Airport.",
     name: "Ankur Jaiswal",
     role: "Founder, 4Mirrortech Innovatives Pvt Ltd",
+    image: "/images/testimonials/ankur-jaiswal.jpg",
     initials: "AJ",
   },
   {
     quote: "We have been fortunate to be part of the IC IITP family. We received mentorship, office facilities, seed fund and plenty of intangible help that was needed on a day to day basis to take our work forward.",
     name: "Rahul Raj",
     role: "Co-founder, Electro Curietech Pvt Ltd",
+    image: "/images/testimonials/rahul-raj.jpg",
     initials: "RR",
   },
   {
     quote: "As a proud incubatee at IIT Patna Incubation Centre, CEIR Mobility extends heartfelt gratitude for the exceptional support received. Access to state-of-the-art facilities, mentorship, and investor backing has been instrumental in advancing our vision of developing the most efficient motor and motor controller for energy conservation. A shout-out to IIT Patna Incubation Centre for fostering innovation and nurturing emerging startups like ours!",
     name: "Jitendra Parit",
     role: "CTO, CEIR MOBILITY PVT. LTD.",
+    image: "/images/testimonials/jitendra-parit.jpg",
     initials: "JP",
   },
 ];
@@ -62,11 +67,14 @@ function SideCard({
         {t.quote}
       </p>
       <div className="flex flex-col items-center gap-1.5 mt-8 w-full">
-        <div
-          className="w-11 h-11 rounded-full flex items-center justify-center text-xs font-black"
-          style={{ backgroundColor: "rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.28)" }}
-        >
-          {t.initials}
+        <div className="w-11 h-11 rounded-full overflow-hidden" style={{ opacity: 0.35 }}>
+          <Image
+            src={t.image}
+            alt={t.name}
+            width={44}
+            height={44}
+            className="w-full h-full object-cover object-top"
+          />
         </div>
         <p className="text-xs font-semibold text-center" style={{ color: "rgba(255,255,255,0.3)" }}>
           {t.name}
@@ -161,14 +169,16 @@ export function TestimonialsCarousel() {
               transition={{ duration: 0.32, ease: EASE }}
             >
               <div
-                className="w-[72px] h-[72px] rounded-full flex items-center justify-center text-lg font-black"
-                style={{
-                  backgroundColor: "#2a3a0d",
-                  color: "white",
-                  boxShadow: "0 0 0 3px rgba(247,148,32,0.35)",
-                }}
+                className="w-[72px] h-[72px] rounded-full overflow-hidden"
+                style={{ boxShadow: "0 0 0 3px rgba(247,148,32,0.5)" }}
               >
-                {current.initials}
+                <Image
+                  src={current.image}
+                  alt={current.name}
+                  width={72}
+                  height={72}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <p className="font-bold text-white text-sm mt-1">{current.name}</p>
               <p className="text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>
@@ -209,11 +219,14 @@ export function TestimonialsCarousel() {
               {current.quote}
             </p>
             <div className="flex items-center gap-3 pt-5" style={{ borderTop: "1px solid rgba(255,255,255,0.25)" }}>
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-black shrink-0"
-                style={{ backgroundColor: "#2a3a0d", color: "white" }}
-              >
-                {current.initials}
+              <div className="w-10 h-10 rounded-full overflow-hidden shrink-0" style={{ boxShadow: "0 0 0 2px rgba(255,255,255,0.3)" }}>
+                <Image
+                  src={current.image}
+                  alt={current.name}
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <div>
                 <p className="font-bold text-white text-sm">{current.name}</p>

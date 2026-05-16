@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const SPACING = 8;   // px between particles — larger = sparser grid
@@ -124,7 +125,7 @@ export function ParticleHero() {
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 flex flex-col items-center justify-center px-4"
+        className="absolute inset-0 flex flex-col items-center justify-center px-4 pb-28 pt-24"
         style={{ pointerEvents: "none" }}
       >
         {/* Institution label */}
@@ -174,7 +175,7 @@ export function ParticleHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.42, ease: EASE_CURVE }}
         >
-          <a
+          <Link
             id="hero-cta"
             href="/apply"
             className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl text-white font-bold text-base transition-all hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
@@ -184,7 +185,7 @@ export function ParticleHero() {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </Link>
           <p className="text-[11px] font-medium text-center" style={{ color: "#5a7c20" }}>
             1,000+ B-plans screened &nbsp;·&nbsp; 25 patents filed &nbsp;·&nbsp; Est. 2015
           </p>

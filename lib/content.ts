@@ -1,3 +1,7 @@
+/**
+ * Static content loader — reads JSON files from content/en/ at build/request time.
+ * Server-only (marked with "server-only"). Falls back gracefully when files are missing.
+ */
 import "server-only";
 import path from "path";
 import fs from "fs";
@@ -20,6 +24,10 @@ export interface TeamMember {
   name: string;
   designation: string;
   role: string;
+  photo?: string;
+  bio?: string;
+  email?: string;
+  linkedin?: string;
 }
 
 export const getGovernance = (locale = "en") => readJson<TeamMember[]>(locale, "team", "governance.json");
@@ -69,6 +77,7 @@ export interface Program {
   duration?: string;
   area?: string;
   applyUrl?: string;
+  equipmentFormUrl?: string;
   applyForm?: string;
   applicationForm?: string;
   contactEmail?: string;

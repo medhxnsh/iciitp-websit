@@ -1,7 +1,12 @@
+/**
+ * CMS data layer for Google Form / external application links.
+ * Auto-discovered by the admin Forms page; edits propagate to the source (static JSON or Firestore).
+ */
 import { getDb } from "@/lib/firebase-admin";
 import { FieldValue, Timestamp } from "firebase-admin/firestore";
+import { COLLECTIONS } from "./collections";
 
-const COL = "cms-forms";
+const COL = COLLECTIONS.formLinks;
 
 export interface CmsFormLink {
   key: string;
@@ -33,4 +38,20 @@ export async function upsertFormLink(
   } else {
     await snap.docs[0].ref.update(payload);
   }
+}
+
+export async function createFormLink(data: {
+  key: string;
+  label: string;
+  url: string;
+  active: boolean;
+}): Promise<string> {
+  const ref = await getDb()
+    .collection(COL)
+    .add({ ...data, updatedAt: FieldValue.serverTimestamp() });
+  return ref.id;
+}
+
+export async function deleteFormLink(id: string): Promise<void> {
+  await getDb().collection(COL).doc(id).delete();
 }

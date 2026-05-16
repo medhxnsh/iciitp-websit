@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Upload } from "lucide-react";
+import { Upload, Check } from "lucide-react";
 import type { DownloadInput } from "@/lib/cms/downloads";
 
 const FILE_TYPES = ["PDF", "DOCX", "XLS", "PPT", "Other"];
@@ -30,6 +30,7 @@ export function DownloadForm({ initial, onSave }: Props) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState("");
+  const [saved, setSaved] = useState(false);
   const [uploading, setUploading] = useState(false);
 
   const [title, setTitle] = useState(initial?.title ?? "");
@@ -77,8 +78,8 @@ export function DownloadForm({ initial, onSave }: Props) {
     startTransition(async () => {
       const result = await onSave(data);
       if (result.success) {
-        router.push("/admin/content/downloads");
-        router.refresh();
+        setSaved(true);
+        setTimeout(() => { router.push("/admin/content/downloads"); router.refresh(); }, 800);
       } else {
         setError(result.error ?? "Something went wrong.");
       }
@@ -152,7 +153,7 @@ export function DownloadForm({ initial, onSave }: Props) {
         <p className="mt-1.5 text-xs" style={{ color: "#7a8e6a" }}>
           This file will appear on:{" "}
           <a
-            href={`/en/${displayPage === "downloads" ? "downloads" : displayPage}`}
+            href={`/${displayPage === "downloads" ? "downloads" : displayPage}`}
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium underline underline-offset-1"
@@ -168,18 +169,24 @@ export function DownloadForm({ initial, onSave }: Props) {
         <input value={purpose} onChange={(e) => setPurpose(e.target.value)} placeholder="Brief description shown below the file title" className={inputCls} style={inputStyle} />
       </div>
 
-      <label className="flex items-center gap-2.5 cursor-pointer">
-        <input type="checkbox" checked={published} onChange={(e) => setPublished(e.target.checked)}
-          className="w-4 h-4 rounded" style={{ accentColor: "#3a5214" }} />
-        <span className="text-sm" style={{ color: "#1c2e06" }}>Published (visible on website)</span>
-      </label>
-
-      <div className="flex items-center gap-3 pt-2">
-        <button type="submit" disabled={pending || uploading}
+      <div className="flex items-center gap-3 pt-2 flex-wrap">
+        <button type="submit" disabled={pending || saved || uploading}
           className="text-sm font-semibold px-6 py-2.5 rounded-xl text-white disabled:opacity-60"
           style={{ backgroundColor: "#3a5214" }}>
-          {pending ? "Saving…" : initial ? "Save changes" : "Add download"}
+          {pending ? "Saving…" : saved ? <><Check className="w-4 h-4 inline mr-1" />Saved</> : initial ? "Save changes" : "Add download"}
         </button>
+        <label
+          className="flex items-center gap-2.5 cursor-pointer px-4 py-2.5 rounded-xl border transition-colors"
+          style={published
+            ? { backgroundColor: "#f0f7e6", borderColor: "#7bbf3e", color: "#1c2e06" }
+            : { backgroundColor: "#f8f8f8", borderColor: "#d4e6c4", color: "#7a8e6a" }}
+        >
+          <input type="checkbox" checked={published} onChange={(e) => setPublished(e.target.checked)}
+            className="w-4 h-4 rounded" style={{ accentColor: "#3a5214" }} />
+          <span className="text-sm font-semibold">
+            {published ? "Live on website" : "Set live on website"}
+          </span>
+        </label>
         <button type="button" onClick={() => router.push("/admin/content/downloads")}
           className="text-sm font-medium px-4 py-2.5 rounded-xl" style={{ color: "#7a8e6a" }}>
           Cancel

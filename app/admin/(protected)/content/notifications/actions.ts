@@ -6,8 +6,6 @@ import {
   updateNotification,
   deleteNotification,
   type NotificationInput,
-  type NotificationType,
-  TYPE_PATHS,
 } from "@/lib/cms/notifications";
 import { revalidatePath } from "next/cache";
 import { Timestamp } from "firebase-admin/firestore";
@@ -15,12 +13,14 @@ import { Timestamp } from "firebase-admin/firestore";
 export interface NotificationFormData {
   title: string;
   body: string;
-  type: NotificationType;
+  category: string;
   deadline: string | null;
   validFrom: string | null;
   contactEmail: string;
   externalUrl: string;
   attachmentUrl: string;
+  attachments: Array<{ title: string; url: string; type: string }>;
+  coverImageUrl: string;
   published: boolean;
 }
 
@@ -29,13 +29,13 @@ function toInput(data: NotificationFormData): NotificationInput {
     ...data,
     deadline: data.deadline ? Timestamp.fromDate(new Date(data.deadline)) : null,
     validFrom: data.validFrom ? Timestamp.fromDate(new Date(data.validFrom)) : null,
+    attachments: data.attachments.length ? data.attachments : [],
+    coverImageUrl: data.coverImageUrl || "",
   };
 }
 
 function revalidateAll() {
-  for (const path of Object.values(TYPE_PATHS)) {
-    revalidatePath(`/en/notifications/${path}`);
-  }
+  revalidatePath("/notifications");
   revalidatePath("/admin/content/notifications");
 }
 
@@ -68,6 +68,11 @@ export async function updateNotificationAction(
 
 export async function deleteNotificationAction(id: string): Promise<void> {
   await requireAuth();
-  await deleteNotification(id);
-  revalidateAll();
+  try {
+    await deleteNotification(id);
+    revalidateAll();
+  } catch (err) {
+    console.error("[deleteNotificationAction]", err);
+    throw new Error("Failed to delete notification");
+  }
 }

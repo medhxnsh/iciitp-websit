@@ -7,10 +7,10 @@ import { getDownloadsByPage } from "@/lib/cms/downloads";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ExternalLink } from "@/components/external-link";
 import { FileDown } from "lucide-react";
-import { Timestamp } from "firebase-admin/firestore";
+import { fmtDate, tsToMs } from "@/lib/format";
 import type { CmsNotificationDoc } from "@/lib/cms/notifications";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: re-fetch at most once per minute
 
 interface Props { params: Promise<{ locale: string }> }
 const SLUG = "careers";
@@ -22,24 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { title: n.title, description: n.summary };
 }
 
-function fmtTs(ts: unknown): string {
-  if (!ts) return "";
-  if (ts instanceof Timestamp) return ts.toDate().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  if (typeof ts === "object" && ts !== null && "_seconds" in ts)
-    return new Date((ts as { _seconds: number })._seconds * 1000).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  return "";
-}
-
 function isCmsActive(n: CmsNotificationDoc): boolean {
-  const now = new Date();
-  const from = n.validFrom instanceof Timestamp ? n.validFrom.toDate()
-    : n.validFrom && typeof n.validFrom === "object" && "_seconds" in (n.validFrom as object)
-      ? new Date((n.validFrom as { _seconds: number })._seconds * 1000) : null;
-  const dead = n.deadline instanceof Timestamp ? n.deadline.toDate()
-    : n.deadline && typeof n.deadline === "object" && "_seconds" in (n.deadline as object)
-      ? new Date((n.deadline as { _seconds: number })._seconds * 1000) : null;
-  if (dead && dead < now) return false;
-  if (from && from > now) return false;
+  const now = Date.now();
+  const dl = tsToMs(n.deadline);
+  const vf = tsToMs(n.validFrom);
+  if (dl && dl < now) return false;
+  if (vf && vf > now) return false;
   return true;
 }
 
@@ -57,9 +45,9 @@ function CmsNotificationCard({ n }: { n: CmsNotificationDoc }) {
         <h2 className="text-2xl font-bold text-[var(--color-text)] mb-2">{n.title}</h2>
         {(n.validFrom || n.deadline) && (
           <p className="text-sm text-[var(--color-muted)]">
-            {n.validFrom && <>Valid from: {fmtTs(n.validFrom)}</>}
+            {n.validFrom && <>Valid from: {fmtDate(n.validFrom)}</>}
             {n.validFrom && n.deadline && " – "}
-            {n.deadline && <>Deadline: {fmtTs(n.deadline)}</>}
+            {n.deadline && <>Deadline: {fmtDate(n.deadline)}</>}
           </p>
         )}
       </header>

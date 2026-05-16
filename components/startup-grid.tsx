@@ -115,16 +115,12 @@ export function StartupGrid({ startups, filterScheme, showFilter = false }: Star
 }
 
 function StartupCard({ startup }: { startup: Startup }) {
-  const initials = startup.name
-    .split(/[\s(]/)[0]
-    .slice(0, 2)
-    .toUpperCase();
-
   return (
     <article className="flex flex-col rounded-[--radius-lg] border border-[--color-border] bg-[--color-surface] hover:shadow-md hover:border-[--color-brand-300] transition-all p-5">
       <div className="flex items-start gap-3 mb-3">
-        <div className="w-10 h-10 rounded-[--radius-md] bg-[--color-brand-100] text-[--color-brand-800] font-black text-sm flex items-center justify-center shrink-0">
-          {initials}
+        <div className="w-10 h-10 rounded-[--radius-md] overflow-hidden bg-white border border-[--color-border] flex items-center justify-center shrink-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={startup.logo ?? "/logo.png"} alt={`${startup.name} logo`} className="w-full h-full object-contain p-0.5" />
         </div>
         <div className="min-w-0">
           <h3 className="font-semibold text-[--color-text] text-sm leading-snug line-clamp-2">

@@ -7,7 +7,7 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { ExternalLink } from "@/components/external-link";
 import { Calendar, MapPin, Clock } from "lucide-react";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: re-fetch at most once per minute
 interface Props { params: Promise<{ locale: string }> }
 const SLUG = "medtech-school";
 

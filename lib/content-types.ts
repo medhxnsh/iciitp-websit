@@ -1,3 +1,7 @@
+/**
+ * Shared domain types and lookup tables — safe to import in both server and client code.
+ * No Node.js built-ins; no firebase-admin imports.
+ */
 // Client-safe types and constants — no Node.js imports
 
 export type StartupScheme = "meity" | "sisf" | "nidhi-prayas" | "nidhi-eir" | "genesis";
@@ -17,6 +21,7 @@ export interface Startup {
   sectors: string[];
   founders: string[];
   website?: string;
+  logo?: string;
 }
 
 export interface Download {

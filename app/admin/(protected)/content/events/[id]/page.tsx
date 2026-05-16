@@ -37,6 +37,8 @@ export default async function EditEventPage({ params }: Props) {
     autoClose: raw.autoClose,
     closingDate: serializeClosingDate(raw.closingDate),
     coverImageUrl: raw.coverImageUrl,
+    images: raw.images ?? (raw.coverImageUrl ? [{ url: raw.coverImageUrl, alt: "" }] : []),
+    imageLayout: raw.imageLayout ?? "banner",
     applyUrl: raw.applyUrl,
     contact: raw.contact,
     published: raw.published,

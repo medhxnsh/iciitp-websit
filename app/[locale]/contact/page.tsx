@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageSquare } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { getPageSection } from "@/lib/cms/page-sections";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: re-fetch at most once per minute
 
 interface Props { params: Promise<{ locale: string }> }
 
@@ -104,6 +105,12 @@ export default async function ContactPage({ params }: Props) {
               >
                 <Mail className="w-4 h-4" aria-hidden="true" /> Partnership / Collaboration
               </a>
+              <Link
+                href="/feedback"
+                className="flex items-center gap-2 text-sm bg-white/10 hover:bg-white/20 rounded-lg px-4 py-3 transition-colors"
+              >
+                <MessageSquare className="w-4 h-4" aria-hidden="true" /> Share Feedback
+              </Link>
             </div>
           </div>
         </div>

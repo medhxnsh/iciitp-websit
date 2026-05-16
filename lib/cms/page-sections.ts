@@ -1,7 +1,12 @@
+/**
+ * CMS data layer for editable page sections (home hero, about, contact).
+ * Each section is stored as a single Firestore document keyed by page name.
+ */
 import { getDb } from "@/lib/firebase-admin";
 import { FieldValue, Timestamp } from "firebase-admin/firestore";
+import { COLLECTIONS } from "./collections";
 
-const COL = "cms-page-sections";
+const COL = COLLECTIONS.pageSections;
 
 // ── Home ──────────────────────────────────────────────────────────────────────
 

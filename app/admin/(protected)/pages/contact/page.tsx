@@ -36,7 +36,7 @@ export default async function ContactEditorPage() {
         <h1 className="text-xl font-black" style={{ color: "#1c2e06" }}>Edit Contact Page</h1>
       </div>
       <p className="text-sm mb-6" style={{ color: "#7a8e6a" }}>
-        Changes appear live on <a href="/en/contact" target="_blank" className="underline">/contact</a>.
+        Changes appear live on <a href="/contact" target="_blank" className="underline">/contact</a>.
       </p>
       <ContactSectionForm current={current} onSave={saveContactSectionAction} />
     </main>

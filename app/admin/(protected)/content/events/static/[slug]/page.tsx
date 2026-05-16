@@ -37,7 +37,7 @@ export default async function StaticEventEditPage({ params }: Props) {
       <p className="text-xs mb-8" style={{ color: "#7a8e6a" }}>
         This event&apos;s base content comes from a content file. Fields you fill in here override what&apos;s shown on the public page. Leave a field blank to keep the original.
       </p>
-      <StaticEventOverlayForm base={base} overlay={overlay} onSave={save} />
+      <StaticEventOverlayForm slug={slug} base={base} overlay={overlay} onSave={save} />
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import { requireAuth } from "@/lib/auth";
 import { getAllAdminDownloads } from "@/lib/cms/downloads";
-import { Timestamp } from "firebase-admin/firestore";
+import { fmtDate } from "@/lib/format";
 import { Download, Plus, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { DeleteDownloadButton } from "./_delete-button";
@@ -8,13 +8,6 @@ import { DeleteDownloadButton } from "./_delete-button";
 export const metadata = { title: "Downloads — IC IITP Admin" };
 export const dynamic = "force-dynamic";
 
-function fmtDate(ts: unknown): string {
-  if (!ts) return "—";
-  if (ts instanceof Timestamp) return ts.toDate().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  if (typeof ts === "object" && ts !== null && "_seconds" in ts)
-    return new Date((ts as { _seconds: number })._seconds * 1000).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  return "—";
-}
 
 export default async function DownloadsAdminPage() {
   await requireAuth();
@@ -42,7 +35,7 @@ export default async function DownloadsAdminPage() {
         <p className="text-sm" style={{ color: "#3a5214" }}>
           Published files appear live at{" "}
           <a
-            href="/en/downloads"
+            href="/downloads"
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold underline underline-offset-2"

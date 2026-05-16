@@ -1,20 +1,95 @@
 [
-  { "name": "Dr. Sudhir Kumar", "designation": "Professor In-Charge", "role": "Leadership" },
-  { "name": "Joseph P. Arackalan", "designation": "General Manager", "role": "Leadership" },
-  { "name": "Dr. Kumar Siddharth Singh", "designation": "Chief Manager, BioNEST", "role": "Management" },
-  { "name": "Dr. Pradhan", "designation": "Senior Executive", "role": "Management" },
-  { "name": "Munna Pathak", "designation": "Senior Executive – Stores & Maintenance", "role": "Operations" },
-  { "name": "Vikash Kumar", "designation": "Senior Executive – IT Operations", "role": "Operations" },
-  { "name": "Priyesh Kumar", "designation": "Senior Executive – Lab Operations", "role": "Operations" },
-  { "name": "Yogesh Yadav", "designation": "Senior Executive – Incubation", "role": "Incubation" },
-  { "name": "Nitesh", "designation": "Associate – Accounts & Procurement", "role": "Administration" },
-  { "name": "Ansadh Kumar", "designation": "Executive – Technical", "role": "Technical" },
-  { "name": "Deepti Anand", "designation": "Executive – Programs & Zero Lab Bihar", "role": "Programs" },
-  { "name": "Amar Kumar", "designation": "Associate – Operations", "role": "Operations" },
-  { "name": "Deepak Kumar", "designation": "Executive – Incubation", "role": "Incubation" },
-  { "name": "Shikha Sinha", "designation": "Associate – Operations", "role": "Operations" },
-  { "name": "Gopi Krishna Sakhinala", "designation": "Junior Executive – Incubation", "role": "Incubation" },
-  { "name": "Abhishek Kumar Jha", "designation": "Junior Associate – Accounts", "role": "Administration" },
-  { "name": "Deepak Kumar", "designation": "Scientific Officer, BioNEST", "role": "Technical" },
-  { "name": "Santosh", "designation": "Attendant", "role": "Operations" }
+  {
+    "name": "Dr. Pramod Kumar Tiwari", "designation": "Professor In-Charge", "role": "Leadership",
+    "photo": "/photos/staff/P-K-Tiwari-Sir_pasport.jpeg",
+    "email": "pic_ic@iitp.ac.in",
+    "linkedin": "https://www.linkedin.com/in/dr-pramod-kumar-tiwari-54089359/"
+  },
+  {
+    "name": "Joseph P. Arackalan", "designation": "General Manager", "role": "Leadership",
+    "photo": "/photos/staff/Joseph_2.jpg",
+    "bio": "20 years of experience in the IT/ITES industry spanning software programming to heading business units. Manages day-to-day operations at IC IITP, directs marketing activities, and mentors incubated startups. Previously part of SunTec Business Solutions, an Indian startup that reached international markets.",
+    "email": "manager_ic@iitp.ac.in"
+  },
+  {
+    "name": "Dr. Kumar Siddharth Singh", "designation": "Chief Manager, BioNEST", "role": "Management",
+    "photo": "/photos/staff/kumar-siddharth-singh.jpeg",
+    "bio": "An accomplished biotechnology professional with over 12 years of research experience in protein sciences and molecular biology. Leads innovation in life sciences and biotechnology at IC IITP's BioNEST facility."
+  },
+  {
+    "name": "Dr. Pradhan", "designation": "Senior Executive", "role": "Management",
+    "photo": "/photos/staff/Dr-Pradhan.jpg",
+    "bio": "Facilitates infrastructural and administrative support to incubated companies, invited guests and IC IITP staff. Handles all logistics, scheduling, co-ordination of meetings and maintenance of the facility."
+  },
+  {
+    "name": "Munna Pathak", "designation": "Senior Executive – Stores & Maintenance", "role": "Operations",
+    "photo": "/photos/staff/Munna.jpg",
+    "bio": "The go-to person when something needs to be procured or maintained. Manages the whole procurement process including vendor management, inventory and maintenance of lab equipment and facility assets."
+  },
+  {
+    "name": "Vikash Kumar", "designation": "Senior Executive – IT Operations", "role": "Operations",
+    "photo": "/photos/staff/Vikash.jpg",
+    "bio": "Experienced IT professional managing day-to-day IT operations since January 2017. Focuses on network, hardware, PC management and maintenance. Did his B.Tech in IT.",
+    "linkedin": "https://www.linkedin.com/in/vikash-kumar-singh007/"
+  },
+  {
+    "name": "Priyesh Kumar", "designation": "Sr. Executive – Technical", "role": "Operations",
+    "photo": "/photos/staff/Priyesh-2.jpg",
+    "bio": "Did his M.Tech from GGSIP University, Delhi in 2011 with 7 years of research & teaching experience. Proficient in PCB Designing & Prototyping, Embedded Firmware & Hardware Design, RFDC Sputtering, and Testing & Calibration of ESDM products. Oversees technical operations of IC Labs and co-ordinates incubatees in product prototyping.",
+    "email": "priyesh_ic@iitp.ac.in"
+  },
+  {
+    "name": "Yogesh Yadav", "designation": "Senior Executive – Incubation", "role": "Incubation",
+    "photo": "/photos/staff/Yogesh.jpg",
+    "bio": "Did his B.Tech (IT) from UPTU Lucknow. Has 5 years of experience in IT and Operations Management across technical and non-technical industries, handling a variety of responsibilities in incubation support."
+  },
+  {
+    "name": "Nitesh", "designation": "Associate – Accounts & Procurement", "role": "Administration",
+    "photo": "/photos/staff/Nitesh.jpg",
+    "bio": "Did his B.Com (Hons.) from BRABU University, Muzaffarpur in 2015. Has over 4 years of experience in accountancy and is a dedicated professional handling all accounting responsibilities efficiently."
+  },
+  {
+    "name": "Ansadh Kumar", "designation": "Executive – Technical", "role": "Technical",
+    "photo": "/photos/staff/Ansad-679x1024.jpg",
+    "bio": "B.Tech in Electronics & Communication Engineering from Punjab Technical University. Prior to joining IC, worked as a design and prototyping engineer in PCB designing, assembly, testing, and UI design."
+  },
+  {
+    "name": "Deepti Anand", "designation": "Executive – Programs & Zero Lab Bihar", "role": "Programs",
+    "photo": "/photos/staff/Deepti-update.png",
+    "bio": "8 years of experience working with startups. Currently manages Zero Lab Bihar, a pre-incubation centre, overseeing day-to-day activities and supporting early-stage innovators across Bihar."
+  },
+  {
+    "name": "Amar Kumar", "designation": "Associate – Operations", "role": "Operations",
+    "photo": "/photos/staff/amar_ic-725x1024.jpg",
+    "bio": "Graduated from Ranchi St. Xavier's College and holds an MBA from Visva Bharati University. Six years of retail industry experience and seven years in administration covering purchase, event management and operations."
+  },
+  {
+    "name": "Deepak Kumar", "designation": "Executive – Incubation", "role": "Incubation",
+    "photo": "/photos/staff/deepak-kumar-exec.jpg"
+  },
+  {
+    "name": "Shikha Sinha", "designation": "Associate – Operations", "role": "Operations",
+    "photo": "/photos/staff/Shikha-pic-3-768x1024.jpg",
+    "bio": "Graduated in Economics (Hons.) from Magadh Mahila College, Patna University in 2019, followed by a PG Diploma in Financial Management from Nalanda Open University."
+  },
+  {
+    "name": "Gopi Krishna Sakhinala", "designation": "Junior Executive – Incubation", "role": "Incubation",
+    "photo": "/photos/staff/Gopis-Photo1.jpg",
+    "bio": "Completed B.Tech at P.B.R.VITS in 2022. Dedicated to DST NIDHI EIR, NIDHI Prayas, and other incubation programs, supporting entrepreneurs in their early-stage journey at IC IITP.",
+    "linkedin": "https://www.linkedin.com/in/gopi-krishna-sakhinala-a78117214"
+  },
+  {
+    "name": "Abhishek Kumar Jha", "designation": "Junior Associate – Accounts", "role": "Administration",
+    "photo": "/photos/staff/abhishek-kumar-jha.jpg",
+    "bio": "Did M.Com from L.N.M.U Darbhanga in 2022. Has over 9 years of cumulative experience in accounting and auditing, with strengths in financial reporting, compliance and procurement processes."
+  },
+  {
+    "name": "Deepak Kumar", "designation": "Scientific Officer, BioNEST", "role": "Technical",
+    "photo": "/photos/staff/deepak-kumar-bionest.jpeg",
+    "bio": "Dedicated biotechnology professional with over 3 years of experience. Manages BioNEST lab operations, ensuring smooth functioning of biomedical machinery, handling procurement, and supporting resident biotech startups."
+  },
+  {
+    "name": "Santosh", "designation": "Attendant", "role": "Operations",
+    "photo": "/photos/staff/Santosh.jpg"
+  }
 ]

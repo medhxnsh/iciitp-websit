@@ -2,32 +2,16 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getEventBySlug, resolveStatus } from "@/lib/cms/events";
-import { Timestamp } from "firebase-admin/firestore";
+import { fmtDate } from "@/lib/format";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ExternalLink } from "@/components/external-link";
 import { Calendar, Mail, Link2 } from "lucide-react";
 import type { CustomField, FieldType } from "@/lib/cms/events";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: re-fetch at most once per minute
 
 interface Props { params: Promise<{ locale: string; slug: string }> }
 
-function fmtDate(v: string) {
-  try {
-    return new Date(v).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
-  } catch {
-    return v;
-  }
-}
-
-function fmtTs(ts: unknown): string {
-  if (!ts) return "";
-  if (ts instanceof Timestamp) return ts.toDate().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
-  if (typeof ts === "object" && ts !== null && "_seconds" in ts) {
-    return new Date((ts as { _seconds: number })._seconds * 1000).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
-  }
-  return "";
-}
 
 const STATUS_CLASS: Record<string, string> = {
   Upcoming:  "bg-blue-100 text-blue-800",
@@ -66,11 +50,13 @@ function CustomFieldSection({ field }: { field: CustomField }) {
         </p>
       )}
       {type === "image" && field.value && (
-        <img
-          src={field.value}
-          alt={field.label}
-          className="w-full max-h-96 object-contain rounded-xl"
-        />
+        <div className="rounded-xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+          <img
+            src={field.value}
+            alt={field.label}
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
       )}
       {type === "list" && field.items.length > 0 && (
         <ul className="space-y-2">
@@ -137,17 +123,17 @@ export default async function CmsEventPage({ params }: Props) {
         {ev.closingDate && (
           <p className="mt-3 text-sm text-[var(--color-muted)] flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5" aria-hidden="true" />
-            {resolved === "Closed" ? "Closed on" : "Closes on"} {fmtTs(ev.closingDate)}
+            {resolved === "Closed" ? "Closed on" : "Closes on"} {fmtDate(ev.closingDate)}
           </p>
         )}
       </header>
 
       {ev.coverImageUrl && (
-        <div className="mb-8 rounded-2xl overflow-hidden">
+        <div className="mb-8 rounded-2xl overflow-hidden" style={{ aspectRatio: "16/7" }}>
           <img
             src={ev.coverImageUrl}
             alt={ev.title}
-            className="w-full max-h-80 object-cover"
+            className="w-full h-full object-cover object-center"
           />
         </div>
       )}

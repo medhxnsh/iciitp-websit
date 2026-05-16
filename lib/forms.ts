@@ -1,3 +1,7 @@
+/**
+ * Static Google Forms / external form links used across the public site.
+ * The CMS form-links module (lib/cms/form-links.ts) adds runtime overrides on top of these.
+ */
 export interface FormEntry {
   label: string;
   url: string;

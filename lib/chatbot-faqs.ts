@@ -1,3 +1,7 @@
+/**
+ * Static FAQ data for the DISHA chatbot widget.
+ * Each entry has keyword triggers and a structured answer + follow-up prompts.
+ */
 export interface FAQ {
   id: string;
   keywords: string[];

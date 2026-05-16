@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { getPageSection } from "@/lib/cms/page-sections";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: re-fetch at most once per minute
 
 interface Props { params: Promise<{ locale: string }> }
 

@@ -1,3 +1,7 @@
+/**
+ * Admin user management backed by data/admins.json.
+ * Server-only — never import from client components.
+ */
 import { readFileSync, writeFileSync, mkdirSync } from "fs";
 import { join } from "path";
 

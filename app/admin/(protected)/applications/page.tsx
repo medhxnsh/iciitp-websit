@@ -1,6 +1,6 @@
 import { requireAuth } from "@/lib/auth";
-import { getSubmissions, updateSubmissionStatus, type SubmissionType } from "@/lib/submissions";
-import { Timestamp } from "firebase-admin/firestore";
+import { getSubmissions, type SubmissionType } from "@/lib/submissions";
+import { fmtDate } from "@/lib/format";
 import { updateStatusDirect } from "@/app/actions/submit";
 import { ClipboardList } from "lucide-react";
 
@@ -23,14 +23,6 @@ const STATUS_STYLES: Record<string, { bg: string; text: string }> = {
   rejected:  { bg: "#fef2f2", text: "#b91c1c" },
 };
 
-function formatDate(val: unknown): string {
-  if (!val) return "—";
-  if (val instanceof Timestamp) return val.toDate().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  if (typeof val === "object" && "_seconds" in (val as object)) {
-    return new Date((val as { _seconds: number })._seconds * 1000).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  }
-  return String(val);
-}
 
 function summary(sub: Record<string, unknown>): string {
   const t = sub.type as string;
@@ -117,7 +109,7 @@ export default async function ApplicationsPage({ searchParams }: PageProps) {
                   {sub.status}
                 </span>
                 <span className="text-xs shrink-0" style={{ color: "#7a8e6a" }}>
-                  {formatDate(s.createdAt)}
+                  {fmtDate(s.createdAt)}
                 </span>
               </summary>
 

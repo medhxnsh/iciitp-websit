@@ -8,7 +8,7 @@ import { ExternalLink } from "@/components/external-link";
 import { Calendar, MapPin, Clock } from "lucide-react";
 
 interface Props { params: Promise<{ locale: string }> }
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: re-fetch at most once per minute
 const SLUG = "ideathon";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

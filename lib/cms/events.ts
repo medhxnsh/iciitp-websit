@@ -1,7 +1,12 @@
+/**
+ * CMS data layer for events — Firestore CRUD + status resolution.
+ * Supports both CMS-created events and static JSON event overlays.
+ */
 import { getDb } from "@/lib/firebase-admin";
 import { FieldValue, Timestamp } from "firebase-admin/firestore";
+import { COLLECTIONS } from "./collections";
 
-const COL = "cms-events";
+const COL = COLLECTIONS.events;
 
 export type EventCategory = "Training" | "Competition" | "Conference" | "Workshop" | "Other";
 export type EventStatus = "Upcoming" | "Ongoing" | "Closed" | "Recurring";
@@ -17,6 +22,13 @@ export interface CustomField {
   order: number;
 }
 
+export interface EventImage {
+  url: string;
+  alt?: string;
+}
+
+export type ImageLayout = "banner" | "grid" | "carousel";
+
 export interface CmsEvent {
   slug: string;
   title: string;
@@ -27,6 +39,8 @@ export interface CmsEvent {
   autoClose: boolean;
   closingDate: Timestamp | null;
   coverImageUrl: string;
+  images: EventImage[];
+  imageLayout: ImageLayout;
   applyUrl: string;
   contact: string;
   published: boolean;
@@ -98,7 +112,7 @@ export async function deleteEvent(id: string): Promise<void> {
 
 // ─── Static-event overlays ───────────────────────────────────────────────────
 
-const OV_COL = "cms-event-overlays";
+const OV_COL = COLLECTIONS.eventOverlays;
 
 export interface EventOverlay {
   slug: string;
@@ -109,6 +123,8 @@ export interface EventOverlay {
   applyUrl?: string;
   contact?: string;
   coverImageUrl?: string;
+  images?: EventImage[];
+  imageLayout?: ImageLayout;
   updatedAt?: Timestamp;
 }
 

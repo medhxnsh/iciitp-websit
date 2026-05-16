@@ -145,7 +145,7 @@ export function AdminSidebar({ user }: SidebarProps) {
 
   return (
     <aside
-      className="shrink-0 flex flex-col min-h-screen transition-all duration-200"
+      className="shrink-0 flex flex-col h-screen sticky top-0 overflow-y-auto transition-all duration-200"
       style={{ width: collapsed ? 56 : 240, backgroundColor: "#3a5214" }}
     >
       {/* Wordmark + collapse toggle */}

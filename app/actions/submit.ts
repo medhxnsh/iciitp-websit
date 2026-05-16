@@ -130,11 +130,17 @@ export async function submitInternship(
   }
 }
 
+/**
+ * Admin-only: update an application's status. Used via useFormState.
+ * Requires an authenticated admin session.
+ */
 export async function updateStatus(
   _prev: FormState,
   formData: FormData
 ): Promise<FormState> {
   try {
+    const { requireAuth } = await import("@/lib/auth");
+    await requireAuth();
     const { updateSubmissionStatus } = await import("@/lib/submissions");
     const id = formData.get("id") as string;
     const type = formData.get("type") as import("@/lib/submissions").SubmissionType;
@@ -147,10 +153,20 @@ export async function updateStatus(
   }
 }
 
+/**
+ * Admin-only: update an application's status directly from a plain form submit.
+ * Requires an authenticated admin session — without it, status mutation is denied.
+ */
 export async function updateStatusDirect(formData: FormData): Promise<void> {
+  const { requireAuth } = await import("@/lib/auth");
+  await requireAuth();
+  const { revalidatePath } = await import("next/cache");
   const { updateSubmissionStatus } = await import("@/lib/submissions");
   const id = formData.get("id") as string;
   const type = formData.get("type") as import("@/lib/submissions").SubmissionType;
   const status = formData.get("status") as "pending" | "reviewing" | "accepted" | "rejected";
-  if (id && type && status) await updateSubmissionStatus(id, type, status);
+  if (id && type && status) {
+    await updateSubmissionStatus(id, type, status);
+    revalidatePath("/admin/applications");
+  }
 }

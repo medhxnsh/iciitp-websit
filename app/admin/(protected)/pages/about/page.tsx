@@ -39,7 +39,7 @@ export default async function AboutEditorPage() {
         <h1 className="text-xl font-black" style={{ color: "#1c2e06" }}>Edit About Page</h1>
       </div>
       <p className="text-sm mb-6" style={{ color: "#7a8e6a" }}>
-        Replace images and update key text on the <a href="/en/about" target="_blank" className="underline">/about</a> page.
+        Replace images and update key text on the <a href="/about" target="_blank" className="underline">/about</a> page.
       </p>
       <AboutSectionForm current={current} onSave={saveAboutSectionAction} />
     </main>

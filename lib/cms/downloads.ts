@@ -1,7 +1,12 @@
+/**
+ * CMS data layer for downloadable files (PDFs, forms, reports).
+ * Files are tagged with a displayPage key so each page can filter its own documents.
+ */
 import { getDb } from "@/lib/firebase-admin";
 import { FieldValue, Timestamp } from "firebase-admin/firestore";
+import { COLLECTIONS } from "./collections";
 
-const COL = "cms-downloads";
+const COL = COLLECTIONS.downloads;
 
 export interface CmsDownload {
   title: string;

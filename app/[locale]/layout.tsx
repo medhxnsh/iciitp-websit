@@ -42,6 +42,15 @@ export async function generateMetadata({
     openGraph: {
       siteName: t("siteTitle"),
       locale,
+      images: [{ url: "/og.png", width: 1200, height: 630, alt: t("siteTitle") }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/og.png"],
+    },
+    icons: {
+      icon: "/icon.png",
+      apple: "/icon.png",
     },
     robots: {
       index: true,
@@ -71,7 +80,7 @@ export default async function LocaleLayout({
           <main id="main-content" tabIndex={-1}>
             {children}
           </main>
-          <Footer lastUpdated="2026-05-08" />
+          <Footer />
           <ChatWidget />
         </NextIntlClientProvider>
       </body>

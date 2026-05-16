@@ -6,7 +6,7 @@ import { DownloadRow } from "@/components/download-row";
 import { Breadcrumb } from "@/components/breadcrumb";
 import type { Download } from "@/lib/content-types";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: re-fetch at most once per minute
 
 interface Props { params: Promise<{ locale: string }> }
 

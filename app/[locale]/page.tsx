@@ -3,8 +3,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getPageSection } from "@/lib/cms/page-sections";
+import { getAllCmsPrograms } from "@/lib/cms/programs";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: re-fetch at most once per minute
 import { ParticleHero } from "@/components/particle-hero";
 import { ProgramLogo } from "@/components/program-logo";
 import { ExternalLink } from "@/components/external-link";
@@ -40,6 +41,10 @@ export default async function HomePage({ params }: HomePageProps) {
   const allNotifs = getAllNotifications(locale);
 
   const cms = await getPageSection("home").catch(() => null);
+  const cmsPrograms = await getAllCmsPrograms().catch(() => []);
+  const cmsOnlySlugs = new Set(allPrograms.map((p) => p.slug));
+  const cmsOnlyCount = cmsPrograms.filter((p) => p.published && !cmsOnlySlugs.has(p.slug)).length;
+  const totalSchemes = allPrograms.length + cmsOnlyCount;
   const buildingImg   = cms?.building_image_url   || "/images/building.jpg";
   const teamStaffImg  = cms?.team_staff_image_url || "/images/team-staff.jpg";
   const teamGroupImg  = cms?.team_group_image_url || "/images/team-group.jpg";
@@ -54,12 +59,14 @@ export default async function HomePage({ params }: HomePageProps) {
     { value: "1,000+",    label: "B-Plans Screened" },
     { value: "25",        label: "Patents Facilitated" },
     { value: "600+",      label: "Funding Transactions" },
-    { value: "6",         label: "Incubation Schemes" },
+    { value: String(totalSchemes), label: "Incubation Schemes" },
   ];
 
   return (
     <div>
-      <div className="relative">
+      {/* Pull sticky stack up by nav height (identity bar ~40px + nav h-14=56px = 96px)
+          so Section 1 occupies exactly y=0–100svh and the wave lands at viewport bottom */}
+      <div className="relative" style={{ marginTop: "-96px" }}>
 
       {/* ── Section 1: Circuit Hero ────────────────────────────────────────── */}
       <section className="sticky top-0 relative min-h-[100svh] flex flex-col overflow-hidden" style={{ background: "linear-gradient(160deg, #f4f8e8 0%, #ffffff 50%, #fef5e4 100%)" }}>
@@ -70,15 +77,22 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full pointer-events-none" aria-hidden="true"
           style={{ border: "6px solid #f7942022", boxShadow: "0 0 80px 20px #f7942010" }} />
         <ParticleHero />
-        {/* Scroll indicator */}
-        <div className="flex flex-col items-center pb-8 text-gray-400 animate-bounce relative z-10">
-          <span className="text-xs mb-1 tracking-widest uppercase">Scroll</span>
-          <ChevronDown className="w-4 h-4" aria-hidden="true" />
+        {/* Scroll indicator — absolute so it's always visible above the wave */}
+        <div
+          className="absolute left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1"
+          style={{ bottom: 130 }}
+          aria-hidden="true"
+        >
+          <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "#3a5214", opacity: 0.6 }}>Scroll</span>
+          <div className="flex flex-col items-center -space-y-2.5 animate-bounce">
+            <ChevronDown className="w-6 h-6" style={{ color: "#f79420", opacity: 0.45 }} />
+            <ChevronDown className="w-6 h-6" style={{ color: "#f79420", opacity: 0.9 }} />
+          </div>
         </div>
         {/* Wave into next section */}
         <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ lineHeight: 0 }} aria-hidden="true">
-          <svg viewBox="0 0 1440 72" preserveAspectRatio="none" className="w-full" style={{ height: 72, display: "block" }}>
-            <path fill="#3a5214" d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" />
+          <svg viewBox="0 0 1440 110" preserveAspectRatio="none" className="w-full" style={{ height: 110, display: "block" }}>
+            <path fill="#3a5214" d="M0,55 C360,110 1080,0 1440,55 L1440,110 L0,110 Z" />
           </svg>
         </div>
       </section>

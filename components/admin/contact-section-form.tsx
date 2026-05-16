@@ -1,5 +1,8 @@
 "use client";
-
+/**
+ * Admin form for editing the Contact page content section.
+ * Submits to saveContactSectionAction.
+ */
 import { useTransition, useState } from "react";
 
 interface ContactCurrent {

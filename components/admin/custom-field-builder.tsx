@@ -1,5 +1,8 @@
 "use client";
-
+/**
+ * Drag-and-drop custom field builder used in the event creation/edit form.
+ * Supports text, textarea, url, date, image, and list field types.
+ */
 import { useState } from "react";
 import { Plus, Trash2, ChevronUp, ChevronDown, Upload } from "lucide-react";
 import type { CustomField, FieldType } from "@/lib/cms/events";

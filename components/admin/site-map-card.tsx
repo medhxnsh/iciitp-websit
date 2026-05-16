@@ -1,5 +1,8 @@
 "use client";
-
+/**
+ * Card component for the admin site-map overview page.
+ * Shows a section title, its public URL, and edit/preview links.
+ */
 import Link from "next/link";
 import { ExternalLink, Pencil } from "lucide-react";
 
@@ -17,7 +20,7 @@ function NodeRow({ title, path, editHref, isStatic, depth = 0 }: Omit<SiteMapNod
     <div className="flex items-center justify-between gap-3 py-2 px-3 rounded-lg hover:bg-[#f5f9f0] transition-colors">
       <div className="flex items-center gap-2 min-w-0">
         <span className="text-sm font-medium truncate" style={{ color: "#1c2e06" }}>{title}</span>
-        <span className="text-[11px] shrink-0" style={{ color: "#7a8e6a" }}>{path.replace("/en", "") || "/"}</span>
+        <span className="text-[11px] shrink-0" style={{ color: "#7a8e6a" }}>{path || "/"}</span>
         {isStatic && !editHref && (
           <span
             className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full shrink-0"

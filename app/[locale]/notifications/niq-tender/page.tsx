@@ -7,10 +7,10 @@ import { getDownloadsByPage } from "@/lib/cms/downloads";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ExternalLink } from "@/components/external-link";
 import { FileDown } from "lucide-react";
-import { Timestamp } from "firebase-admin/firestore";
+import { fmtDate, tsToMs } from "@/lib/format";
 import type { CmsNotificationDoc } from "@/lib/cms/notifications";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: re-fetch at most once per minute
 
 interface Props { params: Promise<{ locale: string }> }
 const SLUG = "niq-tender";
@@ -22,20 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { title: n.title, description: n.summary };
 }
 
-function fmtTs(ts: unknown): string {
-  if (!ts) return "";
-  if (ts instanceof Timestamp) return ts.toDate().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  if (typeof ts === "object" && ts !== null && "_seconds" in ts)
-    return new Date((ts as { _seconds: number })._seconds * 1000).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  return "";
-}
-
 function isCmsActive(n: CmsNotificationDoc): boolean {
-  const now = new Date();
-  const dead = n.deadline instanceof Timestamp ? n.deadline.toDate()
-    : n.deadline && typeof n.deadline === "object" && "_seconds" in (n.deadline as object)
-      ? new Date((n.deadline as { _seconds: number })._seconds * 1000) : null;
-  return !(dead && dead < now);
+  const dl = tsToMs(n.deadline);
+  return !(dl && dl < Date.now());
 }
 
 function CmsNotificationCard({ n }: { n: CmsNotificationDoc }) {
@@ -49,7 +38,7 @@ function CmsNotificationCard({ n }: { n: CmsNotificationDoc }) {
                   : <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-gray-100 text-gray-600">Expired</span>}
         </div>
         <h2 className="text-2xl font-bold text-[var(--color-text)] mb-2">{n.title}</h2>
-        {n.deadline && <p className="text-sm text-[var(--color-muted)]">Deadline: {fmtTs(n.deadline)}</p>}
+        {n.deadline && <p className="text-sm text-[var(--color-muted)]">Deadline: {fmtDate(n.deadline)}</p>}
       </header>
       <div className="prose max-w-none text-[var(--color-text-subtle)] leading-relaxed mb-6 whitespace-pre-line">{n.body}</div>
       {n.attachmentUrl && (

@@ -8,7 +8,7 @@ import { ProgramCard } from "@/components/program-card";
 import { Link } from "@/i18n/navigation";
 import { ExternalLink } from "@/components/external-link";
 import { routing } from "@/i18n/routing";
-import { CheckCircle, ArrowUpRight, FileDown } from "lucide-react";
+import { CheckCircle, FileDown } from "lucide-react";
 import { ProgramLogo } from "@/components/program-logo";
 import NextImage from "next/image";
 import { getDownloadsByPage } from "@/lib/cms/downloads";
@@ -17,7 +17,7 @@ interface Props {
   params: Promise<{ locale: string; slug: string }>;
 }
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60; // ISR: re-fetch at most once per minute
 
 export async function generateStaticParams() {
   const slugs = getProgramSlugs();
@@ -28,15 +28,15 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  try {
-    const program = getProgram(slug, locale);
-    return {
-      title: program.title,
-      description: program.tagline,
-    };
-  } catch {
-    return { title: "Program Not Found" };
+  let title: string | undefined;
+  let description: string | undefined;
+  try { const p = getProgram(slug, locale); title = p.title; description = p.tagline; } catch {}
+  if (!title) {
+    const cms = await getCmsProgramBySlug(slug).catch(() => null);
+    title = cms?.title ?? slug;
+    description = cms?.tagline;
   }
+  return title ? { title, description } : { title: "Program Not Found" };
 }
 
 function mergeCms(base: Program, cms: Awaited<ReturnType<typeof getCmsProgramBySlug>>): Program {
@@ -54,6 +54,7 @@ function mergeCms(base: Program, cms: Awaited<ReturnType<typeof getCmsProgramByS
     status: str(cms.status, base.status),
     statusNote: str(cms.statusNote, base.statusNote),
     applyUrl: str(cms.applyUrl, base.applyUrl),
+    equipmentFormUrl: str(cms.equipmentFormUrl, base.equipmentFormUrl),
     contactEmail: str(cms.contactEmail, base.contactEmail),
     grant: str(cms.grant, base.grant),
     schemeOutlay: str(cms.schemeOutlay, base.schemeOutlay),
@@ -71,6 +72,36 @@ function mergeCms(base: Program, cms: Awaited<ReturnType<typeof getCmsProgramByS
   };
 }
 
+function cmsOnlyToProgram(cms: Awaited<ReturnType<typeof getCmsProgramBySlug>> & object): Program {
+  return {
+    slug: cms.slug,
+    title: cms.title ?? cms.slug,
+    badge: "CMS Programme",
+    tagline: cms.tagline ?? "",
+    lastUpdated: new Date().toISOString().slice(0, 10),
+    funder: "",
+    about: cms.about ?? "",
+    status: cms.status,
+    statusNote: cms.statusNote,
+    applyUrl: cms.applyUrl,
+    equipmentFormUrl: cms.equipmentFormUrl,
+    contactEmail: cms.contactEmail,
+    grant: cms.grant,
+    schemeOutlay: cms.schemeOutlay,
+    stipend: cms.stipend,
+    duration: cms.duration,
+    eligibility: cms.eligibility,
+    notEligible: cms.notEligible,
+    objectives: cms.objectives,
+    targetAudience: cms.targetAudience,
+    expectedOutcomes: cms.expectedOutcomes,
+    support: cms.support,
+    preferences: cms.preferences,
+    notes: cms.notes,
+    disclaimer: cms.disclaimer,
+  };
+}
+
 export default async function ProgramPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
@@ -78,16 +109,20 @@ export default async function ProgramPage({ params }: Props) {
   let program: Program;
   let programImages: { url: string; alt?: string }[] = [];
   let imageLayout: "banner" | "grid" | "carousel" = "banner";
-  try {
-    const base = getProgram(slug, locale);
-    let cms = null;
-    try { cms = await getCmsProgramBySlug(slug); } catch {}
+
+  const cms = await getCmsProgramBySlug(slug).catch(() => null);
+  let base: Program | null = null;
+  try { base = getProgram(slug, locale); } catch {}
+
+  if (!base && !cms) { notFound(); return null as never; }
+
+  if (base) {
     program = mergeCms(base, cms);
-    programImages = cms?.images ?? [];
-    imageLayout = cms?.imageLayout ?? "banner";
-  } catch {
-    notFound();
+  } else {
+    program = cmsOnlyToProgram(cms!);
   }
+  programImages = cms?.images ?? [];
+  imageLayout = cms?.imageLayout ?? "banner";
 
   const allPrograms = getAllPrograms(locale).filter((p) => p.slug !== slug);
   const applyHref = program.applyUrl ?? null;
@@ -399,7 +434,7 @@ export default async function ProgramPage({ params }: Props) {
                       className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-semibold text-white hover:opacity-90 transition-opacity"
                       style={{ backgroundColor: "#3a5214" }}
                     >
-                      Apply <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
+                      Apply
                     </ExternalLink>
                   </div>
                 ))}
@@ -516,7 +551,7 @@ export default async function ProgramPage({ params }: Props) {
                 className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 rounded-md bg-white font-semibold text-sm hover:opacity-90 transition-opacity"
                 style={{ color: "#3a5214" }}
               >
-                Apply Now <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                Apply Now
               </ExternalLink>
             ) : program.applicationForm ? (
               <a
@@ -535,6 +570,15 @@ export default async function ProgramPage({ params }: Props) {
               >
                 Contact Us
               </Link>
+            )}
+            {program.equipmentFormUrl && (
+              <ExternalLink
+                href={program.equipmentFormUrl}
+                className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 rounded-md font-semibold text-sm hover:opacity-90 transition-opacity mt-2"
+                style={{ backgroundColor: "rgba(255,255,255,0.15)", color: "white", border: "1px solid rgba(255,255,255,0.3)" }}
+              >
+                Equipment Access
+              </ExternalLink>
             )}
             {program.contactEmail && (
               <a

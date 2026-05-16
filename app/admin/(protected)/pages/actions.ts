@@ -4,11 +4,6 @@ import { requireAuth } from "@/lib/auth";
 import { upsertPageSection, type HomeStat } from "@/lib/cms/page-sections";
 import { revalidatePath } from "next/cache";
 
-function revalidateBoth(path: string) {
-  revalidatePath(`/en${path}`);
-  revalidatePath(`/hi${path}`);
-}
-
 // ── Home ──────────────────────────────────────────────────────────────────────
 
 export async function saveHomeSectionAction(formData: FormData) {
@@ -30,7 +25,7 @@ export async function saveHomeSectionAction(formData: FormData) {
     stats,
   });
 
-  revalidateBoth("/");
+  revalidatePath("/");
   return { success: true };
 }
 
@@ -47,7 +42,7 @@ export async function saveContactSectionAction(formData: FormData) {
     maps_embed_url: (formData.get("maps_embed_url") as string) ?? "",
   });
 
-  revalidateBoth("/contact");
+  revalidatePath("/contact");
   return { success: true };
 }
 
@@ -65,6 +60,6 @@ export async function saveAboutSectionAction(formData: FormData) {
     ceremony_overlay_body:   (formData.get("ceremony_overlay_body")   as string) ?? "",
   });
 
-  revalidateBoth("/about");
+  revalidatePath("/about");
   return { success: true };
 }

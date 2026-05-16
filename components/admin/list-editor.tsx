@@ -1,5 +1,7 @@
 "use client";
-
+/**
+ * Reusable add/remove list editor used in program and notification forms.
+ */
 import { useState } from "react";
 import { Trash2, Plus } from "lucide-react";
 

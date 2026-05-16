@@ -1,3 +1,7 @@
+/**
+ * SEO metadata builder for public pages.
+ * Wraps Next.js Metadata with IC IITP defaults (OG tags, canonical URL, locale).
+ */
 import type { Metadata } from "next";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://iciitp.com";

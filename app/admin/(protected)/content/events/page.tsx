@@ -1,7 +1,7 @@
 import { requireAuth } from "@/lib/auth";
 import { getAdminEvents, getAllEventOverlays, resolveStatus } from "@/lib/cms/events";
 import { getAllEvents } from "@/lib/content";
-import { Timestamp } from "firebase-admin/firestore";
+import { fmtDate } from "@/lib/format";
 import { Calendar, Plus } from "lucide-react";
 import Link from "next/link";
 import { DeleteEventButton } from "./_delete-button";
@@ -17,14 +17,6 @@ const STATUS_STYLES: Record<string, { bg: string; text: string }> = {
   Recurring: { bg: "#fef9c3", text: "#854d0e" },
 };
 
-function fmtDate(ts: unknown): string {
-  if (!ts) return "—";
-  if (ts instanceof Timestamp) return ts.toDate().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  if (typeof ts === "object" && ts !== null && "_seconds" in ts) {
-    return new Date((ts as { _seconds: number })._seconds * 1000).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
-  }
-  return "—";
-}
 
 export default async function EventsListPage() {
   await requireAuth();
@@ -101,7 +93,7 @@ export default async function EventsListPage() {
                     <td className="px-4 py-4">
                       <div className="flex items-center gap-2 justify-end">
                         <Link
-                          href={`/en/events/${ev.slug}`}
+                          href={`/events/${ev.slug}`}
                           target="_blank"
                           className="text-xs font-medium px-3 py-1.5 rounded-lg"
                           style={{ backgroundColor: "#f8fbf4", color: "#7a8e6a" }}

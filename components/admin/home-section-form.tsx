@@ -1,5 +1,8 @@
 "use client";
-
+/**
+ * Admin form for editing the Home page content section (hero stats, CTA copy, images).
+ * Submits to saveHomeSectionAction.
+ */
 import { useTransition, useState } from "react";
 import type { HomeStat } from "@/lib/cms/page-sections";
 

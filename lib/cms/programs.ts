@@ -1,7 +1,12 @@
+/**
+ * CMS data layer for incubation programs.
+ * CMS programs are additive — they extend the static JSON programs in content/en/programs/.
+ */
 import { getDb } from "@/lib/firebase-admin";
 import { FieldValue, Timestamp } from "firebase-admin/firestore";
+import { COLLECTIONS } from "./collections";
 
-const COL = "cms-programs";
+const COL = COLLECTIONS.programs;
 
 export interface ProgramImage {
   url: string;
@@ -10,6 +15,8 @@ export interface ProgramImage {
 
 export interface CmsProgram {
   slug: string;
+  published?: boolean;
+  logoUrl?: string;
   images?: ProgramImage[];
   imageLayout?: "banner" | "grid" | "carousel";
   title?: string;
@@ -18,6 +25,8 @@ export interface CmsProgram {
   status?: string;
   statusNote?: string;
   applyUrl?: string;
+  equipmentFormUrl?: string;
+  applicationFormUrl?: string;
   contactEmail?: string;
   grant?: string;
   schemeOutlay?: string;
@@ -69,4 +78,13 @@ export async function upsertCmsProgram(
   } else {
     await snap.docs[0].ref.update(payload);
   }
+}
+
+export async function deleteCmsProgram(slug: string): Promise<void> {
+  const snap = await getDb()
+    .collection(COL)
+    .where("slug", "==", slug)
+    .limit(1)
+    .get();
+  if (!snap.empty) await snap.docs[0].ref.delete();
 }

@@ -1,3 +1,8 @@
+/**
+ * Google Sheets reader used by the admin applications viewer.
+ * Authenticates via GOOGLE_SERVICE_ACCOUNT_KEY (base-64-encoded JSON).
+ * Server-only — requires googleapis and service account credentials.
+ */
 import { google } from "googleapis";
 
 export interface SheetRow {

@@ -1,3 +1,7 @@
+/**
+ * Keyword-matching engine for the DISHA chatbot.
+ * Scores each FAQ by keyword overlap and returns the best-matching answer.
+ */
 import { FAQS, FALLBACK, type FAQ } from "./chatbot-faqs";
 
 function normalize(text: string): string {

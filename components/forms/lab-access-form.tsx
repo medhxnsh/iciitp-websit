@@ -13,9 +13,9 @@ const LABS = [
   "Design & Simulation Lab",
 ];
 
-interface Props { locale?: string }
+interface Props { locale?: string; defaultLab?: string }
 
-export function LabAccessForm({ locale = "en" }: Props) {
+export function LabAccessForm({ locale = "en", defaultLab }: Props) {
   const [state, action, pending] = useActionState<FormState, FormData>(submitLabAccess, null);
 
   if (state?.success) {
@@ -51,7 +51,7 @@ export function LabAccessForm({ locale = "en" }: Props) {
 
       <Field>
         <Label htmlFor="lab" required>Lab required</Label>
-        <Select id="lab" required defaultValue="">
+        <Select id="lab" required defaultValue={defaultLab ?? ""}>
           <option value="" disabled>Select a lab</option>
           {LABS.map((l) => <option key={l} value={l}>{l}</option>)}
         </Select>

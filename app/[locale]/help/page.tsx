@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { Link } from "@/i18n/navigation";
 import {
-  HelpCircle, Map, Accessibility, FileText,
+  HelpCircle, Map, Bot, FileText,
   Phone, Globe, ChevronDown,
 } from "lucide-react";
 
@@ -82,7 +82,7 @@ const SITE_MAP = [
 const FAQS = [
   {
     q: "How do I apply for incubation?",
-    a: "Visit the Programs page and choose the scheme that fits your startup stage. Each program has an 'Apply Now' button that opens the relevant Google Form. Applications are reviewed quarterly.",
+    a: "Visit the Programs page and choose the scheme that fits your startup stage. Each program has an 'Apply Now' button that opens the relevant Google Form. Applications are reviewed on a rolling basis.",
   },
   {
     q: "Who can apply for NIDHI Prayas funding?",
@@ -90,19 +90,19 @@ const FAQS = [
   },
   {
     q: "Can I visit the labs without being an incubatee?",
-    a: "Lab access is primarily for IC IITP incubatees. External researchers and academic collaborators may request access via the Contact page by writing to icitp@iitp.ac.in.",
+    a: "Lab access is primarily for IC IITP incubatees. External researchers and academic collaborators may request access by writing to icitp@iitp.ac.in.",
   },
   {
-    q: "The site is not readable with my screen reader. What should I do?",
-    a: "We follow GIGW accessibility guidelines. If you encounter a barrier, email icitp@iitp.ac.in with 'Accessibility issue' in the subject — we aim to fix reported issues within 15 working days.",
+    q: "What is the DISHA AI assistant?",
+    a: "DISHA is IC IITP's built-in AI assistant — click the 'Ask DISHA' button at the bottom-right of any page. It can answer questions about programs, eligibility, funding, labs, and how to apply. For complex queries, it will direct you to the relevant page or contact.",
   },
   {
     q: "How do I download application forms?",
-    a: "All downloadable forms are on the Downloads page. PDFs open in a new tab. If a link is broken, please report it through the Feedback page.",
+    a: "All downloadable forms are on the Downloads page. PDFs open in a new tab. If a link is broken, please report it through the Feedback page or email icitp@iitp.ac.in.",
   },
   {
-    q: "The site is available in Hindi. How do I switch?",
-    a: "Use the language switcher in the top navigation bar (EN / हि). The switch applies to the full site immediately.",
+    q: "How do I report a website issue or broken link?",
+    a: "Use the Feedback page or email icitp@iitp.ac.in with the page URL and a description of the issue. We aim to resolve reported issues within 10 working days.",
   },
 ];
 
@@ -126,13 +126,13 @@ export default async function HelpPage({ params }: Props) {
           Help & site guide
         </h1>
         <p className="text-lg leading-relaxed" style={{ color: "#5a6644" }}>
-          Find your way around the IC IITP website — site map, FAQs, accessibility information, and contact details.
+          Find your way around the IC IITP website — site map, frequently asked questions, the DISHA AI assistant, and contact details.
         </p>
       </header>
 
       {/* Quick jump */}
       <nav aria-label="Help sections" className="flex flex-wrap gap-2 mb-10">
-        {["Site map", "FAQs", "Accessibility", "Contact"].map((label) => (
+        {["Site map", "FAQs", "DISHA assistant", "Contact"].map((label) => (
           <a
             key={label}
             href={`#${label.toLowerCase().replace(/\s+/g, "-")}`}
@@ -217,35 +217,29 @@ export default async function HelpPage({ params }: Props) {
         </dl>
       </section>
 
-      {/* Accessibility */}
-      <section id="accessibility" aria-labelledby="a11y-h" className="mb-12">
+      {/* DISHA AI Assistant */}
+      <section id="disha-assistant" aria-labelledby="disha-h" className="mb-12">
         <div className="flex items-center gap-3 mb-5">
-          <Accessibility className="w-5 h-5" style={{ color: "#3a5214" }} aria-hidden="true" />
-          <h2 id="a11y-h" className="text-xl font-bold" style={{ color: "#1c2e06" }}>
-            Accessibility
+          <Bot className="w-5 h-5" style={{ color: "#3a5214" }} aria-hidden="true" />
+          <h2 id="disha-h" className="text-xl font-bold" style={{ color: "#1c2e06" }}>
+            DISHA AI assistant
           </h2>
         </div>
         <div className="rounded-xl bg-white p-6" style={{ border: "1px solid #e8f0e0" }}>
-          <ul className="space-y-3 text-sm" style={{ color: "#5a6644" }}>
-            <li>This site follows <strong style={{ color: "#1c2e06" }}>GIGW (Guidelines for Indian Government Websites)</strong> and aims for WCAG 2.1 AA compliance.</li>
-            <li>All images have descriptive alt text. Decorative images are marked <code>aria-hidden</code>.</li>
-            <li>A <strong style={{ color: "#1c2e06" }}>skip to content</strong> link is available at the top of every page — press Tab on keyboard to reveal it.</li>
-            <li>The site is fully navigable by keyboard. Focus indicators are visible on all interactive elements.</li>
-            <li>Colour contrast ratios meet WCAG AA on all text combinations.</li>
-            <li>External links open a confirmation dialog before navigating away from the site.</li>
-            <li>The site is available in <strong style={{ color: "#1c2e06" }}>English and Hindi</strong>. Use the language switcher (EN / हि) in the top navigation.</li>
-            <li>
-              To report an accessibility barrier, email{" "}
-              <a href="mailto:icitp@iitp.ac.in?subject=Accessibility%20issue" style={{ color: "#3a5214" }} className="hover:underline">
-                icitp@iitp.ac.in
-              </a>{" "}
-              with <em>"Accessibility issue"</em> in the subject. We aim to respond within 15 working days.
-            </li>
+          <p className="text-sm mb-4" style={{ color: "#5a6644" }}>
+            <strong style={{ color: "#1c2e06" }}>DISHA</strong> (Digital Information &amp; Support Hub Assistant) is IC IITP&apos;s built-in AI guide. It&apos;s available on every page — look for the <strong style={{ color: "#1c2e06" }}>Ask DISHA</strong> button at the bottom-right corner.
+          </p>
+          <ul className="space-y-3 text-sm mb-5" style={{ color: "#5a6644" }}>
+            <li className="flex gap-2"><span style={{ color: "#f79420" }}>›</span> Ask about any incubation program — eligibility, funding amounts, application process.</li>
+            <li className="flex gap-2"><span style={{ color: "#f79420" }}>›</span> Get directions to the right page — labs, events, notifications, downloads.</li>
+            <li className="flex gap-2"><span style={{ color: "#f79420" }}>›</span> Ask about BioNEST equipment access or lab booking.</li>
+            <li className="flex gap-2"><span style={{ color: "#f79420" }}>›</span> Get contact details and office hours instantly.</li>
+            <li className="flex gap-2"><span style={{ color: "#f79420" }}>›</span> Understand the difference between NIDHI Prayas, NIDHI-EIR, SISF, MEITY, and GENESIS schemes.</li>
           </ul>
-          <div className="mt-4 pt-4" style={{ borderTop: "1px solid #e8f0e0" }}>
-            <Link href="/policies/accessibility" className="text-sm font-medium hover:underline" style={{ color: "#3a5214" }}>
-              Read the full Accessibility Statement →
-            </Link>
+          <div className="rounded-lg p-4 text-sm" style={{ backgroundColor: "#f8fbf4", border: "1px solid #d4e6c4" }}>
+            <p style={{ color: "#3a5214" }}>
+              <strong>Tip:</strong> DISHA works best with specific questions like &ldquo;What is the grant amount for NIDHI Prayas?&rdquo; or &ldquo;How do I apply for BioNEST equipment access?&rdquo;
+            </p>
           </div>
         </div>
       </section>

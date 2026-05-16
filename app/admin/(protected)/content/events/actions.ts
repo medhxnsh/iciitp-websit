@@ -12,6 +12,8 @@ import {
   type EventStatus,
   type CustomField,
   type EventOverlay,
+  type EventImage,
+  type ImageLayout,
 } from "@/lib/cms/events";
 import { revalidatePath } from "next/cache";
 import { Timestamp } from "firebase-admin/firestore";
@@ -26,6 +28,8 @@ export interface EventFormData {
   autoClose: boolean;
   closingDate: string | null;
   coverImageUrl: string;
+  images: EventImage[];
+  imageLayout: ImageLayout;
   applyUrl: string;
   contact: string;
   published: boolean;
@@ -43,7 +47,7 @@ function toInput(data: EventFormData): EventInput {
 
 function revalidateEvents() {
   revalidatePath("/admin/content/events");
-  revalidatePath("/en/events");
+  revalidatePath("/events");
 }
 
 export async function createEventAction(
@@ -72,7 +76,7 @@ export async function updateEventAction(
   try {
     await updateEvent(id, toInput(data));
     revalidateEvents();
-    revalidatePath(`/en/events/${data.slug}`);
+    revalidatePath(`/events/${data.slug}`);
     return { success: true };
   } catch {
     return { success: false, error: "Failed to update event. Please try again." };
@@ -81,8 +85,13 @@ export async function updateEventAction(
 
 export async function deleteEventAction(id: string): Promise<void> {
   await requireAuth();
-  await deleteEvent(id);
-  revalidateEvents();
+  try {
+    await deleteEvent(id);
+    revalidateEvents();
+  } catch (err) {
+    console.error("[deleteEventAction]", err);
+    throw new Error("Failed to delete event");
+  }
 }
 
 export type EventOverlayFormData = Omit<EventOverlay, "slug" | "updatedAt">;
@@ -95,7 +104,7 @@ export async function saveEventOverlayAction(
   try {
     await upsertEventOverlay(slug, data);
     revalidatePath("/admin/content/events");
-    revalidatePath(`/en/events/${slug}`);
+    revalidatePath(`/events/${slug}`);
     return { success: true };
   } catch {
     return { success: false, error: "Failed to save. Please try again." };

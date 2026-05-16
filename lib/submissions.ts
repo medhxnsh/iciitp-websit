@@ -1,3 +1,8 @@
+/**
+ * Application submission CRUD backed by Firestore per-type collections.
+ * Each type lives in its own collection (e.g. "submissions-incubation")
+ * so queries never need a composite index across types.
+ */
 import { getDb } from "./firebase-admin";
 import { FieldValue, Timestamp } from "firebase-admin/firestore";
 

@@ -53,7 +53,7 @@ export default async function HomeEditorPage() {
         <h1 className="text-xl font-black" style={{ color: "#1c2e06" }}>Edit Home Page</h1>
       </div>
       <p className="text-sm mb-6" style={{ color: "#7a8e6a" }}>
-        Changes appear live on <a href="/en" target="_blank" className="underline">the homepage</a>.
+        Changes appear live on <a href="/" target="_blank" className="underline">the homepage</a>.
         Leave an image field blank to use the default site image.
       </p>
       <HomeSectionForm current={current} onSave={saveHomeSectionAction} />

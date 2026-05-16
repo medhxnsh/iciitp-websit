@@ -1,107 +1,1123 @@
 [
-  { "name": "Bionic Hope (Robo Bionics)", "scheme": "meity", "tagline": "Affordable prosthetic limbs using robotics and bio-signals.", "sectors": ["Medical Devices", "Robotics"], "founders": ["Llewellyn D'Sa"] },
-  { "name": "4mirrorTech Innovatives", "scheme": "meity", "tagline": "Innovative tech solutions for industrial and consumer markets.", "sectors": ["Electronics", "IoT"], "founders": ["Ankur Jaiswal"] },
-  { "name": "Atlamedico Techsolutions", "scheme": "meity", "tagline": "Medical technology solutions for diagnostics and patient care.", "sectors": ["MedTech", "Diagnostics"], "founders": [] },
-  { "name": "Wityliti Automation", "scheme": "meity", "tagline": "Intelligent automation systems for manufacturing.", "sectors": ["Automation", "Industry 4.0"], "founders": [] },
-  { "name": "Portable Power Technology", "scheme": "meity", "tagline": "Compact portable power solutions for field and consumer use.", "sectors": ["Energy", "Electronics"], "founders": [] },
-  { "name": "Silifarm Technologies", "scheme": "meity", "tagline": "AgriTech solutions leveraging IoT for precision farming.", "sectors": ["AgriTech", "IoT"], "founders": [] },
-  { "name": "Innovate2automate", "scheme": "meity", "tagline": "Process automation and robotics for SMEs.", "sectors": ["Automation", "Robotics"], "founders": [] },
-  { "name": "Tarudhairya Digital", "scheme": "meity", "tagline": "Digital transformation and enterprise solutions.", "sectors": ["ICT", "SaaS"], "founders": [] },
-  { "name": "Smartway Electronics", "scheme": "meity", "tagline": "Smart electronic systems for home and industry.", "sectors": ["Electronics", "Smart Devices"], "founders": [] },
-  { "name": "Khojolocal", "scheme": "meity", "tagline": "Hyperlocal discovery platform connecting consumers and local businesses.", "sectors": ["ICT", "Marketplace"], "founders": [] },
-  { "name": "Huper System", "scheme": "meity", "tagline": "Human-centered computing and ergonomic tech solutions.", "sectors": ["HCI", "Electronics"], "founders": [] },
-  { "name": "RBMEDUTECH INDIA", "scheme": "meity", "tagline": "EdTech platforms for rural and underserved students.", "sectors": ["EdTech", "ICT"], "founders": [] },
-  { "name": "Electro Curietech", "scheme": "meity", "tagline": "Novel electronic devices inspired by piezoelectric and curie-effect physics.", "sectors": ["Electronics", "Deep Tech"], "founders": ["Rahul Raj"] },
-  { "name": "SaptKrishi Scientific", "scheme": "meity", "tagline": "Scientific tools and devices for agricultural research.", "sectors": ["AgriTech", "Instrumentation"], "founders": [] },
-  { "name": "Amjad Ali Healthcare (AA Health)", "scheme": "meity", "tagline": "Accessible healthcare products and services.", "sectors": ["Healthcare", "MedTech"], "founders": [] },
-  { "name": "Wellth Solutions", "scheme": "meity", "tagline": "Digital health and wellness management platform.", "sectors": ["HealthTech", "SaaS"], "founders": [] },
-  { "name": "Makecept", "scheme": "meity", "tagline": "Rapid prototyping and concept-to-product manufacturing services.", "sectors": ["Manufacturing", "Deep Tech"], "founders": [] },
-  { "name": "Skugal Technologies", "scheme": "meity", "tagline": "Supply chain visibility and inventory management solutions.", "sectors": ["Logistics", "IoT"], "founders": [] },
-  { "name": "Giscle Systems", "scheme": "meity", "tagline": "Geospatial intelligence and location-based analytics.", "sectors": ["GIS", "Analytics"], "founders": [] },
-  { "name": "Sybylline Robotics", "scheme": "meity", "tagline": "Autonomous robotics for industrial inspection and logistics.", "sectors": ["Robotics", "AI/ML"], "founders": [] },
-  { "name": "Urinalytics Healthcare", "scheme": "meity", "tagline": "Non-invasive urine diagnostics for chronic disease monitoring.", "sectors": ["Diagnostics", "MedTech"], "founders": [] },
-  { "name": "Lifegraph Biomedical Instrumentation", "scheme": "meity", "tagline": "Biomedical instruments for clinical and research settings.", "sectors": ["Medical Devices", "Instrumentation"], "founders": [] },
-  { "name": "Scraptechies Solutions", "scheme": "meity", "tagline": "E-waste management and circular economy tech solutions.", "sectors": ["CleanTech", "Sustainability"], "founders": [] },
-  { "name": "KINGSHAHI INNOVATIONS", "scheme": "meity", "tagline": "Innovative products for rural markets and Bharat economy.", "sectors": ["Consumer Electronics", "Rural Tech"], "founders": [] },
-  { "name": "BigOHealth", "scheme": "meity", "tagline": "AI-driven health analytics for preventive care.", "sectors": ["AI/ML", "HealthTech"], "founders": [] },
-  { "name": "Techprolabz", "scheme": "meity", "tagline": "Professional laboratory and electronics development services.", "sectors": ["Electronics", "Lab Tech"], "founders": [] },
-  { "name": "Biro Power", "scheme": "meity", "tagline": "Renewable energy storage and power management solutions.", "sectors": ["Energy", "CleanTech"], "founders": [] },
-  { "name": "Aishwarya Laxmi Agromart", "scheme": "meity", "tagline": "Digital agricultural marketplace for farmers and buyers.", "sectors": ["AgriTech", "Marketplace"], "founders": [] },
-  { "name": "Bhoomi AI Solutions", "scheme": "meity", "tagline": "AI-powered solutions for precision agriculture.", "sectors": ["AI/ML", "AgriTech"], "founders": [] },
-  { "name": "Ceir Mobility", "scheme": "meity", "tagline": "Smart electric mobility solutions for urban transport.", "sectors": ["EV", "Mobility"], "founders": ["Jitendra Parit (CTO)"] },
-  { "name": "Cyclotron Digital", "scheme": "meity", "tagline": "Digital media and content technology platforms.", "sectors": ["Media Tech", "ICT"], "founders": [] },
-  { "name": "Dhenutrack", "scheme": "meity", "tagline": "IoT-based livestock monitoring and dairy management.", "sectors": ["AgriTech", "IoT"], "founders": [] },
-  { "name": "Ewarn System", "scheme": "meity", "tagline": "Early warning systems for natural disasters and industrial hazards.", "sectors": ["Safety Tech", "IoT"], "founders": [] },
-  { "name": "Geordana", "scheme": "meity", "tagline": "Geospatial data analytics and mapping solutions.", "sectors": ["GIS", "Analytics"], "founders": [] },
-  { "name": "Hoverene Aerospace", "scheme": "meity", "tagline": "Unmanned aerial vehicles and drone technology.", "sectors": ["Aerospace", "Drones"], "founders": [] },
-  { "name": "Inventuriz Labs", "scheme": "meity", "tagline": "Inventive electronics and hardware development lab.", "sectors": ["Electronics", "Deep Tech"], "founders": [] },
-  { "name": "Invesalius Ortho", "scheme": "meity", "tagline": "Orthopaedic implant design using 3D printing and advanced materials.", "sectors": ["Medical Devices", "3D Printing"], "founders": [] },
-  { "name": "Medicfiber", "scheme": "meity", "tagline": "Optical fibre-based medical sensing and diagnostics.", "sectors": ["Medical Devices", "Photonics"], "founders": [] },
-  { "name": "RF Nanocomposites", "scheme": "meity", "tagline": "RF and microwave components using nanocomposite materials.", "sectors": ["Materials", "Electronics"], "founders": [] },
-  { "name": "Rhomu", "scheme": "meity", "tagline": "Connected home and building automation solutions.", "sectors": ["IoT", "Smart Home"], "founders": [] },
-  { "name": "Saksam Toyhouse", "scheme": "meity", "tagline": "Educational toys and STEM kits for children.", "sectors": ["EdTech", "Consumer Products"], "founders": [] },
-  { "name": "Sarva Suvidhaen", "scheme": "meity", "tagline": "Integrated service delivery platform for rural communities.", "sectors": ["GovTech", "Rural Tech"], "founders": [] },
-  { "name": "Schilling Engineering India", "scheme": "meity", "tagline": "Precision engineering components and systems.", "sectors": ["Engineering", "Manufacturing"], "founders": [] },
-  { "name": "Self Shiksha", "scheme": "meity", "tagline": "Self-paced vernacular learning platform.", "sectors": ["EdTech", "ICT"], "founders": [] },
-  { "name": "Pratri (Unizent)", "scheme": "meity", "tagline": "Universal charging and power management ecosystem.", "sectors": ["Electronics", "Energy"], "founders": [] },
-  { "name": "Deepgaze Technologies", "scheme": "meity", "tagline": "Computer vision and deep learning for industrial inspection.", "sectors": ["AI/ML", "Machine Vision"], "founders": [] },
-  { "name": "Humortech", "scheme": "meity", "tagline": "Human-oriented robotics for care and assistance.", "sectors": ["Robotics", "Healthcare"], "founders": [] },
-  { "name": "Oive Indian Innovation", "scheme": "meity", "tagline": "Indigenous tech innovation for Indian markets.", "sectors": ["Electronics", "Deep Tech"], "founders": [] },
-  { "name": "Trustedwear Tech", "scheme": "meity", "tagline": "Wearable electronics for health monitoring and fitness.", "sectors": ["Wearables", "HealthTech"], "founders": [] },
-  { "name": "Creatronics Healing System", "scheme": "meity", "tagline": "Electronic therapeutic devices for pain management.", "sectors": ["Medical Devices", "Electronics"], "founders": [] },
-  { "name": "Elevatronix", "scheme": "meity", "tagline": "Elevator and lift modernisation using IoT and AI.", "sectors": ["IoT", "Safety Tech"], "founders": [] },
-  { "name": "Vpotential", "scheme": "meity", "tagline": "Vocational training and skills development platform.", "sectors": ["EdTech", "SkillTech"], "founders": [] },
-  { "name": "Eigenform Dynamics", "scheme": "sisf", "tagline": "Advanced dynamics simulation and analysis tools.", "sectors": ["Deep Tech", "Simulation"], "founders": [] },
-  { "name": "Arunoday Optimized Nexus", "scheme": "sisf", "tagline": "Energy optimisation for commercial and industrial buildings.", "sectors": ["Energy", "IoT"], "founders": [] },
-  { "name": "Tesvolts", "scheme": "sisf", "tagline": "EV charging infrastructure and battery management systems.", "sectors": ["EV", "Energy"], "founders": [] },
-  { "name": "Trustedwear Tech", "scheme": "sisf", "tagline": "Wearable electronics for health monitoring and fitness.", "sectors": ["Wearables", "HealthTech"], "founders": [] },
-  { "name": "Medline Robotics", "scheme": "sisf", "tagline": "Surgical and rehabilitation robotics for hospitals.", "sectors": ["Robotics", "Medical Devices"], "founders": [] },
-  { "name": "RRS Projectx Cloud", "scheme": "sisf", "tagline": "Cloud-native enterprise project management platform.", "sectors": ["SaaS", "Cloud"], "founders": [] },
-  { "name": "Glibz Imagetech", "scheme": "sisf", "tagline": "AI-powered image processing for retail and logistics.", "sectors": ["AI/ML", "Machine Vision"], "founders": [] },
-  { "name": "Airbuddy Aerospace", "scheme": "sisf", "tagline": "Lightweight drone systems for agriculture and surveillance.", "sectors": ["Aerospace", "Drones"], "founders": [] },
-  { "name": "Dveck Mobility", "scheme": "sisf", "tagline": "Last-mile electric mobility solutions.", "sectors": ["EV", "Mobility"], "founders": [] },
-  { "name": "Clarosys Biotactical", "scheme": "sisf", "tagline": "Biosensing and bioelectronics for tactical and clinical use.", "sectors": ["Bioelectronics", "Defense"], "founders": [] },
-  { "name": "Cier Mobility", "scheme": "sisf", "tagline": "Connected electric vehicle platform for shared mobility.", "sectors": ["EV", "IoT"], "founders": [] },
-  { "name": "DB Potential LLP", "scheme": "sisf", "tagline": "Data-driven business intelligence solutions.", "sectors": ["Analytics", "SaaS"], "founders": [] },
-  { "name": "Evoluto Lifesciences", "scheme": "sisf", "tagline": "Next-generation life sciences tools and diagnostics.", "sectors": ["Life Sciences", "Diagnostics"], "founders": [] },
-  { "name": "Adiabatic Technologies", "scheme": "nidhi-prayas", "tagline": "Energy-efficient adiabatic cooling and thermal management.", "sectors": ["Energy", "CleanTech"], "founders": [] },
-  { "name": "Anagha Innovation", "scheme": "nidhi-prayas", "tagline": "Innovative solutions for healthcare and assistive technology.", "sectors": ["MedTech", "Assistive Tech"], "founders": [] },
-  { "name": "AR Village Technologies", "scheme": "nidhi-prayas", "tagline": "Augmented reality tools for rural education and training.", "sectors": ["AR/VR", "EdTech"], "founders": [] },
-  { "name": "Bluevelocity (RED-CAPERS)", "scheme": "nidhi-prayas", "tagline": "High-velocity electric vehicle powertrain solutions.", "sectors": ["EV", "Deep Tech"], "founders": [] },
-  { "name": "CMSEFR", "scheme": "nidhi-prayas", "tagline": "Community-focused social enterprise for rural development.", "sectors": ["Social Impact", "Rural Tech"], "founders": [] },
-  { "name": "Ecoasylum", "scheme": "nidhi-prayas", "tagline": "Eco-friendly shelter and construction technology.", "sectors": ["CleanTech", "Construction"], "founders": [] },
-  { "name": "Electroequip", "scheme": "nidhi-prayas", "tagline": "Electronic equipment and instrumentation for industrial use.", "sectors": ["Electronics", "Instrumentation"], "founders": [] },
-  { "name": "Flytech", "scheme": "nidhi-prayas", "tagline": "Lightweight drone and UAV technology for diverse applications.", "sectors": ["Aerospace", "Drones"], "founders": [] },
-  { "name": "Hariyali Kart", "scheme": "nidhi-prayas", "tagline": "Green e-commerce for sustainable and organic products.", "sectors": ["Sustainability", "E-commerce"], "founders": [] },
-  { "name": "Humors Tech", "scheme": "nidhi-prayas", "tagline": "Human-centric robotics and assistive devices.", "sectors": ["Robotics", "Assistive Tech"], "founders": [] },
-  { "name": "Kingshahi Innovations", "scheme": "nidhi-prayas", "tagline": "Affordable products for Bharat's grassroots economy.", "sectors": ["Consumer Products", "Rural Tech"], "founders": [] },
-  { "name": "Mechlergy (RABOS)", "scheme": "nidhi-prayas", "tagline": "Mechanical energy harvesting and bio-inspired robotics.", "sectors": ["Robotics", "Energy Harvesting"], "founders": [] },
-  { "name": "Pacing Grass", "scheme": "nidhi-prayas", "tagline": "Smart urban landscaping and green infrastructure.", "sectors": ["Smart City", "Sustainability"], "founders": [] },
-  { "name": "Pratri", "scheme": "nidhi-prayas", "tagline": "Universal power and charging solutions.", "sectors": ["Electronics", "Energy"], "founders": [] },
-  { "name": "Robos India", "scheme": "nidhi-prayas", "tagline": "Domestic robotics and automation for Indian households.", "sectors": ["Robotics", "Consumer Products"], "founders": [] },
-  { "name": "Sharang Shakti", "scheme": "nidhi-prayas", "tagline": "Renewable energy systems for rural electrification.", "sectors": ["Energy", "Rural Tech"], "founders": [] },
-  { "name": "Vagaa Motors", "scheme": "nidhi-prayas", "tagline": "Affordable electric vehicles for tier-2 and rural markets.", "sectors": ["EV", "Mobility"], "founders": [] },
-  { "name": "VAGAA Motors", "scheme": "nidhi-eir", "tagline": "Affordable electric vehicles for tier-2 and rural markets.", "sectors": ["EV", "Mobility"], "founders": [] },
-  { "name": "Square-Cut Research", "scheme": "nidhi-eir", "tagline": "Advanced materials research for next-generation electronics.", "sectors": ["Materials", "Deep Tech"], "founders": [] },
-  { "name": "Bhoomi AI", "scheme": "nidhi-eir", "tagline": "AI for smart agriculture and soil analytics.", "sectors": ["AI/ML", "AgriTech"], "founders": [] },
-  { "name": "AR Village Technologies", "scheme": "nidhi-eir", "tagline": "AR tools for rural education and skill development.", "sectors": ["AR/VR", "EdTech"], "founders": [] },
-  { "name": "Bevarc Construction", "scheme": "nidhi-eir", "tagline": "Tech-driven construction and prefab building solutions.", "sectors": ["Construction", "Deep Tech"], "founders": [] },
-  { "name": "PortraitNews", "scheme": "nidhi-eir", "tagline": "AI-powered hyper-local news and content platform.", "sectors": ["Media Tech", "AI/ML"], "founders": [] },
-  { "name": "Koshismart Fish Feeder", "scheme": "nidhi-eir", "tagline": "Automated IoT fish feeder for aquaculture.", "sectors": ["AgriTech", "IoT"], "founders": [] },
-  { "name": "EJY Health", "scheme": "nidhi-eir", "tagline": "Accessible digital health platform for rural populations.", "sectors": ["HealthTech", "Rural Tech"], "founders": [] },
-  { "name": "Vivicrop Farm Science", "scheme": "nidhi-eir", "tagline": "Data-driven crop science and precision farming tools.", "sectors": ["AgriTech", "Analytics"], "founders": [] },
-  { "name": "Ecoasylum", "scheme": "nidhi-eir", "tagline": "Eco-friendly shelter and sustainable construction tech.", "sectors": ["CleanTech", "Construction"], "founders": [] },
-  { "name": "Interview Bot", "scheme": "nidhi-eir", "tagline": "AI-powered mock interview and career readiness platform.", "sectors": ["AI/ML", "EdTech"], "founders": [] },
-  { "name": "Imaze World", "scheme": "nidhi-eir", "tagline": "Immersive AR/VR experiences for education and entertainment.", "sectors": ["AR/VR", "EdTech"], "founders": [] },
-  { "name": "Jyoti STEM Learning (Port-O-Lab)", "scheme": "nidhi-eir", "tagline": "Portable STEM labs for schools with limited infrastructure.", "sectors": ["EdTech", "STEM"], "founders": [] },
-  { "name": "M.N.O Swadeshi India", "scheme": "nidhi-eir", "tagline": "Promoting indigenous products and Make-in-India solutions.", "sectors": ["Consumer Products", "Manufacturing"], "founders": [] },
-  { "name": "Sunlight Design LLP", "scheme": "nidhi-eir", "tagline": "Solar energy design and installation services.", "sectors": ["CleanTech", "Solar"], "founders": [] },
-  { "name": "Recyteq Organic", "scheme": "nidhi-eir", "tagline": "Organic waste recycling and circular economy solutions.", "sectors": ["CleanTech", "Sustainability"], "founders": [] },
-  { "name": "Retake Innovation (EVEO)", "scheme": "nidhi-eir", "tagline": "Electric vehicle ecosystem and charging solutions.", "sectors": ["EV", "Mobility"], "founders": [] },
-  { "name": "STYLRAX SOLUTIONS", "scheme": "nidhi-eir", "tagline": "Fashion-tech platform combining style analytics with AI.", "sectors": ["AI/ML", "FashionTech"], "founders": [] },
-  { "name": "Wejoy Phonfix", "scheme": "nidhi-eir", "tagline": "Mobile device repair and refurbishment platform.", "sectors": ["Electronics", "CircularEconomy"], "founders": [] },
-  { "name": "Arixolve Ventures", "scheme": "genesis", "tagline": "AI-driven feedback and performance analytics platform.", "sectors": ["AI/ML", "SaaS"], "founders": [], "website": "https://arixolve.com" },
-  { "name": "Anveshna Futurecorp", "scheme": "genesis", "tagline": "Multi-agent AI for Industry 4.0 energy optimisation.", "sectors": ["AI/ML", "Industry 4.0", "Energy"], "founders": [] },
-  { "name": "Jilocosmos Healthrevolution", "scheme": "genesis", "tagline": "AI-first healthcare platform for India's Missing Middle.", "sectors": ["AI/ML", "HealthTech"], "founders": [], "website": "https://jilohealth.com" },
-  { "name": "MITDIP INFRASOLVA", "scheme": "genesis", "tagline": "Non-destructive testing and structural health monitoring for civil infrastructure.", "sectors": ["Deep Tech", "Construction", "IoT"], "founders": [] }
+  {
+    "name": "Bionic Hope (Robo Bionics)",
+    "scheme": "meity",
+    "tagline": "Affordable prosthetic limbs using robotics and bio-signals.",
+    "sectors": [
+      "Medical Devices",
+      "Robotics"
+    ],
+    "founders": [
+      "Llewellyn D'Sa"
+    ],
+    "logo": "/logos/startups/1.png"
+  },
+  {
+    "name": "4mirrorTech Innovatives",
+    "scheme": "meity",
+    "tagline": "Innovative tech solutions for industrial and consumer markets.",
+    "sectors": [
+      "Electronics",
+      "IoT"
+    ],
+    "founders": [
+      "Ankur Jaiswal"
+    ],
+    "logo": "/logos/startups/4Mirrortech-Innovatives-Private-.png"
+  },
+  {
+    "name": "Atlamedico Techsolutions",
+    "scheme": "meity",
+    "tagline": "Medical technology solutions for diagnostics and patient care.",
+    "sectors": [
+      "MedTech",
+      "Diagnostics"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/4.png"
+  },
+  {
+    "name": "Wityliti Automation",
+    "scheme": "meity",
+    "tagline": "Intelligent automation systems for manufacturing.",
+    "sectors": [
+      "Automation",
+      "Industry 4.0"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/5.png"
+  },
+  {
+    "name": "Portable Power Technology",
+    "scheme": "meity",
+    "tagline": "Compact portable power solutions for field and consumer use.",
+    "sectors": [
+      "Energy",
+      "Electronics"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Portable-Power-Technology-Privat.png"
+  },
+  {
+    "name": "Silifarm Technologies",
+    "scheme": "meity",
+    "tagline": "AgriTech solutions leveraging IoT for precision farming.",
+    "sectors": [
+      "AgriTech",
+      "IoT"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Silifarm-Technologies-Pvt-Ltd.png"
+  },
+  {
+    "name": "Innovate2automate",
+    "scheme": "meity",
+    "tagline": "Process automation and robotics for SMEs.",
+    "sectors": [
+      "Automation",
+      "Robotics"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Innovate2Automate-Technologies-P.png"
+  },
+  {
+    "name": "Tarudhairya Digital",
+    "scheme": "meity",
+    "tagline": "Digital transformation and enterprise solutions.",
+    "sectors": [
+      "ICT",
+      "SaaS"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/13.png"
+  },
+  {
+    "name": "Smartway Electronics",
+    "scheme": "meity",
+    "tagline": "Smart electronic systems for home and industry.",
+    "sectors": [
+      "Electronics",
+      "Smart Devices"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Smartway-electronice-pvt-ltd.png"
+  },
+  {
+    "name": "Khojolocal",
+    "scheme": "meity",
+    "tagline": "Hyperlocal discovery platform connecting consumers and local businesses.",
+    "sectors": [
+      "ICT",
+      "Marketplace"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/17.png"
+  },
+  {
+    "name": "Huper System",
+    "scheme": "meity",
+    "tagline": "Human-centered computing and ergonomic tech solutions.",
+    "sectors": [
+      "HCI",
+      "Electronics"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/18.png"
+  },
+  {
+    "name": "RBMEDUTECH INDIA",
+    "scheme": "meity",
+    "tagline": "EdTech platforms for rural and underserved students.",
+    "sectors": [
+      "EdTech",
+      "ICT"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Electro Curietech",
+    "scheme": "meity",
+    "tagline": "Novel electronic devices inspired by piezoelectric and curie-effect physics.",
+    "sectors": [
+      "Electronics",
+      "Deep Tech"
+    ],
+    "founders": [
+      "Rahul Raj"
+    ],
+    "logo": "/logos/startups/Electro-Curietech-Private-Limite.png"
+  },
+  {
+    "name": "SaptKrishi Scientific",
+    "scheme": "meity",
+    "tagline": "Scientific tools and devices for agricultural research.",
+    "sectors": [
+      "AgriTech",
+      "Instrumentation"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Saptkrishi-Scientific-Private-Li.png"
+  },
+  {
+    "name": "Amjad Ali Healthcare (AA Health)",
+    "scheme": "meity",
+    "tagline": "Accessible healthcare products and services.",
+    "sectors": [
+      "Healthcare",
+      "MedTech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Amjad-Ali-Healthcare-Pvt-Ltd.png"
+  },
+  {
+    "name": "Wellth Solutions",
+    "scheme": "meity",
+    "tagline": "Digital health and wellness management platform.",
+    "sectors": [
+      "HealthTech",
+      "SaaS"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Makecept",
+    "scheme": "meity",
+    "tagline": "Rapid prototyping and concept-to-product manufacturing services.",
+    "sectors": [
+      "Manufacturing",
+      "Deep Tech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Skugal Technologies",
+    "scheme": "meity",
+    "tagline": "Supply chain visibility and inventory management solutions.",
+    "sectors": [
+      "Logistics",
+      "IoT"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Skugal-Technologies-Private-Limi.png"
+  },
+  {
+    "name": "Giscle Systems",
+    "scheme": "meity",
+    "tagline": "Geospatial intelligence and location-based analytics.",
+    "sectors": [
+      "GIS",
+      "Analytics"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Giscle-Systems-Pvt.-Ltd.png"
+  },
+  {
+    "name": "Sybylline Robotics",
+    "scheme": "meity",
+    "tagline": "Autonomous robotics for industrial inspection and logistics.",
+    "sectors": [
+      "Robotics",
+      "AI/ML"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Sybling.png"
+  },
+  {
+    "name": "Urinalytics Healthcare",
+    "scheme": "meity",
+    "tagline": "Non-invasive urine diagnostics for chronic disease monitoring.",
+    "sectors": [
+      "Diagnostics",
+      "MedTech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Urinalytics-Healthcare-Pvt.-Ltd.png"
+  },
+  {
+    "name": "Lifegraph Biomedical Instrumentation",
+    "scheme": "meity",
+    "tagline": "Biomedical instruments for clinical and research settings.",
+    "sectors": [
+      "Medical Devices",
+      "Instrumentation"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Lifegraph-Biomedical-Instrumenta.png"
+  },
+  {
+    "name": "Scraptechies Solutions",
+    "scheme": "meity",
+    "tagline": "E-waste management and circular economy tech solutions.",
+    "sectors": [
+      "CleanTech",
+      "Sustainability"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Scraptechie-Solution-Pvt-Ltd.png"
+  },
+  {
+    "name": "KINGSHAHI INNOVATIONS",
+    "scheme": "meity",
+    "tagline": "Innovative products for rural markets and Bharat economy.",
+    "sectors": [
+      "Consumer Electronics",
+      "Rural Tech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/KingSahi_logo.png"
+  },
+  {
+    "name": "BigOHealth",
+    "scheme": "meity",
+    "tagline": "AI-driven health analytics for preventive care.",
+    "sectors": [
+      "AI/ML",
+      "HealthTech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/BigOHealth-Blue-Logo.png"
+  },
+  {
+    "name": "Techprolabz",
+    "scheme": "meity",
+    "tagline": "Professional laboratory and electronics development services.",
+    "sectors": [
+      "Electronics",
+      "Lab Tech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Biro Power",
+    "scheme": "meity",
+    "tagline": "Renewable energy storage and power management solutions.",
+    "sectors": [
+      "Energy",
+      "CleanTech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/BYJO.jpg"
+  },
+  {
+    "name": "Aishwarya Laxmi Agromart",
+    "scheme": "meity",
+    "tagline": "Digital agricultural marketplace for farmers and buyers.",
+    "sectors": [
+      "AgriTech",
+      "Marketplace"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Aishwarya-Laxmi-Agromart-Private.png"
+  },
+  {
+    "name": "Bhoomi AI Solutions",
+    "scheme": "meity",
+    "tagline": "AI-powered solutions for precision agriculture.",
+    "sectors": [
+      "AI/ML",
+      "AgriTech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Bhoomi-Ai-Solutions-Pvt-Ltd.png"
+  },
+  {
+    "name": "Ceir Mobility",
+    "scheme": "meity",
+    "tagline": "Smart electric mobility solutions for urban transport.",
+    "sectors": [
+      "EV",
+      "Mobility"
+    ],
+    "founders": [
+      "Jitendra Parit (CTO)"
+    ],
+    "logo": "/logos/startups/Ceir-Mobility.png"
+  },
+  {
+    "name": "Cyclotron Digital",
+    "scheme": "meity",
+    "tagline": "Digital media and content technology platforms.",
+    "sectors": [
+      "Media Tech",
+      "ICT"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Cyclotron-Digital-Pvt-Ltd..png"
+  },
+  {
+    "name": "Dhenutrack",
+    "scheme": "meity",
+    "tagline": "IoT-based livestock monitoring and dairy management.",
+    "sectors": [
+      "AgriTech",
+      "IoT"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Ewarn System",
+    "scheme": "meity",
+    "tagline": "Early warning systems for natural disasters and industrial hazards.",
+    "sectors": [
+      "Safety Tech",
+      "IoT"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Ewarn-System-Private-Limited.png"
+  },
+  {
+    "name": "Geordana",
+    "scheme": "meity",
+    "tagline": "Geospatial data analytics and mapping solutions.",
+    "sectors": [
+      "GIS",
+      "Analytics"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Geordana-Private-Limited.png"
+  },
+  {
+    "name": "Hoverene Aerospace",
+    "scheme": "meity",
+    "tagline": "Unmanned aerial vehicles and drone technology.",
+    "sectors": [
+      "Aerospace",
+      "Drones"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Hoverene-Aerospace-Pvt-Ltd.png"
+  },
+  {
+    "name": "Inventuriz Labs",
+    "scheme": "meity",
+    "tagline": "Inventive electronics and hardware development lab.",
+    "sectors": [
+      "Electronics",
+      "Deep Tech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Inventuriz-Labs-Private-Limited.png"
+  },
+  {
+    "name": "Invesalius Ortho",
+    "scheme": "meity",
+    "tagline": "Orthopaedic implant design using 3D printing and advanced materials.",
+    "sectors": [
+      "Medical Devices",
+      "3D Printing"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Medicfiber",
+    "scheme": "meity",
+    "tagline": "Optical fibre-based medical sensing and diagnostics.",
+    "sectors": [
+      "Medical Devices",
+      "Photonics"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Medicfiber-Pvt-Ltd.png"
+  },
+  {
+    "name": "RF Nanocomposites",
+    "scheme": "meity",
+    "tagline": "RF and microwave components using nanocomposite materials.",
+    "sectors": [
+      "Materials",
+      "Electronics"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/RF-Nanocomposites-Pvt.-Ltd.png"
+  },
+  {
+    "name": "Rhomu",
+    "scheme": "meity",
+    "tagline": "Connected home and building automation solutions.",
+    "sectors": [
+      "IoT",
+      "Smart Home"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Saksam Toyhouse",
+    "scheme": "meity",
+    "tagline": "Educational toys and STEM kits for children.",
+    "sectors": [
+      "EdTech",
+      "Consumer Products"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Sarva Suvidhaen",
+    "scheme": "meity",
+    "tagline": "Integrated service delivery platform for rural communities.",
+    "sectors": [
+      "GovTech",
+      "Rural Tech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Sarva-Suvidhaen-Pvt-Ltd.png"
+  },
+  {
+    "name": "Schilling Engineering India",
+    "scheme": "meity",
+    "tagline": "Precision engineering components and systems.",
+    "sectors": [
+      "Engineering",
+      "Manufacturing"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Schilling-Engineering-India-Pvt-.png"
+  },
+  {
+    "name": "Self Shiksha",
+    "scheme": "meity",
+    "tagline": "Self-paced vernacular learning platform.",
+    "sectors": [
+      "EdTech",
+      "ICT"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Self-Shiksha-Private-Limited.png"
+  },
+  {
+    "name": "Pratri (Unizent)",
+    "scheme": "meity",
+    "tagline": "Universal charging and power management ecosystem.",
+    "sectors": [
+      "Electronics",
+      "Energy"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Parati.png"
+  },
+  {
+    "name": "Deepgaze Technologies",
+    "scheme": "meity",
+    "tagline": "Computer vision and deep learning for industrial inspection.",
+    "sectors": [
+      "AI/ML",
+      "Machine Vision"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Humortech",
+    "scheme": "meity",
+    "tagline": "Human-oriented robotics for care and assistance.",
+    "sectors": [
+      "Robotics",
+      "Healthcare"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Oive Indian Innovation",
+    "scheme": "meity",
+    "tagline": "Indigenous tech innovation for Indian markets.",
+    "sectors": [
+      "Electronics",
+      "Deep Tech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Trustedwear Tech",
+    "scheme": "meity",
+    "tagline": "Wearable electronics for health monitoring and fitness.",
+    "sectors": [
+      "Wearables",
+      "HealthTech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Creatronics Healing System",
+    "scheme": "meity",
+    "tagline": "Electronic therapeutic devices for pain management.",
+    "sectors": [
+      "Medical Devices",
+      "Electronics"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Elevatronix",
+    "scheme": "meity",
+    "tagline": "Elevator and lift modernisation using IoT and AI.",
+    "sectors": [
+      "IoT",
+      "Safety Tech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Vpotential",
+    "scheme": "meity",
+    "tagline": "Vocational training and skills development platform.",
+    "sectors": [
+      "EdTech",
+      "SkillTech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Eigenform Dynamics",
+    "scheme": "sisf",
+    "tagline": "Advanced dynamics simulation and analysis tools.",
+    "sectors": [
+      "Deep Tech",
+      "Simulation"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/1.eigen-logo-03.png"
+  },
+  {
+    "name": "Arunoday Optimized Nexus",
+    "scheme": "sisf",
+    "tagline": "Energy optimisation for commercial and industrial buildings.",
+    "sectors": [
+      "Energy",
+      "IoT"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Image_Editor-1.png"
+  },
+  {
+    "name": "Tesvolts",
+    "scheme": "sisf",
+    "tagline": "EV charging infrastructure and battery management systems.",
+    "sectors": [
+      "EV",
+      "Energy"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/main-logo-white-evgreen.png"
+  },
+  {
+    "name": "Trustedwear Tech",
+    "scheme": "sisf",
+    "tagline": "Wearable electronics for health monitoring and fitness.",
+    "sectors": [
+      "Wearables",
+      "HealthTech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/4.Trustedweartech_Pvt_Ltd-7jqfW9gTc-transformed.jpeg"
+  },
+  {
+    "name": "Medline Robotics",
+    "scheme": "sisf",
+    "tagline": "Surgical and rehabilitation robotics for hospitals.",
+    "sectors": [
+      "Robotics",
+      "Medical Devices"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/12.Medline-Robotics-logo.pdf-image-002.png"
+  },
+  {
+    "name": "RRS Projectx Cloud",
+    "scheme": "sisf",
+    "tagline": "Cloud-native enterprise project management platform.",
+    "sectors": [
+      "SaaS",
+      "Cloud"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/6.Rx-Projectx-Cloud-Technologies-Pvt-Ltd.jpg"
+  },
+  {
+    "name": "Glibz Imagetech",
+    "scheme": "sisf",
+    "tagline": "AI-powered image processing for retail and logistics.",
+    "sectors": [
+      "AI/ML",
+      "Machine Vision"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Image_Editor.png"
+  },
+  {
+    "name": "Airbuddy Aerospace",
+    "scheme": "sisf",
+    "tagline": "Lightweight drone systems for agriculture and surveillance.",
+    "sectors": [
+      "Aerospace",
+      "Drones"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/8.Airbuddy-Aerospace-Pvt-Ltd.jpeg"
+  },
+  {
+    "name": "Dveck Mobility",
+    "scheme": "sisf",
+    "tagline": "Last-mile electric mobility solutions.",
+    "sectors": [
+      "EV",
+      "Mobility"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/9.DV-Logo-02.png"
+  },
+  {
+    "name": "Clarosys Biotactical",
+    "scheme": "sisf",
+    "tagline": "Biosensing and bioelectronics for tactical and clinical use.",
+    "sectors": [
+      "Bioelectronics",
+      "Defense"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/10.Clarosys-Biotactical.jpeg"
+  },
+  {
+    "name": "Cier Mobility",
+    "scheme": "sisf",
+    "tagline": "Connected electric vehicle platform for shared mobility.",
+    "sectors": [
+      "EV",
+      "IoT"
+    ],
+    "founders": []
+  },
+  {
+    "name": "DB Potential LLP",
+    "scheme": "sisf",
+    "tagline": "Data-driven business intelligence solutions.",
+    "sectors": [
+      "Analytics",
+      "SaaS"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Evoluto Lifesciences",
+    "scheme": "sisf",
+    "tagline": "Next-generation life sciences tools and diagnostics.",
+    "sectors": [
+      "Life Sciences",
+      "Diagnostics"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Adiabatic Technologies",
+    "scheme": "nidhi-prayas",
+    "tagline": "Energy-efficient adiabatic cooling and thermal management.",
+    "sectors": [
+      "Energy",
+      "CleanTech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/AdiaBatic-1.jpg"
+  },
+  {
+    "name": "Anagha Innovation",
+    "scheme": "nidhi-prayas",
+    "tagline": "Innovative solutions for healthcare and assistive technology.",
+    "sectors": [
+      "MedTech",
+      "Assistive Tech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "AR Village Technologies",
+    "scheme": "nidhi-prayas",
+    "tagline": "Augmented reality tools for rural education and training.",
+    "sectors": [
+      "AR/VR",
+      "EdTech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Bluevelocity (RED-CAPERS)",
+    "scheme": "nidhi-prayas",
+    "tagline": "High-velocity electric vehicle powertrain solutions.",
+    "sectors": [
+      "EV",
+      "Deep Tech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Blue-Velocity.png"
+  },
+  {
+    "name": "CMSEFR",
+    "scheme": "nidhi-prayas",
+    "tagline": "Community-focused social enterprise for rural development.",
+    "sectors": [
+      "Social Impact",
+      "Rural Tech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Ecoasylum",
+    "scheme": "nidhi-prayas",
+    "tagline": "Eco-friendly shelter and construction technology.",
+    "sectors": [
+      "CleanTech",
+      "Construction"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Electroequip",
+    "scheme": "nidhi-prayas",
+    "tagline": "Electronic equipment and instrumentation for industrial use.",
+    "sectors": [
+      "Electronics",
+      "Instrumentation"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Flytech",
+    "scheme": "nidhi-prayas",
+    "tagline": "Lightweight drone and UAV technology for diverse applications.",
+    "sectors": [
+      "Aerospace",
+      "Drones"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Flytech.png"
+  },
+  {
+    "name": "Hariyali Kart",
+    "scheme": "nidhi-prayas",
+    "tagline": "Green e-commerce for sustainable and organic products.",
+    "sectors": [
+      "Sustainability",
+      "E-commerce"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Hariyalikart.jpg"
+  },
+  {
+    "name": "Humors Tech",
+    "scheme": "nidhi-prayas",
+    "tagline": "Human-centric robotics and assistive devices.",
+    "sectors": [
+      "Robotics",
+      "Assistive Tech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/humors-tech.jpeg"
+  },
+  {
+    "name": "Kingshahi Innovations",
+    "scheme": "nidhi-prayas",
+    "tagline": "Affordable products for Bharat's grassroots economy.",
+    "sectors": [
+      "Consumer Products",
+      "Rural Tech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Mechlergy (RABOS)",
+    "scheme": "nidhi-prayas",
+    "tagline": "Mechanical energy harvesting and bio-inspired robotics.",
+    "sectors": [
+      "Robotics",
+      "Energy Harvesting"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Mechlergy.png"
+  },
+  {
+    "name": "Pacing Grass",
+    "scheme": "nidhi-prayas",
+    "tagline": "Smart urban landscaping and green infrastructure.",
+    "sectors": [
+      "Smart City",
+      "Sustainability"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Pacing-Grass.jpeg"
+  },
+  {
+    "name": "Pratri",
+    "scheme": "nidhi-prayas",
+    "tagline": "Universal power and charging solutions.",
+    "sectors": [
+      "Electronics",
+      "Energy"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Parati.png"
+  },
+  {
+    "name": "Robos India",
+    "scheme": "nidhi-prayas",
+    "tagline": "Domestic robotics and automation for Indian households.",
+    "sectors": [
+      "Robotics",
+      "Consumer Products"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Sharang Shakti",
+    "scheme": "nidhi-prayas",
+    "tagline": "Renewable energy systems for rural electrification.",
+    "sectors": [
+      "Energy",
+      "Rural Tech"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/sharangshakti.png"
+  },
+  {
+    "name": "Vagaa Motors",
+    "scheme": "nidhi-prayas",
+    "tagline": "Affordable electric vehicles for tier-2 and rural markets.",
+    "sectors": [
+      "EV",
+      "Mobility"
+    ],
+    "founders": [],
+    "logo": "/logos/startups/Vagaa.png"
+  },
+  {
+    "name": "VAGAA Motors",
+    "scheme": "nidhi-eir",
+    "tagline": "Affordable electric vehicles for tier-2 and rural markets.",
+    "sectors": [
+      "EV",
+      "Mobility"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Square-Cut Research",
+    "scheme": "nidhi-eir",
+    "tagline": "Advanced materials research for next-generation electronics.",
+    "sectors": [
+      "Materials",
+      "Deep Tech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Bhoomi AI",
+    "scheme": "nidhi-eir",
+    "tagline": "AI for smart agriculture and soil analytics.",
+    "sectors": [
+      "AI/ML",
+      "AgriTech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "AR Village Technologies",
+    "scheme": "nidhi-eir",
+    "tagline": "AR tools for rural education and skill development.",
+    "sectors": [
+      "AR/VR",
+      "EdTech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Bevarc Construction",
+    "scheme": "nidhi-eir",
+    "tagline": "Tech-driven construction and prefab building solutions.",
+    "sectors": [
+      "Construction",
+      "Deep Tech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "PortraitNews",
+    "scheme": "nidhi-eir",
+    "tagline": "AI-powered hyper-local news and content platform.",
+    "sectors": [
+      "Media Tech",
+      "AI/ML"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Koshismart Fish Feeder",
+    "scheme": "nidhi-eir",
+    "tagline": "Automated IoT fish feeder for aquaculture.",
+    "sectors": [
+      "AgriTech",
+      "IoT"
+    ],
+    "founders": []
+  },
+  {
+    "name": "EJY Health",
+    "scheme": "nidhi-eir",
+    "tagline": "Accessible digital health platform for rural populations.",
+    "sectors": [
+      "HealthTech",
+      "Rural Tech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Vivicrop Farm Science",
+    "scheme": "nidhi-eir",
+    "tagline": "Data-driven crop science and precision farming tools.",
+    "sectors": [
+      "AgriTech",
+      "Analytics"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Ecoasylum",
+    "scheme": "nidhi-eir",
+    "tagline": "Eco-friendly shelter and sustainable construction tech.",
+    "sectors": [
+      "CleanTech",
+      "Construction"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Interview Bot",
+    "scheme": "nidhi-eir",
+    "tagline": "AI-powered mock interview and career readiness platform.",
+    "sectors": [
+      "AI/ML",
+      "EdTech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Imaze World",
+    "scheme": "nidhi-eir",
+    "tagline": "Immersive AR/VR experiences for education and entertainment.",
+    "sectors": [
+      "AR/VR",
+      "EdTech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Jyoti STEM Learning (Port-O-Lab)",
+    "scheme": "nidhi-eir",
+    "tagline": "Portable STEM labs for schools with limited infrastructure.",
+    "sectors": [
+      "EdTech",
+      "STEM"
+    ],
+    "founders": []
+  },
+  {
+    "name": "M.N.O Swadeshi India",
+    "scheme": "nidhi-eir",
+    "tagline": "Promoting indigenous products and Make-in-India solutions.",
+    "sectors": [
+      "Consumer Products",
+      "Manufacturing"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Sunlight Design LLP",
+    "scheme": "nidhi-eir",
+    "tagline": "Solar energy design and installation services.",
+    "sectors": [
+      "CleanTech",
+      "Solar"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Recyteq Organic",
+    "scheme": "nidhi-eir",
+    "tagline": "Organic waste recycling and circular economy solutions.",
+    "sectors": [
+      "CleanTech",
+      "Sustainability"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Retake Innovation (EVEO)",
+    "scheme": "nidhi-eir",
+    "tagline": "Electric vehicle ecosystem and charging solutions.",
+    "sectors": [
+      "EV",
+      "Mobility"
+    ],
+    "founders": []
+  },
+  {
+    "name": "STYLRAX SOLUTIONS",
+    "scheme": "nidhi-eir",
+    "tagline": "Fashion-tech platform combining style analytics with AI.",
+    "sectors": [
+      "AI/ML",
+      "FashionTech"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Wejoy Phonfix",
+    "scheme": "nidhi-eir",
+    "tagline": "Mobile device repair and refurbishment platform.",
+    "sectors": [
+      "Electronics",
+      "CircularEconomy"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Arixolve Ventures",
+    "scheme": "genesis",
+    "tagline": "AI-driven feedback and performance analytics platform.",
+    "sectors": [
+      "AI/ML",
+      "SaaS"
+    ],
+    "founders": [],
+    "website": "https://arixolve.com",
+    "logo": "/logos/startups/Arixolve_Logo_Short_White.png"
+  },
+  {
+    "name": "Anveshna Futurecorp",
+    "scheme": "genesis",
+    "tagline": "Multi-agent AI for Industry 4.0 energy optimisation.",
+    "sectors": [
+      "AI/ML",
+      "Industry 4.0",
+      "Energy"
+    ],
+    "founders": []
+  },
+  {
+    "name": "Jilocosmos Healthrevolution",
+    "scheme": "genesis",
+    "tagline": "AI-first healthcare platform for India's Missing Middle.",
+    "sectors": [
+      "AI/ML",
+      "HealthTech"
+    ],
+    "founders": [],
+    "website": "https://jilohealth.com",
+    "logo": "/logos/startups/Jilo_Health_New_Logo-1.png"
+  },
+  {
+    "name": "MITDIP INFRASOLVA",
+    "scheme": "genesis",
+    "tagline": "Non-destructive testing and structural health monitoring for civil infrastructure.",
+    "sectors": [
+      "Deep Tech",
+      "Construction",
+      "IoT"
+    ],
+    "founders": []
+  }
 ]

@@ -1,10 +1,16 @@
 "use server";
 
 import { requireAuth } from "@/lib/auth";
-import { upsertCmsProgram, type CmsProgram } from "@/lib/cms/programs";
+import { upsertCmsProgram, deleteCmsProgram, type CmsProgram } from "@/lib/cms/programs";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export type ProgramFormData = Omit<CmsProgram, "slug" | "updatedAt">;
+
+function revalidateAll(slug: string) {
+  revalidatePath(`/programs/${slug}`);
+  revalidatePath("/admin/content/programs");
+}
 
 export async function saveProgramAction(
   slug: string,
@@ -13,9 +19,22 @@ export async function saveProgramAction(
   await requireAuth();
   try {
     await upsertCmsProgram(slug, data);
-    revalidatePath(`/en/programs/${slug}`);
+    revalidateAll(slug);
     return { success: true };
   } catch {
     return { success: false, error: "Failed to save. Please try again." };
   }
+}
+
+export async function deleteProgramAction(slug: string): Promise<void> {
+  await requireAuth();
+  try {
+    await deleteCmsProgram(slug);
+    revalidatePath("/admin/content/programs");
+    revalidatePath(`/programs/${slug}`);
+  } catch (err) {
+    console.error("[deleteProgramAction]", err);
+    throw new Error("Failed to delete program");
+  }
+  redirect("/admin/content/programs");
 }
